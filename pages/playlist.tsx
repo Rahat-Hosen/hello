@@ -13,6 +13,8 @@ const PlaylistPage = () => {
       const { access_token } = await getAccessToken();
       const playlists = await getUserPlaylists(access_token);
 
+      console.log("access_token=>>", access_token);
+
       const currentMonth = new Intl.DateTimeFormat("en-US", {
         month: "long",
       }).format(new Date(Date.now()));
@@ -100,40 +102,6 @@ const PlaylistPage = () => {
                   </div>
                 </a>
               );
-              // return (
-              //   <AccordionMenu key={item.added_at} title={}>
-              //     <div className="mb-2">
-              //       <a
-              //         className="inline-flex text-sm font-light text-neutral-900 no-underline hover:underline"
-              //         href={youtubeSearch}
-              //         target="_blank"
-              //       >
-              //         Search in Youtube
-              //         <span>
-              //           <NewWindowIcon />
-              //         </span>
-              //       </a>{" "}
-              //       <a
-              //         className="inline-flex text-sm font-light text-neutral-900 no-underline hover:underline"
-              //         href={item.track.external_urls.spotify}
-              //         target="_blank"
-              //       >
-              //         Open in Spotify
-              //         <span>
-              //           <NewWindowIcon />
-              //         </span>
-              //       </a>{" "}
-              //       <a
-              //         className="inline-flex cursor-pointer text-sm font-light text-neutral-900 no-underline hover:underline"
-              //         onClick={() =>
-              //           setCovers([...covers, item.track.album.images[1].url])
-              //         }
-              //       >
-              //         Show cover
-              //       </a>
-              //     </div>
-              //   </AccordionMenu>
-              // );
             })}
           </div>
         </div>

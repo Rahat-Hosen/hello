@@ -1,6 +1,6 @@
 import Link from "next/link";
-import React, { useState } from "react";
 import NewWindowIcon from "../components/NewWindowIcon";
+import AccordionMenu from "../components/AccordionMenu";
 
 export default function Home() {
   return (
@@ -195,19 +195,5 @@ const AccordionProject: React.FC<{
         </span>
       </a>
     </AccordionMenu>
-  );
-};
-
-const AccordionMenu: React.FC<{ title: React.ReactNode }> = ({
-  title,
-  children,
-}) => {
-  const [isToggle, setIsToggle] = useState(false);
-
-  return (
-    <div>
-      <div onClick={() => setIsToggle(!isToggle)}>{title}</div>
-      {isToggle ? children : null}
-    </div>
   );
 };
