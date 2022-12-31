@@ -1,6 +1,6 @@
 import Link from "next/link";
-import React, { useState } from "react";
 import NewWindowIcon from "../components/NewWindowIcon";
+import AccordionMenu from "../components/AccordionMenu";
 
 export default function Home() {
   return (
@@ -26,16 +26,22 @@ export default function Home() {
             design process, working with designers to create stunning screens,
             and optimizing the user experience.
           </p>
-          {/* @TODO: global text for my area of focus */}
-          {/* <p>
-            Since 2022, I'm focusing on web3. I write smart contracts, learn
-            about the future of the internet and the future of work. I build and
-            help build products with sustainability and equal rights in mind.
-          </p> */}
           <p>
             Based in Paris, I'm open to remote collaboration. Some random
             interests: plants, climate change, cooking, digital art, exploring
             technologies, documentaries, and rap music.{" "}
+          </p>
+          <p>
+            I also like to create a{" "}
+            <Link href={"/monthly-playlists"}>
+              <a>playlist per month</a>
+            </Link>
+            , and I need to{" "}
+            <Link href={"/blog"}>
+              <a>write more</a>
+            </Link>
+            . This website serves as my digital garden, I will try to keep it
+            updated with my latest projects/experiments and thoughts.
           </p>
         </details>
         <details className="prose -mx-0 mt-12 dark:prose-dark" open>
@@ -44,6 +50,15 @@ export default function Home() {
           </summary>
           <ul className="items flex max-w-xs list-none flex-col justify-between divide-y pl-0">
             <li className="m-0 mt-5 py-2 pl-0">
+              <AccordionProject
+                title="rapsodie"
+                date={2022}
+                description="A mobile game where you manage a rap music label."
+                textLink="Website"
+                link="https://rapsodie.co/"
+              />
+            </li>
+            <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="newfrenz"
                 date={2022}
@@ -195,19 +210,5 @@ const AccordionProject: React.FC<{
         </span>
       </a>
     </AccordionMenu>
-  );
-};
-
-const AccordionMenu: React.FC<{ title: React.ReactNode }> = ({
-  title,
-  children,
-}) => {
-  const [isToggle, setIsToggle] = useState(false);
-
-  return (
-    <div>
-      <div onClick={() => setIsToggle(!isToggle)}>{title}</div>
-      {isToggle ? children : null}
-    </div>
   );
 };
