@@ -12,10 +12,9 @@ const MonthyPlaylistPage = () => {
   return (
     <section className="max-w-screen relative mx-auto mb-14 px-6 py-12">
       <div className="mb-4 max-w-md">
-        <p className="mb-1">I like to curate music.</p>
         <p>
-          Every month I create a playlist. It helps me discover new songs and
-          artists, as well as recall certain feelings and memories from the
+          Every month, I create a playlist to discover new songs and artists.
+          This way of curating helps me to access memories and emotions from the
           past.
         </p>
       </div>

@@ -31,6 +31,18 @@ export default function Home() {
             interests: plants, climate change, cooking, digital art, exploring
             technologies, documentaries, and rap music.{" "}
           </p>
+          <p>
+            I also like to create a{" "}
+            <Link href={"/monthly-playlists"}>
+              <a>playlist per month</a>
+            </Link>
+            , and I need to{" "}
+            <Link href={"/blog"}>
+              <a>write more</a>
+            </Link>
+            . This website serves as my digital garden, I will try to keep it
+            updated with my latest projects/experiments and thoughts.
+          </p>
         </details>
         <details className="prose -mx-0 mt-12 dark:prose-dark" open>
           <summary className="cursor-pointer font-semibold">
@@ -38,6 +50,15 @@ export default function Home() {
           </summary>
           <ul className="items flex max-w-xs list-none flex-col justify-between divide-y pl-0">
             <li className="m-0 mt-5 py-2 pl-0">
+              <AccordionProject
+                title="rapsodie"
+                date={2022}
+                description="A mobile game where you manage a rap music label."
+                textLink="Website"
+                link="https://rapsodie.co/"
+              />
+            </li>
+            <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="newfrenz"
                 date={2022}
