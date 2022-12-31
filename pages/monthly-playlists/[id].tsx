@@ -24,7 +24,7 @@ const PlaylistPage = () => {
     <section className="max-w-screen relative mx-auto mb-14 p-6 ">
       <div className="mb-4">
         <Link href="/monthly-playlists">
-          <a>← Go back to all monthly playlists</a>
+          ← Go back to all monthly playlists
         </Link>
       </div>
       <div className="w-full">

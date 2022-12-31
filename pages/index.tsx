@@ -33,15 +33,10 @@ export default function Home() {
           </p>
           <p>
             I also like to create a{" "}
-            <Link href={"/monthly-playlists"}>
-              <a>playlist per month</a>
-            </Link>
-            , and I need to{" "}
-            <Link href={"/blog"}>
-              <a>write more</a>
-            </Link>
-            . This website serves as my digital garden, I will try to keep it
-            updated with my latest projects/experiments and thoughts.
+            <Link href={"/monthly-playlists"}>playlist per month</Link>, and I
+            need to <Link href={"/blog"}>write more</Link>. This website serves
+            as my digital garden, I will try to keep it updated with my latest
+            projects/experiments and thoughts.
           </p>
         </details>
         <details className="prose -mx-0 mt-12 dark:prose-dark" open>

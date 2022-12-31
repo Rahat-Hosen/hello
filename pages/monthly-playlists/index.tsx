@@ -22,14 +22,15 @@ const MonthyPlaylistPage = () => {
         {monthlyPlaylists?.map((playlist: any) => {
           return (
             <div key={playlist.id}>
-              <Link href={`/monthly-playlists/${playlist.id}`}>
-                <a className="flex flex-col items-center gap-2">
-                  <img
-                    src={playlist.images[0].url}
-                    className="h-48 w-full rounded-lg object-cover shadow-md"
-                  />
-                  <span>{playlist.name}</span>
-                </a>
+              <Link
+                href={`/monthly-playlists/${playlist.id}`}
+                className="flex flex-col items-center gap-2"
+              >
+                <img
+                  src={playlist.images[0].url}
+                  className="h-48 w-full rounded-lg object-cover shadow-md"
+                />
+                <span>{playlist.name}</span>
               </Link>
             </div>
           );

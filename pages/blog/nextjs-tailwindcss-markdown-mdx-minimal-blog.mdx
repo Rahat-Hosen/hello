@@ -196,13 +196,11 @@ const Blog = ({ posts }) => {
           return (
             <li key={post.slug} className="mb-6">
               <Link href={`/blog/${post.slug}`}>
-                <a>
-                  <div>
-                    <span>{post.datePublished}</span>
-                    <span className="mx-1">-</span>
-                    <span className="font-semibold">{post.title}</span>
-                  </div>
-                </a>
+                <div>
+                  <span>{post.datePublished}</span>
+                  <span className="mx-1">-</span>
+                  <span className="font-semibold">{post.title}</span>
+                </div>
               </Link>
             </li>
           );

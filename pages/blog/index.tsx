@@ -22,17 +22,15 @@ const BlogPage = ({ posts }: BlogPageProps) => {
           return (
             <li key={post.slug} className="mb-6">
               <Link href={`/blog/${post.slug}`}>
-                <a>
-                  <div>
-                    <span className="text-gray-600 dark:text-gray-300">
-                      {new Date(post.datePublished).toLocaleDateString()}
-                    </span>
-                    <span className="mx-1">✦</span>
-                    <span className="text-gradient bg-gradient-to-r from-blue-500 to-purple-600 font-semibold hover:bg-gradient-to-r">
-                      {post.title}
-                    </span>
-                  </div>
-                </a>
+                <div>
+                  <span className="text-gray-600 dark:text-gray-300">
+                    {new Date(post.datePublished).toLocaleDateString()}
+                  </span>
+                  <span className="mx-1">✦</span>
+                  <span className="text-gradient bg-gradient-to-r from-blue-500 to-purple-600 font-semibold hover:bg-gradient-to-r">
+                    {post.title}
+                  </span>
+                </div>
               </Link>
             </li>
           );
