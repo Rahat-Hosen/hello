@@ -1,27 +1,22 @@
 import { useState, useEffect } from "react";
-import {
-  getAccessToken,
-  getUserPlaylists,
-  getPlaylist,
-} from "../../lib/spotify";
+import { getAccessToken, getPlaylist } from "../../lib/spotify";
+import { SpotifyPlaylist } from "../../lib/spotify";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const PlaylistPage = () => {
-  const [monthlyPlaylist, setMonthlyPlaylist] = useState(null);
+  const [monthlyPlaylist, setMonthlyPlaylist] =
+    useState<SpotifyPlaylist | null>(null);
   const router = useRouter();
   const { id } = router.query;
-
-  console.log("id", id);
 
   useEffect(() => {
     if (!id) return;
 
     const fetchPlaylist = async () => {
       const { access_token } = await getAccessToken();
-      const lastPlaylist = await getPlaylist(access_token, id);
-
-      setMonthlyPlaylist(lastPlaylist);
+      const playlist = await getPlaylist(access_token, id as string);
+      setMonthlyPlaylist(playlist);
     };
 
     fetchPlaylist();
@@ -34,8 +29,6 @@ const PlaylistPage = () => {
       </section>
     );
   }
-
-  console.log("monthlyPlaylist", monthlyPlaylist);
 
   return (
     <section className="max-w-screen relative mx-auto mb-14 p-6 ">
@@ -54,13 +47,12 @@ const PlaylistPage = () => {
             <h2 className="mt-1 text-xl">{monthlyPlaylist.name}</h2>
           </div>
           <div className="flex flex-col items-start">
-            {monthlyPlaylist?.tracks?.items.map((item) => {
-              console.log("item.track.name", item.track);
+            {monthlyPlaylist?.tracks.items.map((item) => {
               const artists = item.track.artists
                 .map((artist, index) => {
                   return `${artist.name}${
                     item.track.artists.length > 1 &&
-                    index == !item.track.artists
+                    index < item.track.artists.length - 1
                       ? `, `
                       : ``
                   }`;

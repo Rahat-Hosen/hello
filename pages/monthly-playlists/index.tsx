@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { Paging, SimplifiedPlaylist } from "spotify-types";
 import {
   getAccessToken,
   getUserPlaylists,
@@ -19,25 +20,21 @@ const getMonths = () => {
 };
 
 const MonthyPlaylistPage = () => {
-  const [playlists, setPlaylists] = useState<any>(null);
+  const [playlists, setPlaylists] = useState<SimplifiedPlaylist[] | null>(null);
 
   useEffect(() => {
     const fetchUserPlaylists = async () => {
       const { access_token } = await getAccessToken();
       const playlists = await getUserPlaylists(access_token);
       const months = getMonths();
-
       const monthlyPlaylists = playlists.items.filter((playlist: any) => {
         return months.some((month) => playlist.name.startsWith(month));
       });
-
       setPlaylists(monthlyPlaylists);
     };
 
     fetchUserPlaylists();
   }, []);
-
-  console.log("monthlyPlaylists", playlists);
 
   return (
     <section className="max-w-screen relative mx-auto mb-14 px-6 py-12">
