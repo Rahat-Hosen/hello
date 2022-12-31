@@ -1,40 +1,13 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { Paging, SimplifiedPlaylist } from "spotify-types";
-import {
-  getAccessToken,
-  getUserPlaylists,
-  getPlaylist,
-} from "../../lib/spotify";
-
-const getMonths = () => {
-  const months = [];
-  for (let i = 0; i < 12; i++) {
-    months.push(
-      new Intl.DateTimeFormat("en-US", {
-        month: "long",
-      }).format(new Date(0, i))
-    );
-  }
-  return months;
-};
+import { SimplifiedPlaylist } from "spotify-types";
+import useSWR from "swr";
+import { fetcher } from "lib/fetcher";
 
 const MonthyPlaylistPage = () => {
-  const [playlists, setPlaylists] = useState<SimplifiedPlaylist[] | null>(null);
-
-  useEffect(() => {
-    const fetchUserPlaylists = async () => {
-      const { access_token } = await getAccessToken();
-      const playlists = await getUserPlaylists(access_token);
-      const months = getMonths();
-      const monthlyPlaylists = playlists.items.filter((playlist: any) => {
-        return months.some((month) => playlist.name.startsWith(month));
-      });
-      setPlaylists(monthlyPlaylists);
-    };
-
-    fetchUserPlaylists();
-  }, []);
+  const { data: monthlyPlaylists } = useSWR<SimplifiedPlaylist[]>(
+    "/api/playlists/monthly",
+    fetcher
+  );
 
   return (
     <section className="max-w-screen relative mx-auto mb-14 px-6 py-12">
@@ -47,7 +20,7 @@ const MonthyPlaylistPage = () => {
         </p>
       </div>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-        {playlists?.map((playlist: any) => {
+        {monthlyPlaylists?.map((playlist: any) => {
           return (
             <div key={playlist.id}>
               <Link href={`/monthly-playlists/${playlist.id}`}>

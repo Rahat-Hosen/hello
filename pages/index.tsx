@@ -26,12 +26,6 @@ export default function Home() {
             design process, working with designers to create stunning screens,
             and optimizing the user experience.
           </p>
-          {/* @TODO: global text for my area of focus */}
-          {/* <p>
-            Since 2022, I'm focusing on web3. I write smart contracts, learn
-            about the future of the internet and the future of work. I build and
-            help build products with sustainability and equal rights in mind.
-          </p> */}
           <p>
             Based in Paris, I'm open to remote collaboration. Some random
             interests: plants, climate change, cooking, digital art, exploring

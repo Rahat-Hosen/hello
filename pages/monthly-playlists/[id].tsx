@@ -1,28 +1,18 @@
-import { useState, useEffect } from "react";
-import { getAccessToken, getPlaylist } from "../../lib/spotify";
-import { SpotifyPlaylist } from "../../lib/spotify";
+import type { SpotifyPlaylist } from "../../lib/spotify";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { fetcher } from "lib/fetcher";
+import useSWR from "swr";
 
 const PlaylistPage = () => {
-  const [monthlyPlaylist, setMonthlyPlaylist] =
-    useState<SpotifyPlaylist | null>(null);
   const router = useRouter();
   const { id } = router.query;
+  const { data: playlist } = useSWR<SpotifyPlaylist>(
+    id ? `/api/playlists/${id}` : null,
+    fetcher
+  );
 
-  useEffect(() => {
-    if (!id) return;
-
-    const fetchPlaylist = async () => {
-      const { access_token } = await getAccessToken();
-      const playlist = await getPlaylist(access_token, id as string);
-      setMonthlyPlaylist(playlist);
-    };
-
-    fetchPlaylist();
-  }, [id]);
-
-  if (!monthlyPlaylist) {
+  if (!playlist) {
     return (
       <section className="max-w-screen relative mx-auto mb-14 p-6 ">
         loading...
@@ -42,12 +32,12 @@ const PlaylistPage = () => {
           <div className="mb-8">
             <img
               className="h-64 w-64 rounded-lg object-cover shadow-md"
-              src={monthlyPlaylist.images[0].url}
+              src={playlist.images[0].url}
             />
-            <h2 className="mt-1 text-xl">{monthlyPlaylist.name}</h2>
+            <h2 className="mt-1 text-xl">{playlist.name}</h2>
           </div>
           <div className="flex flex-col items-start">
-            {monthlyPlaylist?.tracks.items.map((item) => {
+            {playlist?.tracks.items.map((item, index) => {
               const artists = item.track.artists
                 .map((artist, index) => {
                   return `${artist.name}${
@@ -61,11 +51,19 @@ const PlaylistPage = () => {
 
               const queryParameters = new URLSearchParams(
                 `${item.track.name} ${artists}`
-              ).toString();
+              )
+                .toString()
+                .replace("=", "");
+
               const youtubeSearch = `https://www.youtube.com/results?search_query=${queryParameters}`;
 
               return (
-                <a href={youtubeSearch} target="_blank" className="mb-4">
+                <a
+                  href={youtubeSearch}
+                  target="_blank"
+                  className="mb-4"
+                  key={`${item.track.id}-${index}`}
+                >
                   <div className="flex cursor-pointer items-center">
                     <img
                       className="mr-2 h-full max-w-[60px] rounded-sm object-cover"
