@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { fetcher } from "lib/fetcher";
 import useSWR from "swr";
+import NewWindowIcon from "components/NewWindowIcon";
 
 const PlaylistPage = () => {
   const router = useRouter();
@@ -34,7 +35,20 @@ const PlaylistPage = () => {
               className="h-64 w-64 rounded-lg object-cover shadow-md"
               src={playlist.images[0].url}
             />
-            <h2 className="mt-1 text-xl">{playlist.name}</h2>
+            <div className="mt-1 flex items-center">
+              <h2>{playlist.name}</h2>
+              <span className="mx-2">◦</span>
+              <a
+                className="inline-flex text-sm font-light text-neutral-900 no-underline hover:underline dark:text-neutral-200"
+                href={playlist.external_urls.spotify}
+                target="_blank"
+              >
+                Open in Spotify
+                <span className="ml-0.5">
+                  <NewWindowIcon />
+                </span>
+              </a>
+            </div>
           </div>
           <div className="flex flex-col items-start">
             {playlist?.tracks.items.map((item, index) => {
