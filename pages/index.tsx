@@ -41,16 +41,28 @@ export default function Home() {
         </details>
         <details className="prose -mx-0 mt-12 dark:prose-dark" open>
           <summary className="cursor-pointer font-semibold">
-            Select Projects
+            Selected projects
           </summary>
           <ul className="items flex max-w-xs list-none flex-col justify-between divide-y pl-0">
             <li className="m-0 mt-5 py-2 pl-0">
               <AccordionProject
                 title="rapsodie"
                 date={2022}
-                description="A mobile game where you manage a rap music label."
-                textLink="Website"
-                link="https://rapsodie.co/"
+                description="A mobile game where you manage a rap music label. Developed the beta version of the app with React and Capacitor."
+                links={[
+                  {
+                    text: "Website",
+                    link: "https://rapsodie.co/",
+                  },
+                  {
+                    text: "App Store",
+                    link: "https://apps.apple.com/fr/app/rapsodie-ton-label-de-rap/id1572281230",
+                  },
+                  {
+                    text: "Play Store",
+                    link: "https://play.google.com/store/apps/details?id=com.rapsodiedata.app&hl=fr&gl=US",
+                  },
+                ]}
               />
             </li>
             <li className="m-0 py-2 pl-0">
@@ -59,90 +71,134 @@ export default function Home() {
                 date={2022}
                 description="Onboarding app for web3 concepts. Won the 1st prize of OpenSea
                 x Replit Hackathon with it."
-                textLink="Website"
-                link="https://www.newfrenz.xyz/"
+                links={[
+                  {
+                    text: "Website",
+                    link: "https://www.newfrenz.xyz/",
+                  },
+                ]}
               />
             </li>
             <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="hellocurator"
                 date={2022}
-                description="Concept app to explore digital art curation."
-                textLink="Website"
-                link="https://hellocurator.xyz/"
+                description="Concept app to explore digital art curation. Worked on front-end and product. Built with Next.js and web3 technologies."
+                links={[
+                  {
+                    text: "Website",
+                    link: "https://hellocurator.xyz/",
+                  },
+                  {
+                    text: "Article",
+                    link: "https://mirror.xyz/hellocurator.eth/ejbQtqckavjt1aS7kScgXq8qkIMobov0kbT9P2eW9FE",
+                  },
+                ]}
               />
             </li>
             <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="playgrounds"
                 date={2022}
-                description="Community of builders, who experiment building decentralized
+                description="Community of builders who experiment building decentralized
                 applications."
-                textLink="Website"
-                link="https://playgrounds.wtf/"
+                links={[
+                  {
+                    text: "Website",
+                    link: "https://playgrounds.wtf/",
+                  },
+                ]}
               />
             </li>
             <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="swile"
                 date={2021}
-                description="Help building components for the new Swile website."
-                textLink="Website"
-                link="https://swile.co/"
+                description="Helped building components for the new Swile website."
+                links={[
+                  {
+                    text: "Website",
+                    link: "https://swile.co/",
+                  },
+                ]}
               />
             </li>
             <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="uxcademy"
                 date={2021}
-                description="A website to learn UI/UX design through interactive quizzes. +1500 actives learners."
-                textLink="Website"
-                link="https://uxcademy.com/"
+                description="A website to learn UI/UX design through interactive quizzes. +1500 actives learners. Worked on the front-end and product. Built with Next.js"
+                links={[
+                  {
+                    text: "Website",
+                    link: "https://uxcademy.com/",
+                  },
+                ]}
               />
             </li>
             <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="lafourche"
                 date={2021}
-                description="Front-end architecture & implement new branding."
-                textLink="Website"
-                link="https://lafourche.fr/"
+                description="Worked on front-end architecture & implementation of the new branding."
+                links={[
+                  {
+                    text: "Website",
+                    link: "https://lafourche.fr/",
+                  },
+                ]}
               />
             </li>
             <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="lafourche"
                 date={2020}
-                description="Lead the front-end development, from Shopify to Next.js."
-                textLink="Website"
-                link="https://lafourche.fr/"
+                description="Best online shop to buy organic food in France. Leading the front-end development, from Shopify to Next.js."
+                links={[
+                  {
+                    text: "Website",
+                    link: "https://lafourche.fr/",
+                  },
+                ]}
               />
             </li>
             <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="madely"
                 date={2019}
-                description="TikTok for event discovery in Paris. Abandoned during lockdown. 🦠 "
-                textLink="Dribbble"
-                link="https://dribbble.com/shots/9683319-Madely-Event-Discovery-App"
+                description="Parisian video based event discovery app (available on iOS). Worked on front-end and product. Built with React Native and Expo."
+                links={[
+                  {
+                    text: "Dribbble",
+                    link: "https://dribbble.com/shots/9683319-Madely-Event-Discovery-App",
+                  },
+                ]}
               />
             </li>
             <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="Foncia R&D"
                 date={2018}
-                description="Front-end development."
-                textLink="Website"
-                link="https://fr.foncia.com/"
+                description="Worked on front-end development for the R&D team. Simplification of the product for one of the biggest real estate agency in France."
+                links={[
+                  {
+                    text: "Website",
+                    link: "https://fr.foncia.com/",
+                  },
+                ]}
               />
             </li>
             <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="bitcallz"
                 date={2017}
-                description="Crypto-prediction platform."
-                textLink="Dribbble"
-                link="https://dribbble.com/shots/9390744-Bitcallz-crypto-prediction-platform"
+                description="Crypto-prediction platform. Worked on fullstack development and product. Built with React and Node.js."
+                links={[
+                  {
+                    text: "Dribbble",
+                    link: "https://dribbble.com/shots/9390744-Bitcallz-crypto-prediction-platform",
+                  },
+                ]}
               />
             </li>
           </ul>
@@ -179,9 +235,9 @@ const AccordionProject: React.FC<{
   title: string;
   date: number | string;
   description: string;
-  textLink: string;
-  link: string;
-}> = ({ title, date, description, textLink, link }) => {
+
+  links?: { text: string; link: string }[];
+}> = ({ title, date, description, links }) => {
   return (
     <AccordionMenu
       title={
@@ -194,16 +250,23 @@ const AccordionProject: React.FC<{
       <div className="mt-2 mb-1 text-sm font-light text-neutral-500">
         {description}
       </div>
-      <a
-        className="inline-flex text-sm font-light text-neutral-900 no-underline hover:underline"
-        href={link}
-        target="_blank"
-      >
-        {textLink}
-        <span className="ml-0.5">
-          <NewWindowIcon />
-        </span>
-      </a>
+      <div>
+        {links?.map(({ text, link }, index) => (
+          <>
+            <a
+              className="inline-flex text-sm font-light text-neutral-900 no-underline hover:underline"
+              href={link}
+              target="_blank"
+            >
+              {text}
+              <span className="ml-0.5">
+                <NewWindowIcon />
+              </span>
+            </a>
+            {links.length - 1 === index ? null : <span className="mx-2"></span>}
+          </>
+        ))}
+      </div>
     </AccordionMenu>
   );
 };
