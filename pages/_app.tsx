@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
+import { Analytics } from "@vercel/analytics/react";
 import "@code-hike/mdx/dist/index.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -36,6 +37,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      <Analytics />
     </ThemeProvider>
   );
 };
