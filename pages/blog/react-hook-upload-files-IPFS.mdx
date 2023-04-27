@@ -1,18 +1,8 @@
 import LayoutBlog from "components/LayoutBlog";
 
-export const metadata = {
-  title: "Tiny react hook to upload files into IPFS",
-  description: "How to upload files or data into IPFS",
-  datePublished: "2022-03-17T00:00",
-  dateModified: null,
-  path: "react-hook-upload-files-IPFS",
-};
+<LayoutBlog>
 
-<LayoutBlog 
-  {...metadata}
->
-
-# {metadata.title}
+# Tiny react hook to upload files into IPFS
 
 For [hellocurator](https://www.hellocurator.xyz/) we want to let users upload an image through our application. The solution of choice for decentralized storing is IPFS.
 
@@ -29,7 +19,7 @@ We will use the [ipfs-http-client](https://github.com/ipfs/js-ipfs/tree/master/p
 npm i ipfs-http-client
 ```
 
-```JSX
+```jsx
 import { create } from "ipfs-http-client";
 import { ImportCandidate } from "ipfs-core-types/src/utils";
 
@@ -63,7 +53,7 @@ The basic functionality takes 3 lines of code:
 
 You can use this hook for storing anything you want on IPFS.
 
-```JSX
+```jsx
 const onSubmit: SubmitHandler<FormValues> = async (data) => {
   const image = data.image[0];
 
@@ -78,7 +68,7 @@ const onSubmit: SubmitHandler<FormValues> = async (data) => {
 
   /* upload a JSON */
   const jsonUrl = await upload(
-      JSON.stringify({
+    JSON.stringify({
       title: "hellocurator",
       description: "We’re happy to introduce hellocurator",
     })

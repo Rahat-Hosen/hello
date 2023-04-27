@@ -1,0 +1,32 @@
+{
+  "postsMetadata": [
+    {
+      "title": "Creating Bento Grid Layouts",
+      "description": "How to create Bento Grid Layouts with Tailwind CSS and React",
+      "datePublished": "2023-04-27T00:00",
+      "dateModified": null,
+      "slug": "create-bento-grid-layouts"
+    },
+    {
+      "title": "How to compress images on client-side",
+      "description": "How to compress images on client-side with JavaScript, TypeScript, React",
+      "datePublished": "2022-04-07T00:00",
+      "dateModified": null,
+      "slug": "client-side-images-compression"
+    },
+    {
+      "title": "Tiny react hook to upload files into IPFS",
+      "description": "How to upload files or data into IPFS",
+      "datePublished": "2022-03-17T00:00",
+      "dateModified": null,
+      "slug": "react-hook-upload-files-IPFS"
+    },
+    {
+      "title": "Minimal blog with Next.js, Tailwind CSS, and markdown (MDX)",
+      "description": "How to build a minimal blog with Next.js, Tailwind CSS, and MDX?",
+      "datePublished": "2021-07-23T00:00",
+      "dateModified": null,
+      "slug": "nextjs-tailwindcss-markdown-mdx-minimal-blog"
+    }
+  ]
+}
