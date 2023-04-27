@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NewWindowIcon from "../components/NewWindowIcon";
 import AccordionMenu from "../components/AccordionMenu";
+import { Fragment } from "react";
 
 export default function Home() {
   return (
@@ -252,7 +253,7 @@ const AccordionProject: React.FC<{
       </div>
       <div>
         {links?.map(({ text, link }, index) => (
-          <>
+          <Fragment key={index}>
             <a
               className="inline-flex text-sm font-light text-neutral-900 no-underline hover:underline"
               href={link}
@@ -264,7 +265,7 @@ const AccordionProject: React.FC<{
               </span>
             </a>
             {links.length - 1 === index ? null : <span className="mx-2"></span>}
-          </>
+          </Fragment>
         ))}
       </div>
     </AccordionMenu>

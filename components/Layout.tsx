@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useState, useEffect, FC, useRef } from "react";
+import { useRouter } from "next/router";
 
 let allTabs = [
   {
@@ -27,16 +28,26 @@ const Tabs = () => {
   const { theme, setTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
   const tabsRef = useRef<(HTMLElement | null)[]>([]);
-
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const [activeTabIndex, setActiveTabIndex] = useState<number | null>(null);
   const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
   const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
 
   useEffect(() => {
     setIsMounted(true);
+
+    const path = window.location.pathname;
+    const currentPath = path.split("/")[1];
+    const currentTab = allTabs.findIndex(
+      (tab) => tab.href === `/${currentPath}`
+    );
+    setActiveTabIndex(currentTab);
   }, []);
 
   useEffect(() => {
+    if (activeTabIndex === null) {
+      return;
+    }
+
     const setTabPosition = () => {
       const currentTab = tabsRef.current[activeTabIndex] as HTMLElement;
       setTabUnderlineLeft(currentTab?.offsetLeft ?? 0);
@@ -67,7 +78,10 @@ const Tabs = () => {
         {allTabs.map((tab, index) => {
           if (tab.id === "theme") {
             return (
-              <a className="my-auto mx-2 flex cursor-pointer rounded-full p-3 text-center ">
+              <a
+                className="my-auto mx-2 flex cursor-pointer rounded-full p-3 text-center"
+                key={index}
+              >
                 <span
                   className="select-none transition duration-200 hover:text-yellow-500 dark:hover:text-yellow-400"
                   onClick={switchTheme}
@@ -80,6 +94,7 @@ const Tabs = () => {
 
           return (
             <Link
+              key={index}
               href={tab.href as string}
               ref={(el) => (tabsRef.current[index] = el)}
               className="my-auto mx-2 flex-1 cursor-pointer rounded-full text-center transition hover:text-black/80 dark:hover:text-white/80"
