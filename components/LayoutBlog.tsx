@@ -39,7 +39,7 @@ const LayoutBlog: React.FC<LayoutBlogProps> = ({
         description={description}
         images={["https://www.julienthibeaut.xyz/meta.jpg"]}
       />
-      <article className="prose mx-auto max-w-screen-md py-12 px-6 dark:prose-dark">
+      <article className="prose mx-auto max-w-screen-md px-6 pt-12 pb-32 prose-figcaption:text-center prose-img:mb-0 dark:prose-dark">
         {children}
         <p className="text-right text-sm text-gray-600 dark:text-gray-400">
           Published: {new Date(datePublished).toLocaleDateString()}{" "}
