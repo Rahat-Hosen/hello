@@ -1,19 +1,8 @@
 import LayoutBlog from "components/LayoutBlog";
 
-export const metadata = {
-  title: "How to compress images on client-side",
-  description:
-    "How to compress images on client-side with JavaScript, TypeScript, React",
-  datePublished: "2022-04-07T00:00",
-  dateModified: null,
-  path: "client-side-images-compression",
-};
+<LayoutBlog >
 
-<LayoutBlog 
-  {...metadata}
->
-
-# {metadata.title}
+# How to compress images on client-side
 
 Optimizing images on the web is a common thing. For [hellocurator](https://www.hellocurator.xyz/), we want to optimize images before the upload, we can do it without servers, on the client-side.
 
@@ -30,7 +19,7 @@ There's a [live Demo](https://fengyuanchen.github.io/compressorjs/) to play with
 In some case, I like to wrap dependencies in my projects.
 So the code looks like:
 
-```JSX
+```jsx
 import Compressor from "compressorjs";
 
 export const compress = async (
@@ -57,7 +46,7 @@ You can use more options, as provided in the [GitHub repo](https://github.com/fe
 
 And, to use it
 
-```JSX
+```jsx
 const upload async = (data) => {
   const file = data.image[0];
   const compressedFile = await compress(file, 0.6, 2000, 2000, 1000);

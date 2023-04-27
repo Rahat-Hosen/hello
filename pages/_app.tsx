@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
+import "@code-hike/mdx/dist/index.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

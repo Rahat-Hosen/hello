@@ -1,5 +1,11 @@
+const theme = require("shiki/themes/dark-plus.json");
+const { remarkCodeHike } = require("@code-hike/mdx");
+
 const withMDX = require("@next/mdx")({
   extension: /\.(md|mdx)$/,
+  options: {
+    remarkPlugins: [[remarkCodeHike, { theme, showCopyButton: true }]],
+  },
 });
 
 module.exports = withMDX({

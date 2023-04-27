@@ -1,6 +1,6 @@
-import fs from "fs";
-import path from "path";
 import Link from "next/link";
+import postsData from "./metadata.json";
+const { postsMetadata } = postsData;
 
 type BlogPageProps = {
   posts: Posts[];
@@ -10,7 +10,7 @@ type Posts = {
   title: string;
   description: string;
   datePublished: string;
-  dateModified: string;
+  dateModified: string | null;
   slug: string;
 };
 
@@ -41,24 +41,11 @@ const BlogPage = ({ posts }: BlogPageProps) => {
 };
 
 export const getStaticProps = async () => {
-  const postDirectory = path.join(process.cwd(), "pages/blog");
-  const postFilenames = fs
-    .readdirSync(postDirectory)
-    .filter((path) => /\.mdx?$/.test(path));
-
-  const posts: Posts[] = postFilenames
-    .map((slug) => {
-      return {
-        ...require(`./${slug}`).metadata,
-        slug: slug.replace(".mdx", ""),
-      };
-    })
-    .sort((a, b) => {
-      return (
-        new Date(b.datePublished).getTime() -
-        new Date(a.datePublished).getTime()
-      );
-    });
+  const posts: Posts[] = postsMetadata.sort((a, b) => {
+    return (
+      new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
+    );
+  });
 
   return {
     props: {

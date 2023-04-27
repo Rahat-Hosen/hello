@@ -1,19 +1,8 @@
 import LayoutBlog from "components/LayoutBlog";
-import Bento from "components/Bento";
 
-export const metadata = {
-  title: "Creating Bento Grid Layouts",
-  description: "How to create Bento Grid Layouts with Tailwind CSS and React",
-  datePublished: "2023-04-26",
-  dateModified: null,
-  path: "create-bento-grid-layouts",
-};
+<LayoutBlog >
 
-<LayoutBlog 
-  {...metadata}
->
-
-# {metadata.title}
+# Creating Bento Grid Layouts
 
 As you browse the web, you've likely come across this type of layout before. It can be called a bento grid layout, bento box layout, or bento box grid. This layout takes its inspiration from the traditional Japanese bento box. 🍱
 
@@ -62,13 +51,13 @@ One approach to building a bento grid is using CSS Grid, along with grid-templat
   ))}
 </div>
 
-```JSX
+```jsx
 <div className="grid auto-rows-[192px] grid-cols-1 gap-4 md:grid-cols-3">
   {[...Array(7)].map((_, i) => (
     <div
       key={i}
       className={`row-span-1 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900 ${
-        i === 3 || i === 6 ? 'md:col-span-2' : ''
+        i === 3 || i === 6 ? "md:col-span-2" : ""
       }`}
     ></div>
   ))}
@@ -82,15 +71,18 @@ We make the 3rd and 6th items span two columns on medium screens and up using th
 If the order of the items doesn't matter, and if you need it in columns you can opt for a multi-column layout using column-count, column-gap, and margin-bottom on the items.
 
 <div className="columns-1 gap-4 md:columns-3">
-  {[24, 32, 40, 32, 32, 32, 16, 16, 64].map((height, index) => (
-    <div
-      key={index}
-      className={`mb-4 h-${height} break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900`}
-    />
-  ))}
+  <div className="mb-4 h-28 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  <div className="mb-4 h-32 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  <div className="mb-4 h-40 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  <div className="mb-4 h-32 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  <div className="mb-4 h-32 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  <div className="mb-4 h-32 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  <div className="mb-4 h-16 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  <div className="mb-4 h-16 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  <div className="mb-4 h-64 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
 </div>
 
-```JSX
+```jsx
 <div className="columns-1 gap-4 md:columns-3">
   {[24, 32, 40, 32, 32, 32, 16, 16, 64].map((height, index) => (
     <div
@@ -108,23 +100,26 @@ The array contains the height of each card component. Alternatively, you can use
 Just like with columns, flexbox is a great option too. You can use flex-wrap, flex-grow, and margin-bottom on the items.
 
 <div className="flex gap-4">
-  {[
-    [24, 32, 32, 16, 16],
-    [32, 40, 56],
-    [64, 32, 32],
-  ].map((card, index) => (
-    <div className="flex-1" key={index}>
-      {card.map((height, index) => (
-        <div
-          className={`mb-4 h-${height} rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900`}
-          key={index}
-        ></div>
-      ))}
-    </div>
-  ))}
+  <div className="flex-1">
+    <div className="mb-4 h-24 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+    <div className="mb-4 h-32 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+    <div className="mb-4 h-32 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+    <div className="mb-4 h-16 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+    <div className="mb-4 h-16 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  </div>
+  <div className="flex-1">
+    <div className="mb-4 h-32 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+    <div className="mb-4 h-40 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+    <div className="mb-4 h-56 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  </div>
+  <div className="flex-1">
+    <div className="mb-4 h-64 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+    <div className="mb-4 h-32 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+    <div className="mb-4 h-32 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  </div>
 </div>
 
-```JSX
+```jsx
 <div className="flex gap-4">
   {[
     [24, 32, 32, 16, 16],
