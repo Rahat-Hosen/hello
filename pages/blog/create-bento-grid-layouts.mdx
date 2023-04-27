@@ -36,28 +36,33 @@ If you're looking for design inspiration you can check [bentogrids](https://bent
 
 There are countless ways to create bento grid layouts, and today, I'll show you some of them using Tailwind CSS and React.
 
+_Note that the code examples provided are not responsive by default, as they
+are intended to be easily viewed on mobile devices too. If you want to make
+them responsive, you can simply add breakpoints to adjust the layout for
+different screen sizes._
+
 ### Using CSS Grid
 
 One approach to building a bento grid is using CSS Grid, along with grid-template-columns, grid-auto-rows, and grid-row. Check out this example:
 
-<div className="grid auto-rows-[192px] grid-cols-1 gap-4 md:grid-cols-3">
+<div className="grid auto-rows-[192px] grid-cols-3 gap-4">
   {[...Array(7)].map((_, i) => (
     <div
       key={i}
       className={`row-span-1 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900 ${
-        i === 3 || i === 6 ? "md:col-span-2" : ""
+        i === 3 || i === 6 ? "col-span-2" : ""
       }`}
     ></div>
   ))}
 </div>
 
 ```jsx
-<div className="grid auto-rows-[192px] grid-cols-1 gap-4 md:grid-cols-3">
+<div className="grid auto-rows-[192px] grid-cols-3 gap-4">
   {[...Array(7)].map((_, i) => (
     <div
       key={i}
       className={`row-span-1 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900 ${
-        i === 3 || i === 6 ? "md:col-span-2" : ""
+        i === 3 || i === 6 ? "col-span-2" : ""
       }`}
     ></div>
   ))}
@@ -70,10 +75,10 @@ We make the 3rd and 6th items span two columns on medium screens and up using th
 
 If the order of the items doesn't matter, and if you need it in columns you can opt for a multi-column layout using column-count, column-gap, and margin-bottom on the items.
 
-<div className="columns-1 gap-4 md:columns-3">
+<div className="columns-3 gap-4">
   <div className="mb-4 h-28 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
   <div className="mb-4 h-32 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
-  <div className="mb-4 h-40 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
+  <div className="mb-4 h-36 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
   <div className="mb-4 h-32 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
   <div className="mb-4 h-32 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
   <div className="mb-4 h-32 break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900"></div>
@@ -83,8 +88,8 @@ If the order of the items doesn't matter, and if you need it in columns you can 
 </div>
 
 ```jsx
-<div className="columns-1 gap-4 md:columns-3">
-  {[24, 32, 40, 32, 32, 32, 16, 16, 64].map((height, index) => (
+<div className="columns-1 gap-4">
+  {[24, 32, 36, 32, 32, 32, 16, 16, 64].map((height, index) => (
     <div
       key={index}
       className={`mb-4 h-${height} break-inside-avoid rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900`}
@@ -146,5 +151,12 @@ Again, you can use a full height and let the children components set the card he
 We've covered some of the most common ways to create a bento grid, but there are loads of other methods depending on your needs.
 
 If you're curisous to learn more, dive into [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) and [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox) to discover even more possibilities.
+
+--
+
+I'm looking forward to writing more articles covering a range of topics like design, front-end development, software, and more. So, stay tuned!
+
+I'd love to hear your feedback, suggestions, or questions. If you found this article helpful, please consider sharing it with others who might enjoy it too. 🙌
+Thanks for reading!
 
 </LayoutBlog >
