@@ -37,6 +37,7 @@ const LayoutBlog: React.FC = ({ children }) => {
         description={description}
         images={["https://www.julienthibeaut.xyz/meta.jpg"]}
       />
+      <meta property="og:image" content="https:///api/og" />
       <article className="prose mx-auto max-w-screen-md px-6 pt-12 pb-32 prose-figcaption:text-center prose-img:mb-0 dark:prose-dark">
         {children}
         <p className="text-right text-sm text-gray-600 dark:text-gray-400">
