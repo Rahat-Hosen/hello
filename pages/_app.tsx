@@ -19,14 +19,14 @@ const App = ({ Component, pageProps }: AppProps) => {
           locale: "en_IE",
           url: "https://www.julienthibeaut.xyz",
           site_name: "julienthibeaut",
-          images: [
-            {
-              url: "https://www.julienthibeaut.xyz/meta.jpg",
-              width: 500,
-              height: 290,
-              alt: "Meta image",
-            },
-          ],
+          // images: [
+          //   {
+          //     url: "https://www.julienthibeaut.xyz/meta.jpg",
+          //     width: 500,
+          //     height: 290,
+          //     alt: "Meta image",
+          //   },
+          // ],
         }}
         twitter={{
           handle: "@ibelick",
@@ -34,6 +34,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           cardType: "summary_large_image",
         }}
       />
+      <meta name="theme-color" content="#ffffff" />
       <Layout>
         <Component {...pageProps} />
       </Layout>
