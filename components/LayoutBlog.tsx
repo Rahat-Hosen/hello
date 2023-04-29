@@ -28,9 +28,18 @@ const LayoutBlog: React.FC = ({ children }) => {
         title={title}
         description={description}
         openGraph={{
-          url: "https://www.url.ie/a",
+          url: "https://julienthibeaut.xyz",
           title: title,
           description: description,
+          images: [
+            {
+              url: `${domain}/api/og/?title=${title}`,
+              width: 1200,
+              height: 630,
+              alt: title,
+              type: "image/jpeg",
+            },
+          ],
         }}
         canonical={`https://julienthibeaut.xyz/blog/${slug}`}
       />
@@ -44,7 +53,6 @@ const LayoutBlog: React.FC = ({ children }) => {
         description={description}
         images={[`${domain}/api/og/?title=${title}`]}
       />
-      <meta property="og:image" content={`${domain}/api/og/?title=${title}`} />
       <article className="prose mx-auto max-w-screen-md px-6 pt-12 pb-32 prose-figcaption:text-center prose-img:mb-0 dark:prose-dark">
         {children}
         <p className="text-right text-sm text-gray-600 dark:text-gray-400">

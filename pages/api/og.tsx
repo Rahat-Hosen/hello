@@ -59,14 +59,15 @@ export default async function handler(request: NextRequest) {
               style={{ display: "flex" }}
             >
               <div
-                tw="text-left flex-col"
+                tw="text-left flex-col word"
                 style={{
                   display: "flex",
                   fontFamily: "Inter",
+                  wordBreak: "break-word",
                 }}
               >
                 <h2
-                  tw="text-8xl font-black"
+                  tw="text-7xl font-black"
                   style={{
                     letterSpacing: "-0.5px",
                   }}
@@ -84,9 +85,9 @@ export default async function handler(request: NextRequest) {
                     <img
                       alt="Author"
                       src={`https://github.com/ibelick.png`}
-                      tw="object-cove mr-4 h-8 w-8 rounded-full"
+                      tw="object-cover mr-4 h-8 w-8 rounded-full"
                     />
-                    <span tw="text-md text-slate-200/80">@ibelick</span>
+                    <span tw="text-base text-slate-200/80">@ibelick</span>
                   </div>
                 </div>
               </div>
