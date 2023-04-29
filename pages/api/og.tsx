@@ -5,13 +5,13 @@ export const config = {
   runtime: "edge",
 };
 
-const image = fetch(
-  new URL("../../public/og/blueskybg.jpg", import.meta.url)
-).then((res) => res.arrayBuffer());
-
 export default async function handler(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
+
+    const image = fetch(
+      new URL("../../public/og/blueskybg.jpg", import.meta.url).toString()
+    ).then((res) => res.arrayBuffer());
 
     const imageData = await image;
 
@@ -21,7 +21,12 @@ export default async function handler(request: NextRequest) {
       ? searchParams.get("title")?.slice(0, 100)
       : "My default title";
 
-    console.log("imageData", imageData);
+    const inter700 = fetch(
+      new URL(
+        `../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff`,
+        import.meta.url
+      ).toString()
+    ).then((res) => res.arrayBuffer());
 
     return new ImageResponse(
       (
@@ -53,16 +58,35 @@ export default async function handler(request: NextRequest) {
               tw="flex h-full w-full flex-col justify-end p-10 text-white"
               style={{ display: "flex" }}
             >
-              <div tw="text-left flex-col" style={{ display: "flex" }}>
-                <h2 tw="font-sans text-8xl font-black">{title}</h2>
-                <div tw="mt-6 flex whitespace-nowrap text-gray-400">
-                  <div tw="flex">
+              <div
+                tw="text-left flex-col"
+                style={{
+                  display: "flex",
+                  fontFamily: "Inter",
+                }}
+              >
+                <h2
+                  tw="text-8xl font-black"
+                  style={{
+                    letterSpacing: "-0.5px",
+                  }}
+                >
+                  {title}
+                </h2>
+                <div
+                  tw="mt-6 flex whitespace-nowrap"
+                  style={{ display: "flex" }}
+                >
+                  <div
+                    tw="flex justify-center items-center"
+                    style={{ display: "flex" }}
+                  >
                     <img
                       alt="Author"
                       src={`https://github.com/ibelick.png`}
-                      tw="object-cove mr-2 h-8 w-8 rounded-full"
+                      tw="object-cove mr-4 h-8 w-8 rounded-full"
                     />
-                    <div tw="mt-1">@ibelick</div>
+                    <span tw="text-md text-slate-200/80">@ibelick</span>
                   </div>
                 </div>
               </div>
@@ -73,6 +97,12 @@ export default async function handler(request: NextRequest) {
       {
         width: 1200,
         height: 630,
+        fonts: [
+          {
+            name: "Inter 700",
+            data: await inter700,
+          },
+        ],
       }
     );
   } catch (e: any) {
