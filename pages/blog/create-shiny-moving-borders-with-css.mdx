@@ -2,20 +2,21 @@ import LayoutBlog from "components/LayoutBlog";
 import {
   ShinyMovingCardBorderTheme,
   ShinyMovingCardBorder,
+  ShinyMovingCardBorderTW,
 } from "components/lab/ShinyMovingCardBorder";
 
 <LayoutBlog >
 
 # Creating shiny moving border with CSS
 
-This is my favorite method to create a shiny moving border with CSS.
-With this method you can easily change the color of the border, the speed of the animation, the size of the border and the border radius.
+In this article, I'll share my favorite method for creating a shiny moving border with CSS. You can easily customize the border color, animation speed, border size, and border radius with this technique.
 
 <div className="flex justify-center">
   <ShinyMovingCardBorderTheme />
 </div>
 
-This component is based on my dark/light theme. We will see below how to create this component from scratch.
+This component is based on my dark/light theme.
+We will see below how to create a shiny moving border component from scratch.
 
 ## The code
 
@@ -62,7 +63,7 @@ This component is based on my dark/light theme. We will see below how to create 
 }
 ```
 
-To achieve our goal, we will use the following CSS properties:
+To achieve our desired effect, we'll use the following CSS properties:
 
 - border: This property creates a 1px wide, solid, transparent border around the box.
 - border-radius: This property gives the box rounded corners with a 12px radius.
@@ -72,8 +73,55 @@ To achieve our goal, we will use the following CSS properties:
 - @keyframes rotate: This keyframe animation block specifies the end state of the "rotate" animation, where the custom property --angle is set to 360deg.
 - @property --angle: This part of the code defines the custom property --angle using the [CSS Houdini](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Houdini) @property rule. It specifies the expected syntax (angle), the initial value (0deg), and that the property does not inherit from parent elements.
 
+### Tailwind CSS
+
+If you prefer using Tailwind CSS, here's the equivalent code written with React and TypeScript:
+
+```jsx
+export const ShinyMovingCardBorderTW: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
+  const boxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const boxElement = boxRef.current;
+
+    if (!boxElement) {
+      return;
+    }
+
+    const updateAnimation = () => {
+      const angle =
+        (parseFloat(boxElement.style.getPropertyValue("--angle")) + 0.5) % 360;
+      boxElement.style.setProperty("--angle", `${angle}deg`);
+      requestAnimationFrame(updateAnimation);
+    };
+
+    requestAnimationFrame(updateAnimation);
+  }, []);
+
+  return (
+    <div
+      ref={boxRef}
+      style={
+        {
+          "--angle": "0deg",
+          "--border-color": "linear-gradient(var(--angle), #070707, #687aff)",
+          "--bg-color": "linear-gradient(#131219, #131219)",
+        } as CSSProperties
+      }
+      className="flex h-[400px] w-[400px] items-center justify-center rounded-lg border-2 border-[#0000] p-3 [background:padding-box_var(--bg-color),border-box_var(--border-color)]"
+    >
+      {children}
+    </div>
+  );
+};
+```
+
+In this implementation, we handle the animation using JavaScript. We utilize the [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) function to update the custom property --angle every 16ms (60fps).
+
 ## More methods
 
-I recommend this [article](https://web.dev/css-border-animations/) who explore several ways to animate a border in CSS
+If you're interested in exploring other ways to animate borders in CSS, I recommend this [article](https://web.dev/css-border-animations/) which delves into several alternative techniques.
 
 </LayoutBlog>
