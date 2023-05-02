@@ -2,6 +2,7 @@ import Link from "next/link";
 import NewWindowIcon from "../components/NewWindowIcon";
 import AccordionMenu from "../components/AccordionMenu";
 import { Fragment } from "react";
+import { NextSeo } from "next-seo";
 
 export default function Home() {
   return (

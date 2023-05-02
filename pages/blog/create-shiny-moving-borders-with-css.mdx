@@ -1,0 +1,127 @@
+import LayoutBlog from "components/LayoutBlog";
+import {
+  ShinyMovingCardBorderTheme,
+  ShinyMovingCardBorder,
+  ShinyMovingCardBorderTW,
+} from "components/lab/ShinyMovingCardBorder";
+
+<LayoutBlog >
+
+# Creating shiny moving border with CSS
+
+In this article, I'll share my favorite method for creating a shiny moving border with CSS. You can easily customize the border color, animation speed, border size, and border radius with this technique.
+
+<div className="flex justify-center">
+  <ShinyMovingCardBorderTheme />
+</div>
+
+This component is based on my dark/light theme.
+We will see below how to create a shiny moving border component from scratch.
+
+## The code
+
+<div className="bg-slate-950 flex items-center justify-center rounded-xl border border-slate-600/50 py-12 px-4">
+  <ShinyMovingCardBorder borderColor="(#6366f1, #0ea5e9)">
+    <span className="text-center text-xl font-medium text-white">
+      Moving gradient border
+    </span>
+  </ShinyMovingCardBorder>
+</div>
+
+```html
+<div class="box">{children}</div>
+```
+
+```css
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  height: 400px;
+  width: 400px;
+  border: 3px solid #0000;
+  border-radius: 12px;
+  background: linear-gradient(#131219, #131219) padding-box, linear-gradient(
+        var(--angle),
+        #070707,
+        #687aff
+      ) border-box;
+  animation: 8s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+```
+
+To achieve our desired effect, we'll use the following CSS properties:
+
+- border: This property creates a 1px wide, solid, transparent border around the box.
+- border-radius: This property gives the box rounded corners with a 12px radius.
+- background: This property creates a two-layered background using two linear gradients. The first gradient is a solid color (#000) that fills the box's padding area. The second gradient creates the shiny effect and is animated using the custom property --angle. The gradient is applied to the box's border area.
+  We use the [backgroud-clip](https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip) property to specify that the background should be clipped to the padding box.
+- animation: This property applies the "rotate" animation to the box. It has an 8-second duration, uses linear easing, and repeats infinitely.
+- @keyframes rotate: This keyframe animation block specifies the end state of the "rotate" animation, where the custom property --angle is set to 360deg.
+- @property --angle: This part of the code defines the custom property --angle using the [CSS Houdini](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Houdini) @property rule. It specifies the expected syntax (angle), the initial value (0deg), and that the property does not inherit from parent elements.
+
+### Tailwind CSS
+
+If you prefer using Tailwind CSS, here's the equivalent code written with React and TypeScript:
+
+```jsx
+export const ShinyMovingCardBorderTW: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
+  const boxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const boxElement = boxRef.current;
+
+    if (!boxElement) {
+      return;
+    }
+
+    const updateAnimation = () => {
+      const angle =
+        (parseFloat(boxElement.style.getPropertyValue("--angle")) + 0.5) % 360;
+      boxElement.style.setProperty("--angle", `${angle}deg`);
+      requestAnimationFrame(updateAnimation);
+    };
+
+    requestAnimationFrame(updateAnimation);
+  }, []);
+
+  return (
+    <div
+      ref={boxRef}
+      style={
+        {
+          "--angle": "0deg",
+          "--border-color": "linear-gradient(var(--angle), #070707, #687aff)",
+          "--bg-color": "linear-gradient(#131219, #131219)",
+        } as CSSProperties
+      }
+      className="flex h-[400px] w-[400px] items-center justify-center rounded-lg border-2 border-[#0000] p-3 [background:padding-box_var(--bg-color),border-box_var(--border-color)]"
+    >
+      {children}
+    </div>
+  );
+};
+```
+
+In this implementation, we handle the animation using JavaScript. We utilize the [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) function to update the custom property --angle every 16ms (60fps).
+
+## More methods
+
+If you're interested in exploring other ways to animate borders in CSS, I recommend this [article](https://web.dev/css-border-animations/) which delves into several alternative techniques.
+
+</LayoutBlog>

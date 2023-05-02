@@ -15,13 +15,6 @@ const LayoutBlog: React.FC = ({ children }) => {
 
   const { title, description, datePublished, dateModified } = metadata!;
 
-  let domain = "  ";
-  if (process.env.NODE_ENV === "development") {
-    domain = "http://localhost:3000";
-  } else {
-    domain = "https://julienthibeaut.xyz";
-  }
-
   return (
     <>
       <NextSeo
@@ -33,7 +26,7 @@ const LayoutBlog: React.FC = ({ children }) => {
           description: description,
           images: [
             {
-              url: `${domain}/api/og/?title=${title}`,
+              url: `https://julienthibeaut.xyz/api/og/?title=${title}`,
               width: 1200,
               height: 630,
               alt: title,
@@ -43,15 +36,21 @@ const LayoutBlog: React.FC = ({ children }) => {
         }}
         canonical={`https://julienthibeaut.xyz/blog/${slug}`}
       />
+      <meta
+        property="twitter:image"
+        content={`https://julienthibeaut.xyz/api/og/?title=${title}`}
+      />
+      <meta property="twitter:title" content={title} />
+      <meta property="twitter:description" content={description} />
       <ArticleJsonLd
-        url={`${domain}/blog/${slug}`}
+        url={`https://julienthibeaut.xyz/blog/${slug}`}
         title={title}
         datePublished={datePublished}
         dateModified={dateModified || undefined}
         authorName="Julien Thibeaut"
         publisherName="Julien Thibeaut"
         description={description}
-        images={[`${domain}/api/og/?title=${title}`]}
+        images={[`https://julienthibeaut.xyz/blog/api/og/?title=${title}`]}
       />
       <article className="prose mx-auto max-w-screen-md px-6 pt-12 pb-32 prose-figcaption:text-center prose-img:mb-0 dark:prose-dark">
         {children}
