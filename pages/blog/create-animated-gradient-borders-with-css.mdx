@@ -1,31 +1,24 @@
 import LayoutBlog from "components/LayoutBlog";
 import {
-  ShinyMovingCardBorderTheme,
-  ShinyMovingCardBorder,
-  ShinyMovingCardBorderTW,
-} from "components/lab/ShinyMovingCardBorder";
+  AnimatedGradientBorderTheme,
+  AnimatedGradientBorder,
+  AnimatedGradientBorderTW,
+} from "components/lab/AnimatedGradientBorder";
 
 <LayoutBlog >
 
-# Creating shiny moving border with CSS
+# Creating an animated gradient border with CSS
 
-In this article, I'll share my favorite method for creating a shiny moving border with CSS. You can easily customize the border color, animation speed, border size, and border radius with this technique.
-
-<div className="flex justify-center">
-  <ShinyMovingCardBorderTheme />
-</div>
-
-This component is based on my dark/light theme.
-We will see below how to create a shiny moving border component from scratch.
+In this article, I'll share my favorite method for creating an animated gradient border with CSS. You can easily customize the border color, animation speed, border size, and border radius with this technique.
 
 ## The code
 
-<div className="bg-slate-950 flex items-center justify-center rounded-xl border border-slate-600/50 py-12 px-4">
-  <ShinyMovingCardBorder borderColor="(#6366f1, #0ea5e9)">
-    <span className="text-center text-xl font-medium text-white">
-      Moving gradient border
+<div className="flex items-center justify-center rounded-xl border border-slate-600/50 bg-slate-950 px-4 py-12">
+  <AnimatedGradientBorder borderColor="(#6366f1, #0ea5e9)">
+    <span className="text-center text-xl font-normal text-white">
+      Animated gradient border
     </span>
-  </ShinyMovingCardBorder>
+  </AnimatedGradientBorder>
 </div>
 
 ```html
@@ -78,7 +71,7 @@ To achieve our desired effect, we'll use the following CSS properties:
 If you prefer using Tailwind CSS, here's the equivalent code written with React and TypeScript:
 
 ```jsx
-export const ShinyMovingCardBorderTW: React.FC<{
+export const AnimatedGradientBorderTW: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   const boxRef = useRef<HTMLDivElement>(null);

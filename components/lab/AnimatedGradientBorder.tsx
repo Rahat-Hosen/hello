@@ -1,7 +1,7 @@
 import { useTheme } from "next-themes";
 import React, { CSSProperties, useEffect, useRef } from "react";
 
-export const ShinyMovingCardBorderTheme = () => {
+export const AnimatedGradientBorderTheme = () => {
   const { theme, setTheme } = useTheme();
   const [background, setBackground] = React.useState<string | null>(null);
   const [border, setBorder] = React.useState<string | null>(null);
@@ -79,9 +79,9 @@ export const ShinyMovingCardBorderTheme = () => {
   );
 };
 
-export const ShinyMovingCardBorder: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const AnimatedGradientBorder: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
   return (
     <>
       <div className="box">{children}</div>
@@ -118,7 +118,7 @@ export const ShinyMovingCardBorder: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-export const ShinyMovingCardBorderTW: React.FC<{
+export const AnimatedGradientBorderTW: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   const boxRef = useRef<HTMLDivElement>(null);
