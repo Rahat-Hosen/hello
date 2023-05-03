@@ -1,8 +1,11 @@
 const ComponentPlayground: React.FC<{
   children: React.ReactNode;
-}> = ({ children }) => {
+  className?: string;
+}> = ({ children, className }) => {
   return (
-    <div className="flex items-center justify-center rounded-xl border border-slate-600/50 bg-slate-950 px-4 py-12">
+    <div
+      className={`flex items-center justify-center rounded-xl border border-slate-600/50 bg-slate-950 px-4 py-12 ${className}`}
+    >
       {children}
     </div>
   );

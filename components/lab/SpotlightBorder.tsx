@@ -1,82 +1,136 @@
 import React, { useRef, useState } from "react";
 
-export const SpotlightBorder = () => {
+export const InputSpotlightBorder = () => {
   const divRef = useRef<HTMLInputElement>(null);
-  const [angle, setAngle] = useState(0);
   const [isFocused, setIsFocused] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLInputElement>) => {
     if (!divRef.current || isFocused) return;
 
     const div = divRef.current;
     const rect = div.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const deltaX = e.clientX - centerX;
-    const deltaY = e.clientY - centerY;
-    const rad = Math.atan2(deltaY, deltaX);
-    const deg = rad * (180 / Math.PI);
-    setAngle(deg);
+
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
   const handleFocus = () => {
     setIsFocused(true);
+    setOpacity(1);
   };
 
   const handleBlur = () => {
     setIsFocused(false);
+    setOpacity(0);
   };
 
-  console.log("angle", angle);
+  const handleMouseEnter = () => {
+    setOpacity(1);
+  };
+
+  const handleMouseLeave = () => {
+    setOpacity(0);
+  };
 
   return (
     <>
-      <label className="relative block w-56">
+      <div className="relative w-80">
         <input
-          ref={divRef}
           onMouseMove={handleMouseMove}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          autoComplete="off"
           placeholder="Enter your email address"
           type="email"
           name="email"
-          className="border-gradient h-12 w-full cursor-default rounded-md border-transparent bg-black p-3.5 text-white transition-colors placeholder:select-none  focus:outline-none xl:text-sm"
+          className="h-12 w-full cursor-default rounded-md border border-slate-800 bg-neutral-950 p-3.5 text-slate-100 transition-colors duration-500 placeholder:select-none  placeholder:text-neutral-500 focus:border-[#E47320] focus:outline-none"
         />
-      </label>
-      <style jsx>{`
-        .border-gradient {
-          content: "";
-          border: 1px solid #0000;
-          border-radius: 12px;
-          background: linear-gradient(#131219, #131219) padding-box,
-            linear-gradient(
-                ${angle}deg,
-                ${isFocused ? "#687aff" : "#131219"},
-                #687aff
-              )
-              border-box;
-          opacity: ${isFocused ? 1 : 0.5};
-          transition: opacity 0.5s ease-in-out, background 0.5s ease-in-out;
-          z-index: 1;
-        }
-      `}</style>
+        <input
+          ref={divRef}
+          disabled
+          style={{
+            border: "1px solid rgb(228 115 32)",
+            opacity,
+            WebkitMaskImage: `radial-gradient(30% 30px at ${position.x}px ${position.y}px, black 45%, transparent)`,
+          }}
+          aria-hidden="true"
+          className="border-[rgb(228 115 32)] pointer-events-none absolute left-0 top-0 z-10 h-12 w-full cursor-default rounded-md border bg-[transparent] p-3.5 opacity-0  transition-opacity duration-500 placeholder:select-none"
+        />
+      </div>
     </>
   );
 };
 
-/* .spotlight__border {
-          opacity: var(--opacity);
-          --opacity: 0;
-          --radius-y: 30px;
-          --radius-x: 30%;
-          -webkit-mask-image: radial-gradient(
-            var(--radius-x) var(--radius-y) at 510px -52px,
-            black 45%,
-            transparent
-          );
-          color: #fff;
-          transition-property: color, background-color, border-color,
-            text-decoration-color, fill, stroke;
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-duration: 0.15s;
-        } */
+export const CardSpotlightBorder = ({
+  children,
+  borderColor = "red",
+  borderWidth = 1,
+  percentSize = 30,
+}: {
+  children: React.ReactNode;
+  borderColor: string;
+  borderWidth: number;
+  percentSize: number;
+}) => {
+  const divRef = useRef<HTMLInputElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLInputElement>) => {
+    if (!divRef.current || isFocused) return;
+
+    const div = divRef.current;
+    const rect = div.getBoundingClientRect();
+
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    setOpacity(1);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+    setOpacity(0);
+  };
+
+  const handleMouseEnter = () => {
+    setOpacity(1);
+  };
+
+  const handleMouseLeave = () => {
+    setOpacity(0);
+  };
+
+  return (
+    <>
+      <div className="relative w-80">
+        <div
+          onMouseMove={handleMouseMove}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="flex h-48 w-full cursor-default items-center justify-center rounded-md border border-slate-800 bg-neutral-950 p-3.5 text-slate-100 transition-colors duration-500"
+        >
+          {children}
+        </div>
+        <div
+          ref={divRef}
+          style={{
+            border: `${borderWidth}px solid ${borderColor}`,
+            opacity,
+            WebkitMaskImage: `radial-gradient(${percentSize}% 100px at ${position.x}px ${position.y}px, black 45%, transparent)`,
+          }}
+          aria-hidden="true"
+          className={`border-[${borderColor}] pointer-events-none absolute left-0 top-0 z-10 h-48 w-full cursor-default rounded-md border bg-[transparent] p-3.5 opacity-0  transition-opacity duration-500 placeholder:select-none`}
+        />
+      </div>
+    </>
+  );
+};
