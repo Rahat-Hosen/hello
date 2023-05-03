@@ -2,6 +2,7 @@ import { NextSeo, ArticleJsonLd } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";
 import postsData from "../pages/blog/metadata.json";
+import Custom404 from "pages/404";
 const { postsMetadata } = postsData;
 
 const LayoutBlog: React.FC = ({ children }) => {
@@ -14,6 +15,11 @@ const LayoutBlog: React.FC = ({ children }) => {
   }
 
   const { title, description, datePublished, dateModified } = metadata!;
+
+  if (!datePublished) {
+    console.log("Not published yet");
+    return <Custom404 />;
+  }
 
   return (
     <>

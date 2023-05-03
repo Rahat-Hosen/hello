@@ -27,7 +27,7 @@ const BlogPage = ({ posts }: BlogPageProps) => {
                     {post.title}
                   </span>
                   <time className="text-sm text-slate-500 dark:text-gray-300">
-                    {new Date(post.datePublished).toLocaleDateString()}
+                    {new Date(post.datePublished!).toLocaleDateString()}
                   </time>
                 </div>
               </Link>
@@ -40,9 +40,14 @@ const BlogPage = ({ posts }: BlogPageProps) => {
 };
 
 export const getStaticProps = async () => {
-  const posts: Posts[] = postsMetadata.sort((a, b) => {
+  const publishedPosts = postsMetadata.filter((post) => {
+    return post.datePublished !== null;
+  }) as Posts[];
+
+  const posts: Posts[] = publishedPosts.sort((a, b) => {
     return (
-      new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
+      new Date(b.datePublished!).getTime() -
+      new Date(a.datePublished!).getTime()
     );
   });
 
