@@ -9,12 +9,6 @@ export default async function handler(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
 
-    const image = fetch(
-      new URL("../../public/og/blueskybg.jpg", import.meta.url).toString()
-    ).then((res) => res.arrayBuffer());
-
-    const imageData = await image;
-
     const hasTitle = searchParams.has("title");
 
     const title = hasTitle
@@ -41,56 +35,27 @@ export default async function handler(request: NextRequest) {
             position: "relative",
           }}
         >
-          <img src={imageData as any} alt="bg" />
           <div
-            style={{ display: "flex", backdropFilter: "blur(24px)" }}
-            tw="absolute bottom-0 right-0 h-[80%] w-[90%] rounded-tl-2xl bg-gray-900/80 shadow-2xl"
+            tw="relative flex h-full w-full items-center justify-center p-10"
+            style={{
+              display: "flex",
+              background:
+                "linear-gradient(to right, rgb(24, 28, 35), rgba(11, 13, 19, 0.975), rgb(0, 0, 0))",
+            }}
           >
             <div
+              tw="absolute bottom-12 left-16 flex items-center"
               style={{ display: "flex" }}
-              tw="absolute top-0 left-0 flex w-full rounded-tl-2xl border-b border-gray-700/50 bg-slate-800/70 py-[10px] px-4"
             >
-              <div tw="h-3 w-3 mr-2 rounded-full bg-[#FE5F57]"></div>
-              <div tw="h-3 w-3 mr-2 rounded-full bg-[#FFBC2E]"></div>
-              <div tw="h-3 w-3 rounded-full bg-[#28C840]"></div>
+              <img
+                alt="Author"
+                src={`https://github.com/ibelick.png`}
+                tw="mr-4 h-10 w-10 rounded-full object-cover"
+              />
+              <span tw="text-2xl text-slate-100/80">@ibelick</span>
             </div>
-            <div
-              tw="flex h-full w-full flex-col justify-end p-10 text-white"
-              style={{ display: "flex" }}
-            >
-              <div
-                tw="text-left flex-col word"
-                style={{
-                  display: "flex",
-                  fontFamily: "Inter",
-                  wordBreak: "break-word",
-                }}
-              >
-                <h2
-                  tw="text-7xl font-black"
-                  style={{
-                    letterSpacing: "-0.5px",
-                  }}
-                >
-                  {title}
-                </h2>
-                <div
-                  tw="mt-6 flex whitespace-nowrap"
-                  style={{ display: "flex" }}
-                >
-                  <div
-                    tw="flex justify-center items-center"
-                    style={{ display: "flex" }}
-                  >
-                    <img
-                      alt="Author"
-                      src={`https://github.com/ibelick.png`}
-                      tw="object-cover mr-4 h-8 w-8 rounded-full"
-                    />
-                    <span tw="text-base text-slate-200/80">@ibelick</span>
-                  </div>
-                </div>
-              </div>
+            <div style={{ display: "flex" }}>
+              <h1 tw="text-7xl font-medium text-white">{title}</h1>
             </div>
           </div>
         </div>
