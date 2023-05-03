@@ -1,6 +1,13 @@
 {
   "postsMetadata": [
     {
+      "title": "Creating an interactive spotlight Border with CSS and React",
+      "description": "How to create an interactive spotlight border with CSS and React?",
+      "datePublished": "2023-05-08T00:00",
+      "dateModified": null,
+      "slug": "create-spotlight-border-with-react-css"
+    },
+    {
       "title": "Creating an animated text gradient with CSS",
       "description": "How to create an animated text gradient with CSS?",
       "datePublished": "2023-05-05T00:00",
