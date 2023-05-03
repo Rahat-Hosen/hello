@@ -156,3 +156,61 @@ export const AnimatedGradientBorderTW: React.FC<{
     </div>
   );
 };
+
+export const AnimatedGradientBorderBackground: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
+  return (
+    <>
+      <div className="box__bg">{children}</div>
+      <style jsx>
+        {`
+          .box__bg {
+            --border-width: 1px;
+            position: relative;
+            z-index: 0;
+            height: 400px;
+            width: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 12px;
+          }
+
+          .box__bg::before {
+            content: "";
+            position: absolute;
+            z-index: -2;
+            left: -50%;
+            top: -50%;
+            width: 200%;
+            height: 200%;
+            background-color: #000;
+            background-repeat: no-repeat;
+            background-size: 100%100%, 50%50%;
+            background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+            background-image: linear-gradient(#070707, #687aff);
+            animation: bgRotate 4s linear infinite;
+          }
+
+          .box__bg::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: var(--border-width);
+            top: var(--border-width);
+            width: calc(100% - calc(var(--border-width) * 2));
+            height: calc(100% - calc(var(--border-width) * 2));
+            background: linear-gradient(#06021d, #06021d);
+            border-radius: 12px;
+          }
+
+          @keyframes bgRotate {
+            100% {
+              transform: rotate(1turn);
+            }
+          }
+        `}
+      </style>
+    </>
+  );
+};

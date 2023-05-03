@@ -3,23 +3,30 @@ import {
   AnimatedGradientBorderTheme,
   AnimatedGradientBorder,
   AnimatedGradientBorderTW,
+  AnimatedGradientBorderBackground,
 } from "components/lab/AnimatedGradientBorder";
+import ComponentPlayground from "components/ComponentPlayground";
 
 <LayoutBlog >
 
 # Creating an animated gradient border with CSS
 
-In this article, I'll share my favorite method for creating an animated gradient border with CSS. You can easily customize the border color, animation speed, border size, and border radius with this technique.
+In this article, I'll share methods for creating an animated gradient border with CSS. You can easily customize the border color, animation speed, border size, and border radius with theses techniques.
 
-## The code
+## Code
 
-<div className="flex items-center justify-center rounded-xl border border-slate-600/50 bg-slate-950 px-4 py-12">
+### Property and background clip
+
+_We use the @property rule, it comes with limited supports you can check the brower support here [caniuse](https://caniuse.com/?search=%40property)_.
+For a more supported method, you can go to the end of the article.
+
+<ComponentPlayground>
   <AnimatedGradientBorder borderColor="(#6366f1, #0ea5e9)">
     <span className="text-center text-xl font-normal text-white">
       Animated gradient border
     </span>
   </AnimatedGradientBorder>
-</div>
+</ComponentPlayground>
 
 ```html
 <div class="box">{children}</div>
@@ -113,8 +120,65 @@ export const AnimatedGradientBorderTW: React.FC<{
 
 In this implementation, we handle the animation using JavaScript. We utilize the [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) function to update the custom property --angle every 16ms (60fps).
 
-## More methods
+### CSS Pseudo-Elements
 
-If you're interested in exploring other ways to animate borders in CSS, I recommend this [article](https://web.dev/css-border-animations/) which delves into several alternative techniques.
+If you want to support more browsers, you can use the following method instead:
+
+<ComponentPlayground>
+  <AnimatedGradientBorderBackground />
+</ComponentPlayground>
+
+```css
+.box__bg {
+  position: relative;
+  z-index: 0;
+  height: 400px;
+  width: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.box__bg::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: 100%100%, 50%50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-image: linear-gradient(#070707, #687aff);
+  animation: bgRotate 4s linear infinite;
+}
+
+.box__bg::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 1px;
+  top: 1px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  background: linear-gradient(#06021d, #06021d);
+  border-radius: 12px;
+}
+
+@keyframes bgRotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+```
+
+This technique uses `::before` and `::after` pseudo-elements to create the border and background layers, respectively. The `::before` pseudo-element contains the animated gradient, rotating infinitely over 4 seconds using the bgRotate keyframes. The `::after` pseudo-element is positioned above the gradient layer and sets the background color. The div itself has a fixed size, border-radius, and padding, with its overflow hidden to ensure the animated border is contained within the specified area.
+
+### More
+
+Here we explore a few different ways to animate borders in CSS.
+I recommend this [article](https://web.dev/css-border-animations/) if you want to dive deeper into the topic.
 
 </LayoutBlog>
