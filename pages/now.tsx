@@ -10,7 +10,7 @@ type NowPage = {
 
 const NowPage: NextPage<NowPage> = ({ coverUrl, entries, lastUpdated }) => {
   return (
-    <section className="max-w-screen mx-auto mb-14 px-6 py-12">
+    <section className="pt-2 md:pt-24">
       <figure className="mb-10 max-w-xs overflow-hidden rounded-lg shadow-md">
         {coverUrl ? (
           <Image
@@ -24,26 +24,28 @@ const NowPage: NextPage<NowPage> = ({ coverUrl, entries, lastUpdated }) => {
           />
         ) : null}
       </figure>
-      <p className="mb-4">
-        What I’m doing <span className="italic">now</span>
-      </p>
-      <ul className="list-inside list-disc">
-        {entries?.map((entrie, index) => (
-          <li key={`${entrie}-${index}`} className="mb-1  ">
-            {entrie}
-          </li>
-        ))}
-      </ul>
-      <p className="mt-8">
-        What is a{" "}
-        <a href="https://nownownow.com/about" className="underline">
-          “now page”
-        </a>
-        ?
-      </p>
-      <p className="mt-8 text-sm text-gray-600 dark:text-gray-400">
-        Last updated: {new Date(lastUpdated).toLocaleDateString()}
-      </p>
+      <div>
+        <p className="mb-4">
+          What I’m doing <span className="italic">now</span>
+        </p>
+        <ul className="list-inside list-disc">
+          {entries?.map((entrie, index) => (
+            <li key={`${entrie}-${index}`} className="mb-1  ">
+              {entrie}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-8">
+          What is a{" "}
+          <a href="https://nownownow.com/about" className="underline">
+            “now page”
+          </a>
+          ?
+        </p>
+        <p className="mt-8 text-sm text-gray-600 dark:text-gray-400">
+          Last updated: {new Date(lastUpdated).toLocaleDateString()}
+        </p>
+      </div>
     </section>
   );
 };

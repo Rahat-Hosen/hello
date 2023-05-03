@@ -9,6 +9,12 @@ export default async function handler(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
 
+    const image = fetch(
+      new URL("../../public/og/blueskybg.jpg", import.meta.url).toString()
+    ).then((res) => res.arrayBuffer());
+
+    const imageData = await image;
+
     const hasTitle = searchParams.has("title");
 
     const title = hasTitle
@@ -35,14 +41,7 @@ export default async function handler(request: NextRequest) {
             position: "relative",
           }}
         >
-          <div
-            style={{
-              background: `linear-gradient(to right, rgb(219, 234, 254), rgb(147, 197, 253), rgb(59, 130, 246))`,
-              width: "100%",
-              height: "100%",
-              display: "flex",
-            }}
-          />
+          <img src={imageData as any} alt="bg" />
           <div
             style={{ display: "flex", backdropFilter: "blur(24px)" }}
             tw="absolute bottom-0 right-0 h-[80%] w-[90%] rounded-tl-2xl bg-gray-900/80 shadow-2xl"

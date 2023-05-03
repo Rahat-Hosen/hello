@@ -52,7 +52,7 @@ const LayoutBlog: React.FC = ({ children }) => {
         description={description}
         images={[`https://julienthibeaut.xyz/blog/api/og/?title=${title}`]}
       />
-      <article className="prose mx-auto max-w-screen-md px-6 pb-32 pt-12 dark:prose-dark prose-figcaption:text-center prose-img:mb-0 prose-video:mb-0">
+      <article className="prose dark:prose-dark prose-figcaption:text-center prose-img:mb-0 prose-video:mb-0">
         {children}
         <p className="text-right text-sm text-gray-600 dark:text-gray-400">
           Published: {new Date(datePublished).toLocaleDateString()}{" "}

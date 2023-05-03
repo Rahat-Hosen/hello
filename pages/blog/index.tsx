@@ -16,20 +16,19 @@ type Posts = {
 
 const BlogPage = ({ posts }: BlogPageProps) => {
   return (
-    <section className="max-w-screen mx-auto px-6 py-12">
+    <section className="pt-2 md:pt-24">
       <ul>
         {posts.map((post) => {
           return (
             <li key={post.slug} className="mb-6">
               <Link href={`/blog/${post.slug}`}>
-                <div>
-                  <span className="text-gray-600 dark:text-gray-300">
-                    {new Date(post.datePublished).toLocaleDateString()}
-                  </span>
-                  <span className="mx-1">✦</span>
-                  <span className="text-gradient bg-gradient-to-r from-blue-500 to-purple-600 font-semibold hover:bg-gradient-to-r">
+                <div className="flex transition hover:opacity-70">
+                  <span className="flex-1 pr-4 font-medium text-slate-900 dark:text-slate-100">
                     {post.title}
                   </span>
+                  <time className="text-sm text-slate-500 dark:text-gray-300">
+                    {new Date(post.datePublished).toLocaleDateString()}
+                  </time>
                 </div>
               </Link>
             </li>

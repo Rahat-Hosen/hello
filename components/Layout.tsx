@@ -31,6 +31,7 @@ const Tabs = () => {
   const [activeTabIndex, setActiveTabIndex] = useState<number | null>(null);
   const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
   const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     setIsMounted(true);
@@ -41,7 +42,7 @@ const Tabs = () => {
       (tab) => tab.href === `/${currentPath}`
     );
     setActiveTabIndex(currentTab);
-  }, []);
+  }, [router.pathname]);
 
   useEffect(() => {
     if (activeTabIndex === null) {
@@ -70,7 +71,7 @@ const Tabs = () => {
     <div className="fixed inset-x-0 bottom-0 mx-auto mb-4 h-16 w-full max-w-md px-6 ">
       <div className="flew-row relative mx-auto flex h-full w-full rounded-full border border-black/40 bg-white/30 backdrop-blur-sm dark:border-white dark:bg-black/30 dark:text-white">
         <span
-          className="absolute top-0 bottom-0 -z-10 flex overflow-hidden rounded-full p-2 transition-all duration-300"
+          className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full p-2 transition-all duration-300"
           style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
         >
           <span className="h-full w-full rounded-full bg-gray-200/70 dark:bg-gray-800/70" />
@@ -78,17 +79,13 @@ const Tabs = () => {
         {allTabs.map((tab, index) => {
           if (tab.id === "theme") {
             return (
-              <a
-                className="my-auto mx-2 flex cursor-pointer rounded-full p-3 text-center"
+              <span
                 key={index}
+                className="font-5xl mx-2 my-auto flex cursor-pointer select-none rounded-full p-3 text-center transition duration-200 hover:text-yellow-500 dark:hover:text-yellow-400"
+                onClick={switchTheme}
               >
-                <span
-                  className="select-none transition duration-200 hover:text-yellow-500 dark:hover:text-yellow-400"
-                  onClick={switchTheme}
-                >
-                  ●
-                </span>
-              </a>
+                ●
+              </span>
             );
           }
 
@@ -97,7 +94,7 @@ const Tabs = () => {
               key={index}
               href={tab.href as string}
               ref={(el) => (tabsRef.current[index] = el)}
-              className="my-auto mx-2 flex-1 cursor-pointer rounded-full text-center transition hover:text-black/80 dark:hover:text-white/80"
+              className="mx-2 my-auto flex-1 cursor-pointer rounded-full text-center transition hover:text-black/80 dark:hover:text-white/80"
               onClick={() => setActiveTabIndex(index)}
             >
               {tab.name}
@@ -112,7 +109,9 @@ const Tabs = () => {
 const Layout: FC = ({ children }) => {
   return (
     <div className="flex min-h-screen w-screen flex-col dark:bg-black">
-      <main className="flex-1 dark:text-white">{children}</main>
+      <main className="mx-auto mb-14 w-full max-w-screen-md flex-1 px-4 py-12 dark:text-white">
+        {children}
+      </main>
       <Tabs />
     </div>
   );

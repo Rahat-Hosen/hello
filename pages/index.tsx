@@ -2,12 +2,11 @@ import Link from "next/link";
 import NewWindowIcon from "../components/NewWindowIcon";
 import AccordionMenu from "../components/AccordionMenu";
 import { Fragment } from "react";
-import { NextSeo } from "next-seo";
 
 export default function Home() {
   return (
     <>
-      <section className="max-w-screen mx-auto mb-14 px-6 py-12">
+      <section>
         <p className="mb-8 text-gray-600 dark:text-gray-400">
           julien.thibeaut[at]gmail.com
         </p>
@@ -249,7 +248,7 @@ const AccordionProject: React.FC<{
         </div>
       }
     >
-      <div className="mt-2 mb-1 text-sm font-light text-neutral-500">
+      <div className="mb-1 mt-2 text-sm font-light text-neutral-500">
         {description}
       </div>
       <div>
