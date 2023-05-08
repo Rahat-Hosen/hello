@@ -7,9 +7,9 @@ import {
 
 <LayoutBlog >
 
-# Creating an interactive spotlight Border with CSS and React
+# Creating an interactive spotlight border with CSS and React
 
-I recently see this effect on the [Base Hub](https://basehub.ai/) website and I wanted to recreate it.
+I recently saw this effect this effect on the [Base Hub](https://basehub.ai/) website and I wanted to recreate it.
 
 <figure>
   <video
@@ -26,7 +26,7 @@ I recently see this effect on the [Base Hub](https://basehub.ai/) website and I 
   </figcaption>
 </figure>
 
-I will provide a solution with Tailwind CSS and React, and one React and CSS. I will also explore more UI effects with this.
+I'm providing a solution with React and Tailwind CSS, and one with CSS. I'll also explore more UI effects using this technique.
 
 ## The component
 
@@ -104,7 +104,7 @@ export const InputSpotlightBorder = () => {
 
 The spotlight border effect is achieved by overlaying a second disabled input element with the same dimensions as the original input, positioned absolutely on top of the original input.
 
-The spotlight effect is created by applying a radial-gradient mask to the overlay input's border. The gradient mask has a transparent outer region, creating a spotlight-like appearance. The component uses event listeners to handle mouse movement, focus, and blur events.
+The effect is created by applying a radial-gradient mask to the overlay input's border. The gradient mask has a transparent outer region, creating a spotlight-like appearance. The component uses event listeners to handle mouse movement, focus, and blur events.
 
 When the mouse moves over the input, the handleMouseMove function updates the position of the gradient mask based on the current mouse coordinates relative to the input element. The spotlight effect follows the mouse as a result.
 
@@ -245,6 +245,7 @@ You can use this techniques on any element, not just inputs. For example on card
   </CardSpotlightBorder>
 </ComponentPlayground>
 
-I never saw this effect before and I think it's a really cool way to make a form (or anything else) more interactive. Let me know what you think!
+I saw a lot of spotlight effect recently, but never saw it on border specificaly.
+I think it's a really cool way to make a form (or anything else) more interactive. Let me know what you think!
 
 </LayoutBlog>
