@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import postsData from "../pages/blog/metadata.json";
 import Custom404 from "pages/404";
+import Link from "next/link";
 const { postsMetadata } = postsData;
 
 const LayoutBlog: React.FC = ({ children }) => {
@@ -59,6 +60,12 @@ const LayoutBlog: React.FC = ({ children }) => {
         images={[`https://julienthibeaut.xyz/blog/api/og/?title=${title}`]}
       />
       <article className="prose dark:prose-dark prose-figcaption:text-center prose-img:mb-0 prose-video:mb-0">
+        <Link
+          href="/blog"
+          className="mb-4 inline-flex font-normal text-slate-800 no-underline transition hover:text-slate-600 dark:text-slate-100 dark:hover:text-slate-300"
+        >
+          ← back to all posts
+        </Link>
         {children}
         <p className="text-right text-sm text-gray-600 dark:text-gray-400">
           Published: {new Date(datePublished).toLocaleDateString()}{" "}

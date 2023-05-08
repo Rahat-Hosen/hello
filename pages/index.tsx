@@ -16,16 +16,20 @@ export default function Home() {
         </p>{" "}
         <p className="mt-4">
           <span className="underline">Specialties:</span> JavaScript, React,
-          React Native, Next.js, TypeScript
+          React Native, Next.js, TypeScript, CSS
         </p>
         <details className="prose -mx-0 mt-12 dark:prose-dark" open>
           <summary className="cursor-pointer font-semibold">About me</summary>
           <p>
-            I have been building UIs with <strong>React since 2016</strong>. My
-            main work is focused on building UIs, creating component libraries,
-            design systems, and front-end architecture. I love being part of the
-            design process, working with designers to create stunning screens,
-            and optimizing the user experience.
+            Since 2016, I've been <strong>crafting UIs with React</strong>,
+            specializing in creating component libraries, design systems, and
+            front-end architecture. My experience spans working with startups on
+            SaaS products, mobile apps, or e-commerce, as well as building
+            products independently or alongside friends. I take great pleasure
+            in collaborating with designers during the design process to develop
+            visually stunning screens and enhance user experiences. If you're
+            interested in collaborating or have any project ideas, feel free to
+            send me an email.
           </p>
           <p>
             Based in Paris, I'm open to remote collaboration. Some random
@@ -33,11 +37,11 @@ export default function Home() {
             technologies, documentaries, and rap music.{" "}
           </p>
           <p>
-            I also like to create a{" "}
-            <Link href={"/monthly-playlists"}>playlist per month</Link>, and I
-            need to <Link href={"/blog"}>write more</Link>. This website serves
-            as my digital garden, I will try to keep it updated with my latest
-            projects/experiments and thoughts.
+            I enjoy curating a{" "}
+            <Link href={"/monthly-playlists"}>playlist per month</Link>, and I'm
+            committed to <Link href={"/blog"}>writing more frequently</Link>. My
+            website acts as my digital garden, where I'll continuously update it
+            with my latest projects, experiments, and insights.
           </p>
         </details>
         <details className="prose -mx-0 mt-12 dark:prose-dark" open>
@@ -46,6 +50,19 @@ export default function Home() {
           </summary>
           <ul className="items flex max-w-xs list-none flex-col justify-between divide-y pl-0">
             <li className="m-0 mt-5 py-2 pl-0">
+              <AccordionProject
+                title="basyl"
+                date={2023}
+                description="An AI cooking assistant. Experiment with Open AI's GPT-3 to generate recipes and cooking instructions."
+                links={[
+                  {
+                    text: "Website",
+                    link: "https://basyl.co/",
+                  },
+                ]}
+              />
+            </li>
+            <li className="m-0 py-2 pl-0">
               <AccordionProject
                 title="rapsodie"
                 date={2022}
@@ -210,17 +227,17 @@ export default function Home() {
         <div className="mt-12">
           <p className="mb-2">Also available on</p>
           <ul className="list-none p-0">
-            <li className="mb-2 cursor-pointer underline decoration-gray-500 underline-offset-4">
+            <li className="mb-2 cursor-pointer underline decoration-gray-500 underline-offset-4 transition hover:opacity-60">
               <a href="https://twitter.com/Ibelick" target="_blank">
                 Twitter ↗
               </a>
             </li>
-            <li className="mb-2 cursor-pointer underline decoration-gray-500 underline-offset-4">
+            <li className="mb-2 cursor-pointer underline decoration-gray-500 underline-offset-4 transition hover:opacity-60">
               <a href="https://github.com/ibelick" target="_blank">
                 GitHub ↗
               </a>
             </li>
-            <li className="mb-2 cursor-pointer underline decoration-gray-500 underline-offset-4">
+            <li className="mb-2 cursor-pointer underline decoration-gray-500 underline-offset-4 transition hover:opacity-60">
               <a href="https://read.cv/ibelick" target="_blank">
                 Read.CV ↗
               </a>
