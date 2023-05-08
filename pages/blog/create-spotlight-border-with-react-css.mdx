@@ -1,0 +1,251 @@
+import LayoutBlog from "components/LayoutBlog";
+import ComponentPlayground from "components/ComponentPlayground";
+import {
+  InputSpotlightBorder,
+  CardSpotlightBorder,
+} from "components/lab/SpotlightBorder";
+
+<LayoutBlog >
+
+# Creating an interactive spotlight border with CSS and React
+
+I recently saw this effect this effect on the [Base Hub](https://basehub.ai/) website and I wanted to recreate it.
+
+<figure>
+  <video
+    playsInline
+    muted
+    loop
+    autoPlay
+    src="/blog/spotlight-gradient-basehub.mp4"
+    alt="Spotlight border gradient basehub landing page"
+    className="m-auto h-full w-96 rounded-xl border border-slate-600/50"
+  />
+  <figcaption>
+    [Spotlight border gradient basehub landing page](https://basehub.ai/)
+  </figcaption>
+</figure>
+
+I'm providing a solution with React and Tailwind CSS, and one with CSS. I'll also explore more UI effects using this technique.
+
+## The component
+
+<ComponentPlayground>
+  <InputSpotlightBorder />
+</ComponentPlayground>
+
+## React and Tailwind CSS solution
+
+```tsx
+export const InputSpotlightBorder = () => {
+  const divRef = useRef<HTMLInputElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLInputElement>) => {
+    if (!divRef.current || isFocused) return;
+
+    const div = divRef.current;
+    const rect = div.getBoundingClientRect();
+
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    setOpacity(1);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+    setOpacity(0);
+  };
+
+  const handleMouseEnter = () => {
+    setOpacity(1);
+  };
+
+  const handleMouseLeave = () => {
+    setOpacity(0);
+  };
+
+  return (
+    <>
+      <div className="relative w-80">
+        <input
+          onMouseMove={handleMouseMove}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          autoComplete="off"
+          placeholder="Enter your email address"
+          type="email"
+          name="email"
+          className="bg-neutral-950 h-12 w-full cursor-default rounded-md border border-slate-800 p-3.5 text-slate-100 transition-colors duration-500 placeholder:select-none  placeholder:text-neutral-500 focus:border-[#E47320] focus:outline-none"
+        />
+        <input
+          ref={divRef}
+          disabled
+          style={{
+            border: "1px solid rgb(228 115 32)",
+            opacity,
+            WebkitMaskImage: `radial-gradient(30% 30px at ${position.x}px ${position.y}px, black 45%, transparent)`,
+          }}
+          aria-hidden="true"
+          className="border-[rgb(228 115 32)] pointer-events-none absolute left-0 top-0 z-10 h-12 w-full cursor-default rounded-md border bg-[transparent] p-3.5 opacity-0  transition-opacity duration-500 placeholder:select-none"
+        />
+      </div>
+    </>
+  );
+};
+```
+
+The spotlight border effect is achieved by overlaying a second disabled input element with the same dimensions as the original input, positioned absolutely on top of the original input.
+
+The effect is created by applying a radial-gradient mask to the overlay input's border. The gradient mask has a transparent outer region, creating a spotlight-like appearance. The component uses event listeners to handle mouse movement, focus, and blur events.
+
+When the mouse moves over the input, the handleMouseMove function updates the position of the gradient mask based on the current mouse coordinates relative to the input element. The spotlight effect follows the mouse as a result.
+
+When the input gains focus (`handleFocus`), the spotlight effect's opacity is set to 1, making it fully visible. When the input loses focus (`handleBlur`), the opacity is set back to 0, making the spotlight invisible. The `onMouseEnter` and `onMouseLeave` events ensure that the spotlight is only visible when the mouse is inside the input area.
+
+## React + CSS
+
+If you don't want to use Tailwind CSS, you can use the following CSS to achieve the same effect.
+
+```tsx
+import React, { useRef, useState } from "react";
+import "./spotlightBorder.css";
+
+export const InputSpotlightBorderCSS = () => {
+  const divRef = useRef<HTMLInputElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLInputElement>) => {
+    if (!divRef.current || isFocused) return;
+
+    const div = divRef.current;
+    const rect = div.getBoundingClientRect();
+
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    setOpacity(1);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+    setOpacity(0);
+  };
+
+  const handleMouseEnter = () => {
+    setOpacity(1);
+  };
+
+  const handleMouseLeave = () => {
+    setOpacity(0);
+  };
+
+  return (
+    <div className="input-wrapper relative">
+      <input
+        onMouseMove={handleMouseMove}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        autoComplete="off"
+        placeholder="Enter your email address"
+        type="email"
+        name="email"
+        className="base-input"
+      />
+      <input
+        ref={divRef}
+        disabled
+        style={{
+          border: "1px solid rgb(228, 115, 32)",
+          opacity,
+          WebkitMaskImage: `radial-gradient(30% 30px at ${position.x}px ${position.y}px, black 45%, transparent)`,
+        }}
+        aria-hidden="true"
+        className="overlay-input"
+      />
+    </div>
+  );
+};
+```
+
+```css spotlightBorder.css
+.relative {
+  position: relative;
+}
+
+.input-wrapper {
+  width: 20rem;
+}
+
+.base-input {
+  height: 3rem;
+  width: 100%;
+  cursor: default;
+  border-radius: 0.5rem;
+  border: 1px solid #2d3748;
+  background-color: #1a202c;
+  padding: 0.875rem;
+  color: #cbd5e0;
+  transition: border-color 0.5s;
+  outline: none;
+}
+
+.base-input:focus {
+  border-color: #e47320;
+}
+
+.base-input::placeholder {
+  color: #718096;
+  user-select: none;
+}
+
+.overlay-input {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  height: 3rem;
+  width: 100%;
+  cursor: default;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  padding: 0.875rem;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+```
+
+## More examples of spotlight borders
+
+You can use this techniques on any element, not just inputs. For example on cards:
+
+<ComponentPlayground className="flex-col gap-8">
+  <CardSpotlightBorder borderColor="#bef264">
+    Card with a spotlight border #1
+  </CardSpotlightBorder>
+  <CardSpotlightBorder borderColor="#075985" borderWidth={6}>
+    Card with a spotlight border #2
+  </CardSpotlightBorder>
+  <CardSpotlightBorder borderColor="#fecdd3" percentSize={99}>
+    Card with a spotlight border #3
+  </CardSpotlightBorder>
+</ComponentPlayground>
+
+I saw a lot of spotlight effect recently, but never saw it on border specificaly.
+I think it's a really cool way to make a form (or anything else) more interactive. Let me know what you think!
+
+</LayoutBlog>
