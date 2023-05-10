@@ -1,6 +1,13 @@
 {
   "postsMetadata": [
     {
+      "title": "Crafting a modern spotlight effect with React and CSS",
+      "description": "How to create a modern spotlight effect with React and CSS?",
+      "datePublished": "2023-05-10T00:00",
+      "dateModified": null,
+      "slug": "create-modern-spotlight-effect-with-react-css"
+    },
+    {
       "title": "Creating an interactive spotlight border with CSS and React",
       "description": "How to create an interactive spotlight border with CSS and React?",
       "datePublished": "2023-05-08T00:00",
