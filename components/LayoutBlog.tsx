@@ -74,6 +74,24 @@ const LayoutBlog: React.FC = ({ children }) => {
   update: ${new Date(dateModified).toLocaleDateString()}`
             : null}
         </p>
+        <div>
+          <hr className="mx-auto my-8 w-28" />
+        </div>
+        <div className="not-prose relative overflow-hidden border-slate-800 bg-slate-900 p-px">
+          <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ffb6ff_0%,#000_50%,#ffb7ff_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#ffb6ff_0%,#fff_50%,#ffb7ff_100%)]" />
+          <div className="inline-flex h-full  w-full flex-col items-start bg-white p-4 text-sm font-medium backdrop-blur-3xl dark:bg-black">
+            <p className=" text-slate-800/90 dark:text-slate-200/90">
+              <span className="font-bold">
+                Enjoyed this read? I'd love to connect!
+              </span>{" "}
+              I'm Julien, a developer passionate about crafting unique UI
+              experiences. Let's exchange ideas and insights on Twitter{" "}
+              <a href="https://twitter.com/ibelick" className="font-bold">
+                @ibelick
+              </a>
+            </p>
+          </div>
+        </div>
       </article>
     </>
   );
