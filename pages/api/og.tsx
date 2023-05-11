@@ -36,11 +36,9 @@ export default async function handler(request: NextRequest) {
           }}
         >
           <div
-            tw="relative flex h-full w-full items-center justify-center p-10"
+            tw="relative flex h-full w-full items-center justify-center p-10 bg-black"
             style={{
               display: "flex",
-              background:
-                "linear-gradient(to right, rgb(24, 28, 35), rgba(11, 13, 19, 0.975), rgb(0, 0, 0))",
             }}
           >
             <div
@@ -55,7 +53,16 @@ export default async function handler(request: NextRequest) {
               <span tw="text-2xl text-slate-100/80">@ibelick</span>
             </div>
             <div style={{ display: "flex" }}>
-              <h1 tw="text-7xl font-medium text-white">{title}</h1>
+              <h1
+                tw="text-7xl font-medium text-white"
+                style={{
+                  color: "transparent",
+                  backgroundClip: "text",
+                  backgroundImage: "linear-gradient(180deg,#ffffff,#6f6f6f)",
+                }}
+              >
+                {title}
+              </h1>
             </div>
           </div>
         </div>
