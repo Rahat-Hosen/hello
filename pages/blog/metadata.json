@@ -1,6 +1,13 @@
 {
   "postsMetadata": [
     {
+      "title": "Creating gradient shadows with Tailwind CSS and CSS",
+      "description": "How to create gradient shadows with Tailwind CSS and CSS?",
+      "datePublished": "2023-05-12T00:00",
+      "dateModified": null,
+      "slug": "create-gradient-shadows-tailwind-css"
+    },
+    {
       "title": "Crafting a modern spotlight effect with React and CSS",
       "description": "How to create a modern spotlight effect with React and CSS?",
       "datePublished": "2023-05-10T00:00",
