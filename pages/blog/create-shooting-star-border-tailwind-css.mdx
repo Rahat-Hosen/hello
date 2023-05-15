@@ -1,19 +1,177 @@
 import LayoutBlog from "components/LayoutBlog";
-import { CardShootingStarBorderCSS } from "components/lab/ShootingStarBorder";
+import {
+  CardShootingStarBorderCSS,
+  ShootingStarBorderTW,
+} from "components/lab/ShootingStarBorder";
 import ComponentPlayground from "components/ComponentPlayground";
 
 <LayoutBlog>
     
-# Creating shooting star border with Tailwind CSS and CSS
+# Creating a shooting star border with Tailwind CSS and CSS
 
-I was looking for a way to create a shooting star border for a project I was working on. I found a few examples online but they were all using SVGs. I wanted to create it using CSS and Tailwind CSS. I was able to create it using a combination of CSS and Tailwind CSS.
+Recently, while exploring animated borders for a project (you can read my previous piece on [animated border](http://julienthibeaut.xyz/blog/create-animated-gradient-borders-with-css)), one style caught my attention - a shimmering effect reminiscent of a shooting star. Today, we'll dive into creating this 'Shooting Star Border' using both Tailwind CSS and vanilla CSS.
+
+## Example
 
 <ComponentPlayground>
   <CardShootingStarBorderCSS />
 </ComponentPlayground>
 
+## HTML+CSS
+
+Here is the HTML and CSS code to create the shooting star border.
+
+```html
+<button>
+  <span className="spark__container">
+    <span className="spark" />
+  </span>
+  <span className="backdrop" />
+  <span className="text">Shooting star border</span>
+</button>
+```
+
+```css
+button {
+  --transition: 0.25s;
+  --spark: 3s;
+  --bg: black;
+  background: var(--bg);
+  padding: 6px 18px;
+  display: grid;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1000px 0 0 hsl(0 0% 20%) inset;
+  transition: box-shadow var(--transition), background var(--transition),
+    transform var(--transition);
+}
+
+button:hover .backdrop {
+  background: rgb(20 20 20);
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.spark {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  rotate: 0deg;
+  overflow: hidden;
+  mask: linear-gradient(white, transparent 50%);
+  animation: flip calc(var(--spark) * 2) infinite steps(2, end);
+}
+
+@keyframes flip {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.spark:before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  aspect-ratio: 1;
+  inset: 0 auto auto 50%;
+  z-index: -1;
+  translate: -50% -15%;
+  rotate: 0;
+  transform: rotate(-90deg);
+  opacity: 1;
+  background: conic-gradient(from 0deg, transparent 0 340deg, white 360deg);
+  transition: opacity var(--transition);
+  animation: rotate var(--spark) linear infinite both;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 1px;
+  background: var(--bg);
+  border-radius: 9999px;
+  transition: background var(--transition) opacity var(--transition);
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+.text {
+  z-index: 1;
+  color: rgb(203 213 225);
+}
+```
+
+Here's a code breakdown:
+
+- `button`: This is the main container of the effect. It sets the core styles such as background color, padding, border-radius, and box-shadow. CSS variables are used for easy customization of transition time, spark animation duration, cut size, and background color.
+
+- `.spark__container`: This container holds the spark element that creates the shooting star effect.
+
+- `.spark`: This span element is absolutely positioned to cover its parent completely. It uses a linear gradient as a mask to create the spark effect and rotates infinitely due to the flip animation applied to it.
+
+- `.spark:before`: This pseudo-element creates the shooting star effect. It's larger than its parent, rotated, and filled with a conic-gradient background. Its opacity and rotation are animated, creating the illusion of a shooting star.
+
+- `.backdrop`: This span element serves as a backdrop behind the spark. It's positioned absolutely, with its inset defined by the --cut variable. Its background color changes when the button is hovered.
+
+- `.text`: This is the text displayed within the button. It is set above other elements by the z-index property.
+
+- @keyframes flip & @keyframes rotate: These are the animations that control the rotation of the spark and spark:before elements, giving life to the shooting star effect.
+
+## Tailwind CSS
+
+If you prefer using Tailwind CSS, here's the equivalent code written as React component:
+
+First we have to defined the keyframes and animation in the `tailwind.config.js` file.
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        flip: "flip 6s infinite steps(2, end)",
+        rotate: "rotate 3s linear infinite both",
+      },
+      keyframes: {
+        flip: {
+          to: {
+            transform: "rotate(360deg)",
+          },
+        },
+        rotate: {
+          to: {
+            transform: "rotate(90deg)",
+          },
+        },
+      },
+    },
+  },
+};
+```
+
+Then, we convert all the CSS classes to Tailwind CSS classes and we can use `animate-flip` and `animate-rotate` to animate the spark and spark:before elements.
+
+```tsx
+const ShootingStarBorder = () => {
+  return (
+    <button className="group relative grid overflow-hidden rounded-full px-4 py-1 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-200">
+      <span>
+        <span className="spark animate-flip mask-gradient absolute inset-0 h-[100%] w-[100%] overflow-hidden rounded-full [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]" />
+      </span>
+      <span className="backdrop absolute inset-[1px] rounded-full bg-black transition-colors duration-200 group-hover:bg-slate-800" />
+      <span className="text z-10 text-[#cbd5e1]">Shooting star border</span>
+    </button>
+  );
+};
+```
+
 ## More
 
-I recommend checking out this codepen by [@jh3yy](https://codepen.io/jh3y/pen/poxVPqo) with more example of shimmer border with a checkbox to show the trick behing the animation.
+Having explored the creation of 'Shooting Star Borders', I encourage you to delve deeper into the world of shimmering borders. For further exploration, check out this comprehensive [Codepen by @jh3yy](https://codepen.io/jh3y/pen/poxVPqo). It showcases various examples of shimmer borders, complete with a checkbox to reveal the animation magic. @jh3y's innovative approach inspired me in implementing this effect. While I've demonstrated this on a button, you can easily adapt it to any other element such as a card or an input.
 
 </LayoutBlog>
