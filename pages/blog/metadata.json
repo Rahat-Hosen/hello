@@ -1,6 +1,13 @@
 {
   "postsMetadata": [
     {
+      "title": "Creating a shooting star border with Tailwind CSS and CSS",
+      "description": "How to create a shooting star (shimmer) border with Tailwind CSS and CSS?",
+      "datePublished": "2023-05-15T00:00",
+      "dateModified": null,
+      "slug": "create-shooting-star-border-tailwind-css"
+    },
+    {
       "title": "Creating gradient shadows with Tailwind CSS and CSS",
       "description": "How to create gradient shadows with Tailwind CSS and CSS?",
       "datePublished": "2023-05-12T00:00",
