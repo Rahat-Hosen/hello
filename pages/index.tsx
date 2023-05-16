@@ -2,24 +2,29 @@ import Link from "next/link";
 import NewWindowIcon from "../components/NewWindowIcon";
 import AccordionMenu from "../components/AccordionMenu";
 import { Fragment } from "react";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
       <section>
-        <p className="mb-8 text-gray-600 dark:text-gray-400">
-          julien.thibeaut[at]gmail.com
-        </p>
-        <p>
-          Hello! 👋 I’m Julien, a passionate software developer with a focus on
-          front-end development.
-        </p>{" "}
-        <p className="mt-4">
-          <span className="underline">Specialties:</span> JavaScript, React,
-          React Native, Next.js, TypeScript, CSS
-        </p>
-        <details className="prose -mx-0 mt-12 dark:prose-dark" open>
-          <summary className="cursor-pointer font-semibold">About me</summary>
+        <div className="flex items-center">
+          <Image
+            src="/me.jpg"
+            width={400}
+            height={400}
+            alt="me"
+            className="h-16 w-16 rounded-full"
+          />
+          <div className="ml-4">
+            <h1 className="mb-0.5 text-xl">Julien Thibeaut</h1>
+            <p className="text-gray-500 dark:text-gray-400">
+              Senior Front-End Developer
+            </p>
+          </div>
+        </div>
+        <details className="prose -mx-0 mt-10 dark:prose-dark" open>
+          <summary className="cursor-pointer font-medium">About me</summary>
           <p>
             Since 2016, I've been <strong>crafting UIs with React</strong>,
             specializing in creating component libraries, design systems, and
@@ -45,7 +50,7 @@ export default function Home() {
           </p>
         </details>
         <details className="prose -mx-0 mt-12 dark:prose-dark" open>
-          <summary className="cursor-pointer font-semibold">
+          <summary className="cursor-pointer font-medium">
             Selected projects
           </summary>
           <ul className="items flex max-w-xs list-none flex-col justify-between divide-y pl-0">
@@ -225,24 +230,53 @@ export default function Home() {
           </p>
         </details>
         <div className="mt-12">
-          <p className="mb-2">Also available on</p>
-          <ul className="list-none p-0">
-            <li className="mb-2 cursor-pointer underline decoration-gray-500 underline-offset-4 transition hover:opacity-60">
-              <a href="https://twitter.com/Ibelick" target="_blank">
-                Twitter ↗
-              </a>
-            </li>
-            <li className="mb-2 cursor-pointer underline decoration-gray-500 underline-offset-4 transition hover:opacity-60">
-              <a href="https://github.com/ibelick" target="_blank">
-                GitHub ↗
-              </a>
-            </li>
-            <li className="mb-2 cursor-pointer underline decoration-gray-500 underline-offset-4 transition hover:opacity-60">
-              <a href="https://read.cv/ibelick" target="_blank">
-                Read.CV ↗
-              </a>
-            </li>
-          </ul>
+          <details className="-mx-0 mt-12" open>
+            <summary className="mb-5 cursor-pointer font-medium">
+              Connect
+            </summary>
+            <ul className="w-full max-w-xs">
+              <li className="mb-2 flex">
+                <span className="t pr-4 text-gray-500">Twitter </span>
+                <a
+                  href="https://twitter.com/Ibelick"
+                  target="_blank"
+                  className="text-black transition hover:opacity-80 dark:text-white"
+                >
+                  @ibelick ↗
+                </a>
+              </li>
+              <li className="mb-2 flex">
+                <span className="t pr-4 text-gray-500">GitHub</span>
+                <a
+                  href="https://github.com/ibelick"
+                  target="_blank"
+                  className="text-black transition hover:opacity-80 dark:text-white"
+                >
+                  @ibelick ↗
+                </a>
+              </li>
+              <li className="mb-2 flex">
+                <span className="t pr-4 text-gray-500">Read.CV </span>
+                <a
+                  href="https://read.cv/ibelick"
+                  target="_blank"
+                  className="text-black transition hover:opacity-80 dark:text-white"
+                >
+                  @ibelick ↗
+                </a>
+              </li>
+              <li className="mb-2 flex">
+                <span className="t pr-4 text-gray-500">Email </span>
+                <a
+                  href="mailto:julien.thibeaut@gmail.com"
+                  target="_blank"
+                  className="text-black transition hover:opacity-80 dark:text-white"
+                >
+                  julien.thibeaut[at]gmail.com
+                </a>
+              </li>
+            </ul>
+          </details>
         </div>
       </section>
     </>
@@ -260,19 +294,19 @@ const AccordionProject: React.FC<{
     <AccordionMenu
       title={
         <div className="flex w-full cursor-pointer justify-between">
-          <div>{title}</div>
-          <span>{date}</span>
+          <div className="text-black dark:text-gray-50">{title}</div>
+          <span className="text-black dark:text-gray-50">{date}</span>
         </div>
       }
     >
-      <div className="mb-1 mt-2 text-sm font-light text-neutral-500">
+      <div className="mb-1 mt-2 text-sm font-light text-gray-800 dark:text-gray-200">
         {description}
       </div>
       <div>
         {links?.map(({ text, link }, index) => (
           <Fragment key={index}>
             <a
-              className="inline-flex text-sm font-light text-neutral-900 no-underline hover:underline"
+              className="inline-flex text-sm font-light text-gray-950 no-underline hover:underline dark:text-gray-200"
               href={link}
               target="_blank"
             >

@@ -80,12 +80,14 @@ const LayoutBlog: React.FC = ({ children }) => {
         <div className="not-prose relative overflow-hidden border-slate-800 bg-slate-900 p-px">
           <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ffb6ff_0%,#000_50%,#ffb7ff_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#ffb6ff_0%,#fff_50%,#ffb7ff_100%)]" />
           <div className="inline-flex h-full  w-full flex-col items-start bg-white p-4 text-sm font-medium backdrop-blur-3xl dark:bg-black">
-            <p className=" text-slate-800/90 dark:text-slate-200/90">
+            <p className="font-normal text-slate-800/90 dark:text-slate-200/90">
               <span className="font-bold">
-                Enjoyed this read? I'd love to connect!
+                Did you find this article helpful?
               </span>{" "}
-              I'm Julien, a developer passionate about crafting unique UI
-              experiences. Let's exchange ideas and insights on Twitter{" "}
+              I'm Julien, a senior front-end developer with a strong interest in
+              design and a passion for crafting unique user experiences. I love
+              exchanging ideas and insights about design, development, and more.
+              Let's connect on Twitter{" "}
               <a href="https://twitter.com/ibelick" className="font-bold">
                 @ibelick
               </a>
