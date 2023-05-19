@@ -1,0 +1,162 @@
+import LayoutBlog from "components/LayoutBlog";
+import ComponentPlayground from "components/ComponentPlayground";
+import {
+  CardShineEffectTW,
+  CardShineEffectCSS,
+} from "components/lab/ShineEffect";
+
+<LayoutBlog >
+
+# Creating a shine effect on a card with Tailwind CSS
+
+A shimmer or shiny effect is a popular technique that adds an extra layer of interactivity and aesthetics to your components.
+We can use it for a loader, a button, or a card for example. It is a great way to draw attention to a specific part of your UI.
+In this article, I will show you how to create a shine effect on a card with Tailwind CSS and vanilla CSS.
+
+## The idea
+
+Below is the effect we'll create. The three cards demonstrate different shine positions at 45deg, 90deg, and 135deg respectively. Hover over each card to see the effect in action.
+
+<ComponentPlayground className="flex flex-col gap-4">
+  <CardShineEffectCSS shineDeg={45} />
+  <CardShineEffectCSS shineDeg={90} />
+  <CardShineEffectCSS shineDeg={135} />
+</ComponentPlayground>
+
+## Vanilla CSS
+
+Let's start with the vanilla CSS version.
+
+```tsx
+export const CardShineEffectCSS = () => {
+  return (
+    <div className="card-shine-effect">
+      <span className="icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        />
+      </span>
+      <h3 className="title">Hello!</h3>
+      <p className="description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit ex
+        obcaecati natus eligendi delectus, cum deleniti sunt in labore nihil
+        quod quibusdam expedita nemo.
+      </p>
+    </div>
+  );
+};
+```
+
+```css
+.card-shine-effect {
+  --shine-deg: 45deg;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.875rem;
+  border: 1px solid rgb(15 23 42);
+  background-color: #000;
+  padding: 4rem 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 28rem;
+
+  background-repeat: no-repeat;
+  background-position: -100% 0, 0 0;
+
+  background-image: linear-gradient(
+    var(--shine-deg),
+    transparent 20%,
+    transparent 40%,
+    rgb(68, 68, 68, 0.2) 50%,
+    rgb(68, 68, 68, 0.2) 55%,
+    transparent 70%,
+    transparent 100%
+  );
+
+  background-size: 250% 250%, 100% 100%;
+  transition: background-position 0s ease;
+}
+
+.card-shine-effect:hover {
+  background-position: 200%0, 0 0;
+  transition-duration: 1.5s;
+}
+
+.icon {
+  margin-bottom: 1rem;
+  display: inline-flex;
+}
+
+.icon > svg {
+  border-radius: 0.375rem;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  background: #2563eb;
+}
+
+.title {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 14px;
+  color: rgb(148 163 184);
+}
+```
+
+The `.card-shine-effect` class is the primary class where the shine effect is implemented. This class defines a linear gradient background that creates the shine effect. This effect moves across the card when it's hovered over, simulating the look of a light source moving across a glossy surface.
+
+The `--shine-deg: 45deg` is a CSS variable that sets the angle of the shine effect.
+
+- `background-image: linear-gradient(...)` is where the shine effect is created, using a linear gradient that transitions between transparent and slightly lighter colors.
+
+- `background-position: -100% 0, 0 0` and `background-size: 250% 250%, 100% 100%` help to set up the initial state of the shine effect. The effect starts outside of the view.
+
+- `transition: background-position 0s ease` ensures a smooth transition of the background position, which is what creates the shine effect.
+
+- `.card-shine-effect:hover {...}` changes the background-position to create a moving shine effect when the user hovers over the card.
+
+## Tailwind CSS
+
+And here is the Tailwind CSS version in a React component.
+
+```tsx
+export const CardShineEffect = () => {
+  return (
+    <div className="bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] relative max-w-md overflow-hidden rounded-xl border border-slate-900 bg-black bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat px-8 py-16 shadow-2xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]">
+      <span className="mb-4 inline-flex items-center justify-center rounded-md bg-blue-600 p-2 shadow-lg">
+        <svg
+          className="h-6 w-6 text-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        />
+      </span>
+      <h3 className="mb-2 font-medium tracking-tight text-white">Hello!</h3>
+      <p className="text-sm text-slate-400">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit ex
+        obcaecati natus eligendi delectus, cum deleniti sunt in labore nihil
+        quod quibusdam expedita nemo.
+      </p>
+    </div>
+  );
+};
+```
+
+If you want to modify the angle of the shine effect, you can update the `45deg` value.
+
+## Conclusion
+
+In this article, we learned how to create a shine effect on a card with Tailwind CSS and vanilla CSS. I hope you enjoyed this article and learned something new.
+If you want another cool effect on a card, you can learn to create an [animated gradient border](/blog/create-animated-gradient-borders-with-css). Or for more cool stuff with Tailwind CSS or vanilla CSS, dive into my other [articles](/blog).
+Thanks for reading!
+
+</LayoutBlog>
