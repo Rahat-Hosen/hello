@@ -2,7 +2,7 @@ import React from "react";
 
 export const CardShineEffectTW = () => {
   return (
-    <div className="relative max-w-md overflow-hidden rounded-xl border border-slate-900 bg-black bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat px-8 py-16 shadow-2xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]">
+    <div className="relative max-w-md overflow-hidden rounded-xl border border-slate-900 bg-zinc-950 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat px-8 py-16 shadow-2xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]">
       <span className="mb-4 inline-flex items-center justify-center rounded-md bg-blue-600 p-2 shadow-lg">
         <svg
           className="h-6 w-6 text-white"
@@ -52,7 +52,7 @@ export const CardShineEffectCSS: React.FC<{
           overflow: hidden;
           border-radius: 0.875rem;
           border: 1px solid rgb(15 23 42);
-          background-color: #000;
+          background-color: rgb(9 9 11);
           padding: 4rem 2rem;
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
           max-width: 28rem;
