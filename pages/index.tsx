@@ -3,6 +3,7 @@ import NewWindowIcon from "../components/NewWindowIcon";
 import AccordionMenu from "../components/AccordionMenu";
 import { Fragment } from "react";
 import Image from "next/image";
+import SectionContact from "../components/SectionContact";
 
 export default function Home() {
   return (
@@ -46,7 +47,8 @@ export default function Home() {
             <Link href={"/monthly-playlists"}>playlist per month</Link>, and I'm
             committed to <Link href={"/blog"}>writing more frequently</Link>. My
             website acts as my digital garden, where I'll continuously update it
-            with my latest projects, experiments, and insights.
+            with my latest projects, experiments, and insights. You can also see
+            what I'm doing <Link href="/now">now</Link>.
           </p>
         </details>
         <details className="prose -mx-0 mt-12 dark:prose-dark" open>
@@ -225,58 +227,9 @@ export default function Home() {
               />
             </li>
           </ul>
-          <p>
-            You can see what I'm doing <Link href="/now">now</Link>.
-          </p>
         </details>
         <div className="mt-12">
-          <details className="-mx-0 mt-12" open>
-            <summary className="mb-5 cursor-pointer font-medium">
-              Connect
-            </summary>
-            <ul className="w-full max-w-xs">
-              <li className="mb-2 flex">
-                <span className="t pr-4 text-gray-500">Twitter </span>
-                <a
-                  href="https://twitter.com/Ibelick"
-                  target="_blank"
-                  className="text-black transition hover:opacity-80 dark:text-white"
-                >
-                  @ibelick ↗
-                </a>
-              </li>
-              <li className="mb-2 flex">
-                <span className="t pr-4 text-gray-500">GitHub</span>
-                <a
-                  href="https://github.com/ibelick"
-                  target="_blank"
-                  className="text-black transition hover:opacity-80 dark:text-white"
-                >
-                  @ibelick ↗
-                </a>
-              </li>
-              <li className="mb-2 flex">
-                <span className="t pr-4 text-gray-500">Read.CV </span>
-                <a
-                  href="https://read.cv/ibelick"
-                  target="_blank"
-                  className="text-black transition hover:opacity-80 dark:text-white"
-                >
-                  @ibelick ↗
-                </a>
-              </li>
-              <li className="mb-2 flex">
-                <span className="t pr-4 text-gray-500">Email </span>
-                <a
-                  href="mailto:julien.thibeaut@gmail.com"
-                  target="_blank"
-                  className="text-black transition hover:opacity-80 dark:text-white"
-                >
-                  julien.thibeaut[at]gmail.com
-                </a>
-              </li>
-            </ul>
-          </details>
+          <SectionContact />
         </div>
       </section>
     </>
