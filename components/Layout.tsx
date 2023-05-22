@@ -15,6 +15,11 @@ let allTabs = [
     href: "/blog",
   },
   {
+    id: "hireme",
+    name: "Hire me!",
+    href: "/hireme",
+  },
+  {
     id: "now",
     name: "Now",
     href: "/now",
@@ -68,7 +73,7 @@ const Tabs = () => {
   };
 
   return (
-    <div className="fixed inset-x-0 bottom-0 mx-auto mb-4 h-16 w-full max-w-md px-6 ">
+    <div className="fixed inset-x-0 bottom-0 mx-auto mb-4 h-16 w-full max-w-lg px-6 ">
       <div className="flew-row relative mx-auto flex h-full w-full rounded-full border border-black/40 bg-white/30 backdrop-blur-sm dark:border-white dark:bg-black/30 dark:text-white">
         <span
           className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full p-2 transition-all duration-300"
