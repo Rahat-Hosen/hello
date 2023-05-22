@@ -81,26 +81,23 @@ const Tabs = () => {
         {allTabs.map((tab, index) => {
           if (tab.id === "theme") {
             return (
-              <>
-                <div />
-                <span
-                  key={index}
-                  className={`${
-                    effect && "animate-wiggle"
-                  } font-5xl mx-2 my-auto flex cursor-pointer select-none rounded-full p-3 text-center`}
-                  onClick={() => {
-                    switchTheme();
-                    setEffect(true);
-                  }}
-                  onAnimationEnd={() => setEffect(false)}
-                >
-                  {theme === "light" ? (
-                    <SunIcon className="h-5 w-5" />
-                  ) : (
-                    <MoonIcon className="h-5 w-5" />
-                  )}
-                </span>
-              </>
+              <span
+                key={index}
+                className={`${
+                  effect && "animate-wiggle"
+                } font-5xl mx-2 my-auto flex cursor-pointer select-none rounded-full p-3 text-center`}
+                onClick={() => {
+                  switchTheme();
+                  setEffect(true);
+                }}
+                onAnimationEnd={() => setEffect(false)}
+              >
+                {!isMounted ? null : theme === "light" ? (
+                  <SunIcon className="h-5 w-5" />
+                ) : (
+                  <MoonIcon className="h-5 w-5" />
+                )}
+              </span>
             );
           }
 

@@ -34,9 +34,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   return (
     <CardSpotlightEffect>
-      <div className="relative rounded-md border border-slate-300 bg-slate-300/5 p-4 dark:border-slate-700">
+      <div className="relative rounded-md border border-slate-300 bg-slate-300/5 p-6 dark:border-slate-700">
         <div className="mb-3 flex items-center">
-          <div className="rounded-md border border-slate-200 p-1 dark:bg-black">
+          <div className="rounded-md border border-slate-200 p-1 dark:border-slate-800 dark:bg-black">
             {icon}
           </div>
           <h2 className="ml-2 text-lg">{title}</h2>
@@ -74,7 +74,7 @@ const HireMePage = () => {
         <li>Tailwind CSS</li>
         <li>And more...</li>
       </ul>
-      <p className="mb-1 mt-10 font-medium">What I can do for you</p>
+      <h3 className="mb-4 mt-12 font-medium">What I can do for you</h3>
       <div className="flex flex-col gap-8">
         <ServiceCard
           icon={<LaptopIcon />}
