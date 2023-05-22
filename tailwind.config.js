@@ -42,6 +42,7 @@ module.exports = {
       animation: {
         flip: "flip 6s infinite steps(2, end)",
         rotate: "rotate 3s linear infinite both",
+        wiggle: "wiggle 300ms ease-in-out",
       },
       keyframes: {
         flip: {
@@ -53,6 +54,10 @@ module.exports = {
           to: {
             transform: "rotate(90deg)",
           },
+        },
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-5deg)" },
+          "50%": { transform: "rotate(5deg)" },
         },
       },
     },

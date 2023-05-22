@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useState, useEffect, FC, useRef } from "react";
 import { useRouter } from "next/router";
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 let allTabs = [
   {
@@ -15,9 +16,9 @@ let allTabs = [
     href: "/blog",
   },
   {
-    id: "now",
-    name: "Now",
-    href: "/now",
+    id: "services",
+    name: "Services",
+    href: "/services",
   },
   {
     id: "theme",
@@ -32,6 +33,7 @@ const Tabs = () => {
   const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
   const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
   const router = useRouter();
+  const [effect, setEffect] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -68,7 +70,7 @@ const Tabs = () => {
   };
 
   return (
-    <div className="fixed inset-x-0 bottom-0 mx-auto mb-4 h-16 w-full max-w-md px-6 ">
+    <div className="fixed inset-x-0 bottom-0 mx-auto mb-4 h-16 w-full max-w-md px-6">
       <div className="flew-row relative mx-auto flex h-full w-full rounded-full border border-black/40 bg-white/30 backdrop-blur-sm dark:border-white dark:bg-black/30 dark:text-white">
         <span
           className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full p-2 transition-all duration-300"
@@ -79,13 +81,26 @@ const Tabs = () => {
         {allTabs.map((tab, index) => {
           if (tab.id === "theme") {
             return (
-              <span
-                key={index}
-                className="font-5xl mx-2 my-auto flex cursor-pointer select-none rounded-full p-3 text-center transition duration-200 hover:text-yellow-500 dark:hover:text-yellow-400"
-                onClick={switchTheme}
-              >
-                ●
-              </span>
+              <>
+                <div />
+                <span
+                  key={index}
+                  className={`${
+                    effect && "animate-wiggle"
+                  } font-5xl mx-2 my-auto flex cursor-pointer select-none rounded-full p-3 text-center`}
+                  onClick={() => {
+                    switchTheme();
+                    setEffect(true);
+                  }}
+                  onAnimationEnd={() => setEffect(false)}
+                >
+                  {theme === "light" ? (
+                    <SunIcon className="h-5 w-5" />
+                  ) : (
+                    <MoonIcon className="h-5 w-5" />
+                  )}
+                </span>
+              </>
             );
           }
 
@@ -94,7 +109,7 @@ const Tabs = () => {
               key={index}
               href={tab.href as string}
               ref={(el) => (tabsRef.current[index] = el)}
-              className="mx-2 my-auto flex-1 cursor-pointer rounded-full text-center transition hover:text-black/80 dark:hover:text-white/80"
+              className="my-auto flex-1 cursor-pointer rounded-full text-center transition hover:text-black/80 dark:hover:text-white/80"
               onClick={() => setActiveTabIndex(index)}
             >
               {tab.name}
