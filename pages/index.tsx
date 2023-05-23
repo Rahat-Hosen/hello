@@ -34,8 +34,8 @@ export default function Home() {
             products independently or alongside friends. I take great pleasure
             in collaborating with designers during the design process to develop
             visually stunning screens and enhance user experiences. If you're
-            interested in collaborating or have any project ideas, feel free to
-            send me an email.
+            interested in collaborating or have any project ideas, you can check
+            out my <Link href="/services">services</Link>.
           </p>
           <p>
             Based in Paris, I'm open to remote collaboration. Some random

@@ -12,6 +12,7 @@ type ServiceCardProps = {
   title: string;
   description: string;
   icon: React.ReactNode;
+  price: number;
 };
 
 const ButtonOutline = () => {
@@ -31,7 +32,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   title,
   description,
   icon,
+  price,
 }) => {
+  const pricing = price.toLocaleString("en-US", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+  });
+
   return (
     <CardSpotlightEffect>
       <div className="relative rounded-md border border-slate-300 bg-slate-300/5 p-6 dark:border-slate-700">
@@ -39,7 +47,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <div className="rounded-md border border-slate-200 p-1 dark:border-slate-800 dark:bg-black">
             {icon}
           </div>
-          <h2 className="ml-2 text-lg">{title}</h2>
+          <h2 className="ml-2 mr-3 text-lg">{title}</h2>
+          <div className="rounded-md border border-slate-200 bg-neutral-100 p-1 text-xs font-light dark:border-slate-800 dark:bg-neutral-900">
+            {pricing}+
+          </div>
         </div>
         <p className="mb-4 max-w-xl text-gray-700 dark:text-gray-300">
           {description}
@@ -80,21 +91,25 @@ const HireMePage = () => {
           icon={<LaptopIcon />}
           title="Website Development"
           description="Crafting high-quality, responsive websites tailored to your business needs. Leveraging modern technologies like React and Next.js, I build sites that are fast, SEO-friendly, and provide an exceptional user experience."
+          price={6000}
         />
         <ServiceCard
           icon={<DesktopIcon />}
           title="Web Application Development"
           description="Building robust and scalable web applications using the latest front-end technologies. With a strong focus on performance and usability, I use React, TypeScript, and other modern tools to create applications that meet your specific requirements and deliver value to your users."
+          price={10000}
         />
         <ServiceCard
           icon={<MobileIcon />}
           title="Mobile Application Development"
           description="Creating engaging mobile applications using React Native or ionic. Whether you need a standalone app or want to extend your web application to mobile, I can deliver a solution that provides a seamless user experience across devices."
+          price={15000}
         />
         <ServiceCard
           icon={<Component2Icon />}
           title="Design System Creation"
           description="Developing comprehensive design systems that ensure consistency across your digital products. This includes defining reusable components, styles, and UX patterns, making it easier to maintain and evolve your applications over time."
+          price={8000}
         />
         <div className="mb-4">
           <p className="mb-2">
