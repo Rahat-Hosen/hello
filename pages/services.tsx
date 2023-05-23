@@ -3,6 +3,7 @@ import {
   LaptopIcon,
   MobileIcon,
   Component2Icon,
+  CheckIcon,
 } from "@radix-ui/react-icons";
 import { CardSpotlightEffect } from "components/lab/SpotlightEffect";
 import SectionContact from "components/SectionContact";
@@ -61,6 +62,23 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   );
 };
 
+type ValueCardProps = {
+  title: string;
+  description: string;
+};
+
+const ValueCard: React.FC<ValueCardProps> = ({ title, description }) => {
+  return (
+    <div>
+      <div className="mb-1 flex items-center">
+        <CheckIcon />
+        <span className="pl-2">{title}</span>
+      </div>
+      <p className="text-sm text-gray-700 dark:text-gray-300">{description}</p>
+    </div>
+  );
+};
+
 const HireMePage = () => {
   return (
     <div>
@@ -74,7 +92,7 @@ const HireMePage = () => {
           homepage.
         </Link>
       </p>
-      <p className="mb-1 font-medium">My tech stack</p>
+      <h3 className="mb-1 font-medium">My tech stack</h3>
       <ul className="flex flex-wrap gap-x-6 text-gray-700 dark:text-gray-300">
         <li>React</li>
         <li>React Native</li>
@@ -111,19 +129,46 @@ const HireMePage = () => {
           description="Developing comprehensive design systems that ensure consistency across your digital products. This includes defining reusable components, styles, and UX patterns, making it easier to maintain and evolve your applications over time."
           price={8000}
         />
-        <div className="mb-4">
-          <p className="mb-2">
-            I can also help you with:{" "}
-            <strong className="font-medium">landing page</strong>,{" "}
-            <strong className="font-medium">e-commerce website</strong>,{" "}
-            <strong className="font-medium">desktop application</strong>,{" "}
-            <strong className="font-medium">performance optimization</strong>,{" "}
-            <strong className="font-medium">code review</strong>,{" "}
-            <strong className="font-medium">refactoring</strong>, and more. ✌️{" "}
-          </p>
-        </div>
-        <SectionContact title="Contact" />
+        <p>
+          I can also help you with:{" "}
+          <strong className="font-medium">landing page</strong>,{" "}
+          <strong className="font-medium">e-commerce website</strong>,{" "}
+          <strong className="font-medium">desktop application</strong>,{" "}
+          <strong className="font-medium">performance optimization</strong>,{" "}
+          <strong className="font-medium">code review</strong>,{" "}
+          <strong className="font-medium">refactoring</strong>, and more. ✌️{" "}
+        </p>
       </div>
+      <div className="my-20">
+        <h3 className="mb-4 font-medium">What I value</h3>
+        <div className="grid grid-cols-1 gap-x-20 gap-y-8  md:grid-cols-2">
+          <ValueCard
+            title="Asynchronous Work"
+            description="I believe in the power of focused, uninterrupted work. I prefer to communicate asynchronously to maintain productivity and efficiency."
+          />
+          <ValueCard
+            title="Minimal Meetings"
+            description="I value time and efficiency, so I aim to keep meetings to a minimum. When they are necessary, I ensure they are focused and productive."
+          />
+          <ValueCard
+            title="Clear and Honest Communication"
+            description="I believe in transparency and open dialogue. I'll always keep you informed about project progress and any challenges that arise."
+          />
+          <ValueCard
+            title="High-Quality Work"
+            description="I prioritize on delivering work of the highest quality. I believe that thoughtful, well-executed projects are key to achieving the best results."
+          />
+          <ValueCard
+            title="Fast Delivery"
+            description="I understand the importance of timelines and strive to deliver projects promptly without compromising on quality"
+          />
+          <ValueCard
+            title="Sustainability"
+            description="I aim to write efficient and maintainable code to ensure the long-term viability of the projects I work on."
+          />
+        </div>
+      </div>
+      <SectionContact title="Contact" />
     </div>
   );
 };
