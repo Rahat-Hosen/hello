@@ -1,0 +1,108 @@
+import LayoutBlog from "components/LayoutBlog";
+import ComponentPlayground from "components/ComponentPlayground";
+import { SlidingTabBar } from "components/lab/SlidingTabBar";
+
+<LayoutBlog >
+
+# Building an animated sliding tab bar with React and Tailwind CSS
+
+In this guide, we'll explore how to create an interactive sliding tab bar using React.js and Tailwind CSS. We'll cover the basics of setting up the tab structure, adding interactivity with React, and styling our tabs for a sleek, responsive design. Whether you're new to React or looking to expand your front-end toolkit, this tutorial offers a practical dive into building dynamic UI components.
+
+We'll be replicating the same effect that I use on my website. You can see the final result we're aiming for below:
+
+<ComponentPlayground>
+  <SlidingTabBar />
+</ComponentPlayground>
+
+## Code
+
+Here is the code in React and Tailwind CSS.
+
+```tsx
+let allTabs = [
+  {
+    id: "home",
+    name: "Home",
+  },
+  {
+    id: "blog",
+    name: "Blog",
+  },
+  {
+    id: "projects",
+    name: "Projects",
+  },
+  {
+    id: "arts",
+    name: "Arts",
+  },
+];
+
+export const SlidingTabBar = () => {
+  const tabsRef = useRef<(HTMLElement | null)[]>([]);
+  const [activeTabIndex, setActiveTabIndex] = useState<number | null>(null);
+  const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
+  const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
+
+  useEffect(() => {
+    if (activeTabIndex === null) {
+      return;
+    }
+
+    const setTabPosition = () => {
+      const currentTab = tabsRef.current[activeTabIndex] as HTMLElement;
+      setTabUnderlineLeft(currentTab?.offsetLeft ?? 0);
+      setTabUnderlineWidth(currentTab?.clientWidth ?? 0);
+    };
+
+    setTabPosition();
+  }, [activeTabIndex]);
+
+  return (
+    <div className="flew-row relative mx-auto flex h-12 rounded-3xl border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm">
+      <span
+        className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-2 transition-all duration-300"
+        style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
+      >
+        <span className="h-full w-full rounded-3xl bg-gray-200/30" />
+      </span>
+      {allTabs.map((tab, index) => {
+        const isActive = activeTabIndex === index;
+
+        return (
+          <button
+            key={index}
+            ref={(el) => (tabsRef.current[index] = el)}
+            className={`${
+              isActive ? `` : `hover:text-neutral-300`
+            } my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white`}
+            onClick={() => setActiveTabIndex(index)}
+          >
+            {tab.name}
+          </button>
+        );
+      })}
+    </div>
+  );
+};
+```
+
+With React and Tailwind CSS, we've ensured that the active tab's underline adjusts its position and width according to the selected tab, providing a smooth and responsive user experience.
+
+Here is the code breakdown:
+
+- `useRef` and `useState` hooks are used to create references for the tabs and to manage the state of the active tab, the width of the tab underline, and its left position.
+
+- The `useEffect` hook is used to update the position and width of the tab underline whenever the active tab changes. It also adds an event listener to the window resize event to ensure the tab underline position and width are updated when the window size changes.
+
+- The return statement renders the tab bar. It uses a map function to iterate over the `allTabs` array and create a span for each tab. The `onClick` handler on each tab sets the active tab index.
+
+- The tab underline is a span with an absolute position that is placed at the bottom of the active tab. Its left position and width are dynamically updated based on the active tab.
+
+- The `isActive` variable is used to apply different styles to the active tab and the other tabs. The active tab does not have a hover effect, while the other tabs change their text color on hover.
+
+- The `ref` attribute on each tab span is used to store a reference to the tab in the tabsRef array. This allows the component to access the DOM properties of each tab, such as its offset position and width.
+
+And there you have it - a dynamic, sliding tab bar built with React and Tailwind CSS. This interactive component not only enhances the user experience but also adds a modern touch to your web application. Keep exploring and have a nice day :)
+
+</LayoutBlog>

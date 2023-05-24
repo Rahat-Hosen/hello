@@ -1,6 +1,13 @@
 {
   "postsMetadata": [
     {
+      "title": "Building an animated sliding tab bar with React and Tailwind CSS",
+      "description": "How to build an animated sliding tab bar with React and Tailwind CSS?",
+      "datePublished": "2023-05-24T00:00",
+      "dateModified": null,
+      "slug": "build-animated-sliding-tab-bar-with-react-tailwind-css"
+    },
+    {
       "title": "Creating a shine effect on a card with Tailwind CSS",
       "description": "How to create a shine effect with Tailwind CSS?",
       "datePublished": "2023-05-19T00:00",
