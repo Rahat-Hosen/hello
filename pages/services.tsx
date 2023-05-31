@@ -127,7 +127,7 @@ const HireMePage = () => {
           icon={<Component2Icon />}
           title="Design System Creation"
           description="Developing comprehensive design systems that ensure consistency across your digital products. This includes defining reusable components, styles, and UX patterns, making it easier to maintain and evolve your applications over time."
-          price={8000}
+          price={5000}
         />
         <p>
           I can also help you with:{" "}

@@ -1,6 +1,13 @@
 {
   "postsMetadata": [
     {
+      "title": "Lessons from my first month of blogging as a solo developer",
+      "description": "Lessons from my first month of blogging as a solo developer",
+      "datePublished": "2023-05-31T00:00",
+      "dateModified": null,
+      "slug": "lessons-from-my-first-month-of-blogging-as-a-solo-developer"
+    },
+    {
       "title": "Building an animated sliding tab bar with React and Tailwind CSS",
       "description": "How to build an animated sliding tab bar with React and Tailwind CSS?",
       "datePublished": "2023-05-24T00:00",
