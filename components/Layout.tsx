@@ -11,14 +11,19 @@ let allTabs = [
     href: "/",
   },
   {
-    id: "blog",
-    name: "Blog",
-    href: "/blog",
+    id: "projects",
+    name: "Projects",
+    href: "/projects",
   },
   {
     id: "services",
     name: "Services",
     href: "/services",
+  },
+  {
+    id: "blog",
+    name: "Blog",
+    href: "/blog",
   },
   {
     id: "theme",
@@ -70,10 +75,10 @@ const Tabs = () => {
   };
 
   return (
-    <div className="fixed inset-x-0 bottom-0 mx-auto mb-4 h-16 w-full max-w-md px-6">
+    <div className="fixed inset-x-0 bottom-0 mx-auto mb-4 h-12 w-full max-w-lg px-6 sm:h-16">
       <div className="flew-row relative mx-auto flex h-full w-full rounded-full border border-black/40 bg-white/30 backdrop-blur-sm dark:border-white dark:bg-black/30 dark:text-white">
         <span
-          className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full p-2 transition-all duration-300"
+          className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full p-1 transition-all duration-300 sm:p-2"
           style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
         >
           <span className="h-full w-full rounded-full bg-gray-200/70 dark:bg-gray-800/70" />
@@ -85,7 +90,7 @@ const Tabs = () => {
                 key={index}
                 className={`${
                   effect && "animate-wiggle"
-                } font-5xl mx-2 my-auto flex cursor-pointer select-none rounded-full p-3 text-center`}
+                } mx-2 my-auto flex cursor-pointer select-none p-3`}
                 onClick={() => {
                   switchTheme();
                   setEffect(true);
@@ -106,7 +111,7 @@ const Tabs = () => {
               key={index}
               href={tab.href as string}
               ref={(el) => (tabsRef.current[index] = el)}
-              className="my-auto flex-1 cursor-pointer rounded-full text-center transition hover:text-black/80 dark:hover:text-white/80"
+              className="my-auto flex-1 cursor-pointer rounded-full text-center text-sm transition hover:text-black/80 dark:hover:text-white/80 sm:text-base"
               onClick={() => setActiveTabIndex(index)}
             >
               {tab.name}
@@ -120,7 +125,7 @@ const Tabs = () => {
 
 const Layout: FC = ({ children }) => {
   return (
-    <div className="flex min-h-screen w-screen flex-col dark:bg-black">
+    <div className="relative flex min-h-screen w-screen flex-col dark:bg-black/30">
       <main className="mx-auto mb-14 w-full max-w-screen-md flex-1 px-4 py-12 dark:text-white">
         {children}
       </main>
