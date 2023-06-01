@@ -8,25 +8,13 @@ import {
 import { CardSpotlightEffect } from "components/lab/SpotlightEffect";
 import SectionContact from "components/SectionContact";
 import Link from "next/link";
+import Button from "components/Button";
 
 type ServiceCardProps = {
   title: string;
   description: string;
   icon: React.ReactNode;
   price: number;
-};
-
-const ButtonOutline = () => {
-  return (
-    <button
-      className="inline-flex items-center rounded-md border border-slate-300 bg-transparent px-4 py-2 text-base font-medium transition hover:border-slate-500 dark:border-slate-700 dark:hover:border-slate-500"
-      onClick={() => {
-        return window.open("mailto:julien.thibeaut@gmail.com");
-      }}
-    >
-      Discuss your project
-    </button>
-  );
 };
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
@@ -56,7 +44,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <p className="mb-4 max-w-xl text-gray-700 dark:text-gray-300">
           {description}
         </p>
-        <ButtonOutline />
+        <Button
+          onClick={() => {
+            return window.open("mailto:julien.thibeaut@gmail.com");
+          }}
+        >
+          Discuss your project
+        </Button>
       </div>
     </CardSpotlightEffect>
   );

@@ -21,6 +21,11 @@ let allTabs = [
     href: "/services",
   },
   {
+    id: "projects",
+    name: "Projects",
+    href: "/projects",
+  },
+  {
     id: "theme",
   },
 ];
