@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import SectionContact from "../components/SectionContact";
+import { CardSpotlightEffect } from "components/lab/SpotlightEffect";
 
 export default function Home() {
   return (
@@ -47,13 +48,26 @@ export default function Home() {
           personal website!
         </p>
       </div>
-      <div className="prose mt-24 dark:prose-dark prose-ul:pl-0">
+      <div className="prose mt-24 dark:prose-dark">
         <h2 className="mt-12 text-base font-medium">Current projects</h2>
-        <p>
-          Here's a glimpse of the projects I'm currently working on. Most of
-          them are still in development and will be launched soon. Stay tuned
-          for updates!
-        </p>
+        <p>I'm currently engaged in several exciting projects:</p>
+        <ul>
+          <li>
+            <strong>Blogging</strong>: I regularly share insights and tutorials,
+            especially on UI elements, on my <Link href="/blog">blog</Link>.
+          </li>
+          <li>
+            <strong>Freelancing</strong>: I'm available for front-end
+            development freelancing and consulting. Feel free to check out my{" "}
+            <Link href="/services">services</Link> and get in touch if you're
+            interested in working with me.
+          </li>
+          <li>
+            <strong>New Ventures</strong>: I'm also working on a few new
+            projects that I'm excited to share with you{" "}
+            <span className="cursor-wait font-bold">soon</span>.
+          </li>
+        </ul>
       </div>
       <div className="mt-24">
         <SectionContact />

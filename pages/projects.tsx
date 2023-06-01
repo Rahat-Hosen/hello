@@ -1,5 +1,6 @@
 import Button from "components/Button";
 import { CardSpotlightEffect } from "components/lab/SpotlightEffect";
+import Link from "next/link";
 
 const PROJECTS_LIST = [
   {
@@ -124,18 +125,22 @@ const Projects = () => {
           Please note that while I'm proud of all these projects, some of them
           are no longer actively maintained.
         </p>
+        <p>
+          If you want to see what I'm currently working on, check out my{" "}
+          <Link href="/">current projects</Link>
+        </p>
       </div>
-      <div className="mt-8 flex flex-col gap-4 pr-0 md:pr-16">
+      <div className="mt-8 flex flex-col gap-4 pr-4 md:pr-16">
         {PROJECTS_LIST.map((project) => {
           return (
             <CardSpotlightEffect>
-              <div className="relative flex items-center rounded-md border border-slate-300 bg-slate-300/5 p-6 dark:border-slate-700">
-                <div>
+              <div className="relative flex flex-col items-start rounded-md border border-slate-300 bg-slate-300/5 p-6 dark:border-slate-700 sm:flex-row sm:items-center">
+                <div className="mb-4 sm:mb-0">
                   <div className="flex h-14 w-14 select-none items-center justify-center rounded border border-slate-200 text-2xl dark:border-slate-800">
                     {project.emoji}
                   </div>
                 </div>
-                <div className="mx-8 flex flex-col">
+                <div className="sm:mb-O mx-0 mb-6 flex flex-col sm:mx-8">
                   <h3 className="mb-1">{project.title}</h3>
                   <p className="text-gray-700 dark:text-gray-300">
                     {project.description}
