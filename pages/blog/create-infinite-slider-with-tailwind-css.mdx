@@ -1,0 +1,184 @@
+import LayoutBlog from "components/LayoutBlog";
+import { InfiniteSliderTW } from "components/lab/InfiniteSlider";
+import ComponentPlayground from "components/ComponentPlayground";
+
+<LayoutBlog >
+
+# Creating an infine slider with Tailwind CSS
+
+Infinite sliders are a versatile tool in web design, perfect for showcasing brand logos, testimonials, or any sequence of content that needs to be continuously looped. They provide a dynamic, interactive element to your site, keeping your audience engaged.
+
+For this effect at first I wanted to used the [marquee](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee) html tag, but it is deprecated and not supported in all browsers.
+
+In this article, we'll explore how to create an elegant and responsive infinite slider using Tailwind CSS, without relying on any third-party dependencies.
+
+## Infinite slider
+
+<ComponentPlayground className="bg-white">
+  <InfiniteSliderTW />
+</ComponentPlayground>
+
+## The code
+
+Here is the full code for the infinite slider component in React. We'll break it down into smaller pieces below.
+
+```jsx
+import {
+  FigmaLogoIcon,
+  FramerLogoIcon,
+  SketchLogoIcon,
+  TwitterLogoIcon,
+  GitHubLogoIcon,
+  VercelLogoIcon,
+  NotionLogoIcon,
+  DiscordLogoIcon,
+  InstagramLogoIcon,
+  LinkedInLogoIcon,
+} from "@radix-ui/react-icons";
+
+const LOGOS = [
+  <FigmaLogoIcon width={24} height={24} className="text-slate-800" />,
+  <FramerLogoIcon width={24} height={24} className="text-slate-800" />,
+  <SketchLogoIcon width={24} height={24} className=" text-slate-800" />,
+  <TwitterLogoIcon width={24} height={24} className="text-slate-800" />,
+  <GitHubLogoIcon width={24} height={24} className="text-slate-800" />,
+  <VercelLogoIcon width={24} height={24} className="text-slate-800" />,
+  <NotionLogoIcon width={24} height={24} className="text-slate-800" />,
+  <DiscordLogoIcon width={24} height={24} className="text-slate-800" />,
+  <InstagramLogoIcon width={24} height={24} className="text-slate-800" />,
+  <LinkedInLogoIcon width={24} height={24} className="text-slate-800" />,
+];
+
+export const InfiniteSlider = () => {
+  return (
+    <div className="relative m-auto w-[500px] overflow-hidden bg-white before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[100px] before:bg-[linear-gradient(to_right,white_0%,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[100px] after:-scale-x-100 after:bg-[linear-gradient(to_right,white_0%,rgba(255,255,255,0)_100%)] after:content-['']">
+      <div className="animate-infinite-slider flex w-[calc(250px*10)]">
+        {LOGOS.map((logo) => (
+          <div className="slide flex w-[250px] items-center justify-center">
+            {logo}
+          </div>
+        ))}
+        {LOGOS.map((logo) => (
+          <div className="slide flex w-[250px] items-center justify-center">
+            {logo}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+```
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        ["infinite-slider"]: "infiniteSlider 20s linear infinite",
+      },
+      keyframes: {
+        infiniteSlider: {
+          "0%": { transform: "translateX(0)" },
+          "100%": {
+            transform: "translateX(calc(-250px * 5))",
+          },
+        },
+      },
+    },
+  },
+};
+```
+
+Let's break down the code into smaller pieces.
+
+1. Importing Icons: The first section of the code imports various icons from the Radix UI library. These icons will be used in the slider.
+
+```jsx
+import {
+  FigmaLogoIcon,
+  FramerLogoIcon,
+  SketchLogoIcon,
+  TwitterLogoIcon,
+  GitHubLogoIcon,
+  VercelLogoIcon,
+  NotionLogoIcon,
+  DiscordLogoIcon,
+  InstagramLogoIcon,
+  LinkedInLogoIcon,
+} from "@radix-ui/react-icons";
+```
+
+2. Creating an Array of Icons: The LOGOS array is created which contains instances of each of these icons with a specific width, height, and CSS class.
+
+```jsx
+const LOGOS = [
+  <FigmaLogoIcon width={24} height={24} className="text-slate-800" />,
+  ...
+];
+```
+
+3. Creating the Slider Component: The InfiniteSlider component is defined. This component returns a JSX structure that creates the slider.
+
+```jsx
+export const InfiniteSlider = () => {
+  return (
+    <>
+      <div className="... relative m-auto w-[500px] overflow-hidden bg-white">
+        <div className="slide-track flex w-[calc(250px*10)]">...</div>
+      </div>
+      ...
+    </>
+  );
+};
+```
+
+4. Styling the Slider Container: The outer div is styled to be a relative container with a width of 500px, an overflow of hidden to hide the parts of the slider that go beyond its width, and a background color of white. It also has before and after pseudo-elements that create a fade-in and fade-out effect on the edges of the slider. Finaly it has a custom animation called animate-infinite-slider that is defined in the tailwind.config.js file.
+
+```jsx
+<div className="animate-infinite-slider relative m-auto w-[500px] overflow-hidden bg-white before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[100px] before:bg-[linear-gradient(to_right,white_0%,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[100px] after:-scale-x-100 after:bg-[linear-gradient(to_right,white_0%,rgba(255,255,255,0)_100%)] after:content-['']">
+  ...
+</div>
+```
+
+5. Populating the Slider: Inside the slide-track div, the LOGOS array is mapped twice to create two sets of slides. This is done to create the illusion of an infinite slider. When the first set of slides finishes, the second set starts, creating a seamless transition.
+
+```jsx
+{
+  LOGOS.map((logo) => (
+    <div className="slide flex w-[250px] items-center justify-center">
+      {logo}
+    </div>
+  ));
+}
+{
+  LOGOS.map((logo) => (
+    <div className="slide flex w-[250px] items-center justify-center">
+      {logo}
+    </div>
+  ));
+}
+```
+
+6. Tailwind config file: The tailwind.config.js file is updated to include the custom animation called animate-infinite-slider. This animation is defined in the keyframes section of the file.
+
+```js
+...
+  animation: {
+    ["infinite-slider"]: "infiniteSlider 20s linear infinite",
+  },
+  keyframes: {
+    infiniteSlider: {
+      "0%": { transform: "translateX(0)" },
+      "100%": {
+        transform: "translateX(calc(-250px * 5))",
+      },
+    },
+  },
+...
+```
+
+In summary, this code creates an infinite slider with logos of various tech companies and platforms. The slider automatically scrolls horizontally, and when it reaches the end, it seamlessly starts from the beginning again, creating the illusion of an infinite loop.
+
+I hope you found this tutorial useful. Cheers! 🍹
+
+</LayoutBlog>

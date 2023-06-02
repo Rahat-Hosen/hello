@@ -1,6 +1,13 @@
 {
   "postsMetadata": [
     {
+      "title": "Creating an infine slider with Tailwind CSS",
+      "description": "How to create an infinite slider with Tailwind CSS?",
+      "datePublished": "2023-06-02T00:00",
+      "dateModified": null,
+      "slug": "create-infinite-slider-with-tailwind-css"
+    },
+    {
       "title": "Lessons from my first month of blogging as a solo developer",
       "description": "Lessons from my first month of blogging as a solo developer",
       "datePublished": "2023-05-31T00:00",
