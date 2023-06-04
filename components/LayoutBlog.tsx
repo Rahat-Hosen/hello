@@ -4,7 +4,44 @@ import React from "react";
 import postsData from "../pages/blog/metadata.json";
 import Custom404 from "pages/404";
 import Link from "next/link";
+import Image from "next/image";
+import NewsletterForm from "./NewsletterForm";
+
 const { postsMetadata } = postsData;
+
+const FooterBlog = () => {
+  return (
+    <div className="not-prose">
+      <div className="rounded-xl bg-slate-100 dark:bg-slate-900">
+        <div className="flex h-full flex-col items-center p-6 sm:flex-row ">
+          <Image
+            src="/me.jpg"
+            width={400}
+            height={400}
+            alt="me"
+            className="mb-2 mr-0 h-14 w-14 rounded-full sm:mr-6"
+          />
+          <p className="text-center sm:text-left">
+            I'm Julien, a senior front-end developer. I'm passionate about
+            crafting digital projects. Let's connect on Twitter{" "}
+            <a href="https://twitter.com/ibelick" className="font-bold">
+              @ibelick
+            </a>
+          </p>
+        </div>
+      </div>
+      <div className="mt-12">
+        <div className="mx-auto max-w-md">
+          <p className="mb-2 text-sm">
+            Join my newsletter! I will send you a mail sometime (not too often)
+            with my latest articles, projects and some personal thoughts.
+          </p>
+          <NewsletterForm />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const LayoutBlog: React.FC = ({ children }) => {
   const router = useRouter();
@@ -59,7 +96,7 @@ const LayoutBlog: React.FC = ({ children }) => {
         description={description}
         images={[`https://julienthibeaut.xyz/blog/api/og/?title=${title}`]}
       />
-      <article className="prose dark:prose-dark prose-figcaption:text-center prose-img:mb-0 prose-video:mb-0">
+      <article className="prose pb-12 dark:prose-dark prose-figcaption:text-center prose-img:mb-0 prose-video:mb-0">
         <Link
           href="/blog"
           className="mb-4 inline-flex font-normal text-slate-800 no-underline transition hover:text-slate-600 dark:text-slate-100 dark:hover:text-slate-300"
@@ -77,23 +114,7 @@ const LayoutBlog: React.FC = ({ children }) => {
         <div>
           <hr className="mx-auto my-8 w-28" />
         </div>
-        <div className="not-prose relative overflow-hidden border-slate-800 bg-slate-900 p-px">
-          <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ffb6ff_0%,#000_50%,#ffb7ff_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#ffb6ff_0%,#fff_50%,#ffb7ff_100%)]" />
-          <div className="inline-flex h-full  w-full flex-col items-start bg-white p-4 text-sm font-medium backdrop-blur-3xl dark:bg-black">
-            <p className="font-normal text-slate-800/90 dark:text-slate-200/90">
-              <span className="font-bold">
-                Did you find this article helpful?
-              </span>{" "}
-              I'm Julien, a senior front-end developer with a strong interest in
-              design and a passion for crafting unique user experiences. I love
-              exchanging ideas and insights about design, development, and more.
-              Let's connect on Twitter{" "}
-              <a href="https://twitter.com/ibelick" className="font-bold">
-                @ibelick
-              </a>
-            </p>
-          </div>
-        </div>
+        <FooterBlog />
       </article>
     </>
   );
