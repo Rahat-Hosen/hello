@@ -1,0 +1,184 @@
+import LayoutBlog from "components/LayoutBlog";
+import { TiltEffect } from "components/lab/TiltEffect";
+import ComponentPlayground from "components/ComponentPlayground";
+
+<LayoutBlog >
+
+# Create a tilt effect with React and Tailwind CSS
+
+For this tutorial, we will create a tilt effect with React and Tailwind CSS.
+A tilt effect is a visual effect that makes an element look like it is tilting when the user moves the mouse over it.
+There are many ways to create a tilt effect, including using third-party libraries.
+But I want to recreate the effect from scratch to understand how it works.
+
+## Tilt effect
+
+<ComponentPlayground>
+  <TiltEffect />
+</ComponentPlayground>
+
+## The code
+
+Here is the code to create what we have seen above.
+
+```jsx
+import { useState, MouseEvent, useCallback } from "react";
+
+function throttle<T extends (...args: any[]) => any>(
+  func: T,
+  delay: number
+): (...args: Parameters<T>) => void {
+  let lastCall = 0;
+  return (...args: Parameters<T>) => {
+    const now = new Date().getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return func(...args);
+  };
+}
+
+export const TiltEffect = () => {
+  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+
+  const onMouseMove = useCallback(
+    throttle((e: MouseEvent<HTMLDivElement>) => {
+      const card = e.currentTarget;
+      const box = card.getBoundingClientRect();
+      const x = e.clientX - box.left;
+      const y = e.clientY - box.top;
+      const centerX = box.width / 2;
+      const centerY = box.height / 2;
+      const rotateX = (y - centerY) / 7;
+      const rotateY = (centerX - x) / 7;
+
+      setRotate({ x: rotateX, y: rotateY });
+    }, 100),
+    []
+  );
+
+  const onMouseLeave = () => {
+    setRotate({ x: 0, y: 0 });
+  };
+
+  return (
+    <>
+      <div
+        className="card relative h-52 w-52 rounded-xl bg-white transition-[all_400ms_cubic-bezier(0.03,0.98,0.52,0.99)_0s] will-change-transform"
+        onMouseMove={onMouseMove}
+        onMouseLeave={onMouseLeave}
+        style={{
+          transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(1, 1, 1)`,
+          transition: "all 400ms cubic-bezier(0.03, 0.98, 0.52, 0.99) 0s",
+        }}
+      >
+        <div className="pulse absolute -inset-2 rounded-lg bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 opacity-75 blur-xl" />
+        <div className="relative flex h-full w-full select-none items-center justify-center rounded-lg bg-slate-900 text-sm font-light text-slate-300">
+          tilt effect
+        </div>
+      </div>
+    </>
+  );
+};
+```
+
+Let's break it down.
+
+1. Throttle function
+
+```ts
+function throttle<T extends (...args: any[]) => any>(
+  func: T,
+  delay: number
+): (...args: Parameters<T>) => void {
+  let lastCall = 0;
+  return (...args: Parameters<T>) => {
+    const now = new Date().getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return func(...args);
+  };
+}
+```
+
+This is a throttle function that limits the rate at which a function can fire. The throttle function takes a function (func) and a delay as arguments and returns a new function that, when invoked, will only call the func function at most once per every delay milliseconds.
+
+2. `TiltEffect` component:
+
+```jsx
+export const TiltEffect = () => {
+  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  ...
+};
+```
+
+This is the main component. It uses the useState hook to create a state variable rotate and its setter function setRotate. The rotate state is an object with x and y properties, which will be used to set the rotation of the element.
+
+3. `onMouseMove` callback
+
+```jsx
+const onMouseMove = useCallback(
+  throttle((e: MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const box = card.getBoundingClientRect();
+    const x = e.clientX - box.left;
+    const y = e.clientY - box.top;
+    const centerX = box.width / 2;
+    const centerY = box.height / 2;
+    const rotateX = (y - centerY) / 10;
+    const rotateY = (centerX - x) / 10;
+
+    setRotate({ x: rotateX, y: rotateY });
+  }, 100),
+  []
+);
+```
+
+This is a callback function that is called when the mouse moves over the element. It calculates the rotation values based on the mouse position and sets the rotate state. The `useCallback` hook is used to memoize the function, and the `throttle` function is used to limit how often this function can be called.
+
+4. `onMouseLeave`
+
+```jsx
+const onMouseLeave = () => {
+  setRotate({ x: 0, y: 0 });
+};
+```
+
+This is a simple function that resets the rotate state when the mouse leaves the element.
+
+5. Rendering the component
+
+```jsx
+return (
+  <>
+    <div
+      className="card relative h-52 w-52 rounded-xl bg-white transition-[all_400ms_cubic-bezier(0.03,0.98,0.52,0.99)_0s] will-change-transform"
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      style={{
+        transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(1, 1, 1)`,
+        transition: "all 400ms cubic-bezier(0.03, 0.98, 0.52, 0.99) 0s",
+      }}
+    >
+      <div className="pulse absolute -inset-2 rounded-lg bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 opacity-75 blur-xl" />
+      <div className="relative flex h-full w-full select-none items-center justify-center rounded-lg bg-slate-900 text-sm font-light text-slate-300">
+        tilt effect
+      </div>
+    </div>
+  </>
+);
+```
+
+This is the JSX that gets rendered by the component. It's a div element with some Tailwind CSS classes and styles applied to it. The onMouseMove and onMouseLeave callbacks are attached to this div.
+
+We use the transform property to applies 3D transformation to the card.
+In our case, we applied a rotation transformation to the card:
+
+- `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`: These functions rotate the element around the X-axis and Y-axis, respectively. The rotation angles are determined by the rotate state, which is updated when the mouse moves over the element.
+
+In summary, this component creates a simple "tilt effect" where an element rotates based on the position of the mouse cursor over it. The rotation is limited by a throttle function to improve performance.
+
+</LayoutBlog>
