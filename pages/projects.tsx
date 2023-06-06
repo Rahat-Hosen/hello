@@ -4,6 +4,17 @@ import Link from "next/link";
 
 const PROJECTS_LIST = [
   {
+    title: "ui.ibelick",
+    description:
+      "A unique collection of modern UI components and effects. Built with React and Tailwind CSS. I've built most of them for my blog. You can use them for free, copy/paste the code and you're good to go!",
+    links: {
+      text: "Website",
+      link: "https://ui.ibelick.com/",
+    },
+    tags: ["React", "Tailwind CSS", "TypeScript", "2023", "Open source", "UI"],
+    emoji: "💫",
+  },
+  {
     title: "Basyl",
     description:
       "An AI cooking assistant. Experiment with Open AI's GPT-3 to generate recipes and cooking instructions.",
@@ -134,15 +145,15 @@ const Projects = () => {
         {PROJECTS_LIST.map((project) => {
           return (
             <CardSpotlightEffect>
-              <div className="relative flex flex-col items-start rounded-md border border-slate-300 bg-slate-300/5 p-6 dark:border-slate-700 sm:flex-row sm:items-center">
+              <div className="relative flex flex-col items-start rounded-md border border-slate-300 bg-slate-300/5 p-7 dark:border-slate-700 sm:flex-row sm:items-center">
                 <div className="mb-4 sm:mb-0">
                   <div className="flex h-14 w-14 select-none items-center justify-center rounded border border-slate-200 text-2xl dark:border-slate-800">
                     {project.emoji}
                   </div>
                 </div>
-                <div className="sm:mb-O mx-0 mb-6 flex flex-col sm:mx-8">
+                <div className="mx-0 mb-6 flex flex-col sm:mx-8 sm:mb-0">
                   <h3 className="mb-1">{project.title}</h3>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="mb-2 text-gray-700 dark:text-gray-300">
                     {project.description}
                   </p>
                   <div className="mt-2 flex flex-wrap gap-2">
