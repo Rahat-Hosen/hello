@@ -51,7 +51,7 @@ export const TiltEffect = () => {
       >
         <div className="pulse absolute -inset-2 rounded-lg bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 opacity-75 blur-xl" />
         <div className="relative flex h-full w-full select-none items-center justify-center rounded-lg bg-slate-900 text-sm font-light text-slate-300">
-          tilt effect
+          hover me
         </div>
       </div>
     </>
