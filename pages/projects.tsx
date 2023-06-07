@@ -1,5 +1,6 @@
 import Button from "components/Button";
 import { CardSpotlightEffect } from "components/lab/SpotlightEffect";
+import Badge from "components/ui/Badge";
 import Link from "next/link";
 
 const PROJECTS_LIST = [
@@ -158,11 +159,7 @@ const Projects = () => {
                   </p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {project?.tags?.map((tag) => {
-                      return (
-                        <div className="rounded-md border border-slate-200 p-[2px] text-xs text-gray-500 dark:text-gray-400">
-                          {tag}
-                        </div>
-                      );
+                      return <Badge>{tag}</Badge>;
                     })}
                   </div>
                 </div>

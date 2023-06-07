@@ -5,112 +5,128 @@
       "description": "How to create a tilt effect with React?",
       "datePublished": "2023-06-06T00:00",
       "dateModified": null,
-      "slug": "create-tilt-effect-with-react"
+      "slug": "create-tilt-effect-with-react",
+      "tags": ["React", "UI Effects", "Animation"]
     },
     {
       "title": "Creating an infine slider with Tailwind CSS",
       "description": "How to create an infinite slider with Tailwind CSS?",
       "datePublished": "2023-06-02T00:00",
       "dateModified": null,
-      "slug": "create-infinite-slider-with-tailwind-css"
+      "slug": "create-infinite-slider-with-tailwind-css",
+      "tags": ["Tailwind CSS", "UI Effects", "Sliders"]
     },
     {
       "title": "Lessons from my first month of blogging as a solo developer",
       "description": "Lessons from my first month of blogging as a solo developer",
       "datePublished": "2023-05-31T00:00",
       "dateModified": null,
-      "slug": "lessons-from-my-first-month-of-blogging-as-a-solo-developer"
+      "slug": "lessons-from-my-first-month-of-blogging-as-a-solo-developer",
+      "tags": ["Blogging", "Freelancing", "Personal Development"]
     },
     {
       "title": "Building an animated sliding tab bar with React and Tailwind CSS",
       "description": "How to build an animated sliding tab bar with React and Tailwind CSS?",
       "datePublished": "2023-05-24T00:00",
       "dateModified": null,
-      "slug": "build-animated-sliding-tab-bar-with-react-tailwind-css"
+      "slug": "build-animated-sliding-tab-bar-with-react-tailwind-css",
+      "tags": ["React", "Tailwind CSS", "UI Effects"]
     },
     {
       "title": "Creating a shine effect on a card with Tailwind CSS",
       "description": "How to create a shine effect with Tailwind CSS?",
       "datePublished": "2023-05-19T00:00",
       "dateModified": null,
-      "slug": "create-shine-effect-on-card-with-tailwind-css"
+      "slug": "create-shine-effect-on-card-with-tailwind-css",
+      "tags": ["Tailwind CSS", "UI Effects"]
     },
     {
       "title": "Ultimate list of curated design inspiration websites",
       "description": "Ultimate list of curated design inspiration websites",
       "datePublished": "2023-05-17T00:00",
       "dateModified": null,
-      "slug": "ultimate-list-of-curated-design-inspiration-websites"
+      "slug": "ultimate-list-of-curated-design-inspiration-websites",
+      "tags": ["Design", "Inspiration", "Resources"]
     },
     {
       "title": "Creating a shooting star border with Tailwind CSS and CSS",
       "description": "How to create a shooting star (shimmer) border with Tailwind CSS and CSS?",
       "datePublished": "2023-05-15T00:00",
       "dateModified": null,
-      "slug": "create-shooting-star-border-tailwind-css"
+      "slug": "create-shooting-star-border-tailwind-css",
+      "tags": ["Tailwind CSS", "UI Effects"]
     },
     {
       "title": "Creating gradient shadows with Tailwind CSS and CSS",
       "description": "How to create gradient shadows with Tailwind CSS and CSS?",
       "datePublished": "2023-05-12T00:00",
       "dateModified": null,
-      "slug": "create-gradient-shadows-tailwind-css"
+      "slug": "create-gradient-shadows-tailwind-css",
+      "tags": ["Tailwind CSS", "UI Effects"]
     },
     {
       "title": "Crafting a modern spotlight effect with React and CSS",
       "description": "How to create a modern spotlight effect with React and CSS?",
       "datePublished": "2023-05-10T00:00",
       "dateModified": null,
-      "slug": "create-modern-spotlight-effect-with-react-css"
+      "slug": "create-modern-spotlight-effect-with-react-css",
+      "tags": ["React", "UI Effects", "Tailwind CSS", "CSS"]
     },
     {
       "title": "Creating an interactive spotlight border with CSS and React",
       "description": "How to create an interactive spotlight border with CSS and React?",
       "datePublished": "2023-05-08T00:00",
       "dateModified": null,
-      "slug": "create-spotlight-border-with-react-css"
+      "slug": "create-spotlight-border-with-react-css",
+      "tags": ["React", "UI Effects", "Tailwind CSS", "CSS"]
     },
     {
       "title": "Creating an animated text gradient with CSS",
       "description": "How to create an animated text gradient with CSS?",
       "datePublished": "2023-05-05T00:00",
       "dateModified": null,
-      "slug": "create-animated-text-gradient-with-css"
+      "slug": "create-animated-text-gradient-with-css",
+      "tags": ["UI Effects", "Tailwind CSS", "CSS"]
     },
     {
       "title": "Creating an animated gradient border with CSS",
       "description": "How to animate an animated gradient border with CSS?",
       "datePublished": "2023-05-02T00:00",
       "dateModified": null,
-      "slug": "create-animated-gradient-borders-with-css"
+      "slug": "create-animated-gradient-borders-with-css",
+      "tags": ["UI Effects", "Tailwind CSS", "CSS"]
     },
     {
       "title": "Creating Bento Grid Layouts",
       "description": "How to create Bento Grid Layouts with Tailwind CSS and React",
       "datePublished": "2023-04-27T00:00",
       "dateModified": null,
-      "slug": "create-bento-grid-layouts"
+      "slug": "create-bento-grid-layouts",
+      "tags": ["Tailwind CSS", "React"]
     },
     {
       "title": "How to compress images on client-side",
       "description": "How to compress images on client-side with JavaScript, TypeScript, React",
       "datePublished": "2022-04-07T00:00",
       "dateModified": null,
-      "slug": "client-side-images-compression"
+      "slug": "client-side-images-compression",
+      "tags": ["JavaScript", "TypeScript", "React"]
     },
     {
       "title": "Tiny react hook to upload files into IPFS",
       "description": "How to upload files or data into IPFS",
       "datePublished": "2022-03-17T00:00",
       "dateModified": null,
-      "slug": "react-hook-upload-files-IPFS"
+      "slug": "react-hook-upload-files-IPFS",
+      "tags": ["React", "IPFS", "Hooks"]
     },
     {
       "title": "Minimal blog with Next.js, Tailwind CSS, and markdown (MDX)",
       "description": "How to build a minimal blog with Next.js, Tailwind CSS, and MDX?",
       "datePublished": "2021-07-23T00:00",
       "dateModified": null,
-      "slug": "nextjs-tailwindcss-markdown-mdx-minimal-blog"
+      "slug": "nextjs-tailwindcss-markdown-mdx-minimal-blog",
+      "tags": ["Next.js", "Tailwind CSS", "MDX", "Blogging"]
     }
   ]
 }

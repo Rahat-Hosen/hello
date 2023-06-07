@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import SectionContact from "../components/SectionContact";
-import { CardSpotlightEffect } from "components/lab/SpotlightEffect";
+import postsData from "./blog/metadata.json";
+const { postsMetadata } = postsData;
 
 export default function Home() {
   return (
@@ -67,6 +68,18 @@ export default function Home() {
             projects that I'm excited to share with you{" "}
             <span className="cursor-wait font-bold">soon</span>.
           </li>
+        </ul>
+      </div>
+      <div className="prose mt-24 dark:prose-dark">
+        <h2 className="mt-12 text-base font-medium">My latest articles</h2>
+        <ul>
+          {postsMetadata.slice(0, 3).map((post) => {
+            return (
+              <li key={post.slug} className="mb-2">
+                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="mt-24">
