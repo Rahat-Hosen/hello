@@ -126,7 +126,7 @@ const Tabs = () => {
 const Layout: FC = ({ children }) => {
   return (
     <div className="relative flex min-h-screen w-screen flex-col dark:bg-black/30">
-      <main className="mx-auto mb-14 w-full max-w-screen-md flex-1 px-4 py-12 dark:text-white">
+      <main className="mx-auto mb-14 w-full max-w-screen-md flex-1 animate-main-content px-4 py-12 dark:text-white">
         {children}
       </main>
       <Tabs />

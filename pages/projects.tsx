@@ -145,7 +145,7 @@ const Projects = () => {
       <div className="mt-8 flex flex-col gap-4 pr-4 md:pr-16">
         {PROJECTS_LIST.map((project) => {
           return (
-            <CardSpotlightEffect>
+            <CardSpotlightEffect key={project.title}>
               <div className="relative flex flex-col items-start rounded-md border border-slate-300 bg-slate-300/5 p-7 dark:border-slate-700 sm:flex-row sm:items-center">
                 <div className="mb-4 sm:mb-0">
                   <div className="flex h-14 w-14 select-none items-center justify-center rounded border border-slate-200 text-2xl dark:border-slate-800">
@@ -159,7 +159,7 @@ const Projects = () => {
                   </p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {project?.tags?.map((tag) => {
-                      return <Badge>{tag}</Badge>;
+                      return <Badge key={tag}>{tag}</Badge>;
                     })}
                   </div>
                 </div>

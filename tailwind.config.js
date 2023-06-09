@@ -43,8 +43,19 @@ module.exports = {
         flip: "flip 6s infinite steps(2, end)",
         rotate: "rotate 3s linear infinite both",
         wiggle: "wiggle 300ms ease-in-out",
+        "main-content": "slide-up 0.3s ease-in-out",
       },
       keyframes: {
+        "slide-up": {
+          "0%": {
+            opacity: 0,
+            transform: "translateY(4px)",
+          },
+          "100%": {
+            opacity: 100,
+            transform: "translateY(0)",
+          },
+        },
         flip: {
           to: {
             transform: "rotate(360deg)",
