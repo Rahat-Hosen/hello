@@ -104,13 +104,16 @@ const LayoutBlog: React.FC = ({ children }) => {
           ← back to all posts
         </Link>
         {children}
-        <p className="text-right text-sm text-gray-600 dark:text-gray-400">
-          Published: {new Date(datePublished).toLocaleDateString()}{" "}
-          {dateModified
-            ? `❍ Last
-  update: ${new Date(dateModified).toLocaleDateString()}`
-            : null}
-        </p>
+        <div className="mt-8 flex flex-col text-right text-sm text-gray-600 dark:text-gray-400">
+          <span className="mb-1">
+            Published: {new Date(datePublished).toLocaleDateString()}{" "}
+          </span>
+          {dateModified ? (
+            <span>
+              Last update: {new Date(dateModified).toLocaleDateString()}
+            </span>
+          ) : null}
+        </div>
         <div>
           <hr className="mx-auto my-8 w-28" />
         </div>
