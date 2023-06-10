@@ -44,8 +44,13 @@ module.exports = {
         rotate: "rotate 3s linear infinite both",
         wiggle: "wiggle 300ms ease-in-out",
         "main-content": "slide-up 0.3s ease-in-out",
+        "slide-down-fade": "slide-down-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
       },
       keyframes: {
+        "slide-down-fade": {
+          "0%": { opacity: 0, transform: "translateY(-2px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
         "slide-up": {
           "0%": {
             opacity: 0,

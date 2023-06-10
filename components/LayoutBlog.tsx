@@ -1,11 +1,18 @@
 import { NextSeo, ArticleJsonLd } from "next-seo";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import postsData from "../pages/blog/metadata.json";
 import Custom404 from "pages/404";
 import Link from "next/link";
 import Image from "next/image";
 import NewsletterForm from "./NewsletterForm";
+import { CheckIcon, CopyIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/Tooltip";
 
 const { postsMetadata } = postsData;
 
@@ -40,6 +47,45 @@ const FooterBlog = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+type CopyLinkProps = {
+  link: string;
+};
+
+const CopyLink: React.FC<CopyLinkProps> = ({ link }) => {
+  const [hasCheckIcon, setHasCheckIcon] = useState(false);
+
+  const onCopy = () => {
+    navigator.clipboard.writeText(link);
+    setHasCheckIcon(true);
+
+    setTimeout(() => {
+      setHasCheckIcon(false);
+    }, 1000);
+  };
+
+  return (
+    <>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>
+            <div
+              className="inline-flex cursor-pointer rounded-full bg-gray-100 p-2 transition hover:bg-gray-200 dark:bg-gray-900"
+              onClick={onCopy}
+            >
+              {hasCheckIcon ? (
+                <CheckIcon className="h-4 w-4 text-black dark:text-white" />
+              ) : (
+                <CopyIcon className="h-4 w-4 text-black dark:text-white" />
+              )}
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>Copy link</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    </>
   );
 };
 
@@ -97,12 +143,37 @@ const LayoutBlog: React.FC = ({ children }) => {
         images={[`https://julienthibeaut.xyz/blog/api/og/?title=${title}`]}
       />
       <article className="prose pb-12 dark:prose-dark prose-figcaption:text-center prose-img:mb-0 prose-video:mb-0">
-        <Link
-          href="/blog"
-          className="mb-4 inline-flex font-normal text-slate-800 no-underline transition hover:text-slate-600 dark:text-slate-100 dark:hover:text-slate-300"
-        >
-          ← back to all posts
-        </Link>
+        <div className="flex items-center justify-between">
+          <Link
+            href="/blog"
+            className="mb-4 inline-flex font-normal text-slate-800 no-underline transition hover:text-slate-600 dark:text-slate-100 dark:hover:text-slate-300"
+          >
+            ← back to all posts
+          </Link>
+          <div className="flex gap-4">
+            <CopyLink link={`https://julienthibeaut.xyz/blog/${slug}`} />
+            <div className="">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <span
+                      className="inline-flex cursor-pointer rounded-full bg-gray-100 p-2 transition hover:bg-gray-200 dark:bg-gray-900"
+                      onClick={() => {
+                        window.open(
+                          `https://twitter.com/intent/tweet?text=${title}&url=https://julienthibeaut.xyz/blog/${slug}`,
+                          "_blank"
+                        );
+                      }}
+                    >
+                      <TwitterLogoIcon className="h-4 w-4 text-black dark:text-white" />
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent>Share on Twitter</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+          </div>
+        </div>
         {children}
         <div className="mt-8 flex flex-col text-right text-sm text-gray-600 dark:text-gray-400">
           <span className="mb-1">
