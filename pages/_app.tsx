@@ -5,14 +5,18 @@ import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
 import "@code-hike/mdx/dist/index.css";
+import { useRouter } from "next/router";
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const router = useRouter();
+  const canonicalUrl = `https://www.julienthibeaut.xyz${router.asPath}`;
+
   return (
     <ThemeProvider attribute="class">
       <DefaultSeo
-        title="Julien Thibeaut - front-end developer 🌐"
-        description="I'm Julien Thibeaut, a freelance front-end developer based in Paris. I love to work with JavaScript, React, React Native, Next.js, and TypeScript!"
-        canonical="https://www.julienthibeaut.xyz"
+        title="Julien Thibeaut"
+        description="I'm Julien Thibeaut, a Paris-based freelance front-end developer. Specializing in JavaScript, React, React Native, Next.js, and TypeScript, I'm passionate about creating engaging and interactive digital experiences."
+        canonical={canonicalUrl}
         openGraph={{
           type: "website",
           locale: "en_IE",

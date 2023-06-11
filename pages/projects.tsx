@@ -1,6 +1,7 @@
 import Button from "components/Button";
 import { CardSpotlightEffect } from "components/lab/SpotlightEffect";
 import Badge from "components/ui/Badge";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
 
 const PROJECTS_LIST = [
@@ -129,6 +130,7 @@ const PROJECTS_LIST = [
 const Projects = () => {
   return (
     <>
+      <NextSeo title="Projects" />
       <div className="prose dark:prose-dark">
         <h2 className="mt-12 text-base font-medium">Selected projects</h2>
         <p>

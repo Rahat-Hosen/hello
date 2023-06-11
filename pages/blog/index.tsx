@@ -1,5 +1,6 @@
 import Link from "next/link";
 import postsData from "./metadata.json";
+import { NextSeo } from "next-seo";
 const { postsMetadata } = postsData;
 
 type BlogPageProps = {
@@ -41,13 +42,16 @@ const CardBlogPost = ({ post }: { post: Post }) => {
 
 const BlogPage = ({ posts }: BlogPageProps) => {
   return (
-    <section className="pt-2 md:pt-24">
-      <ul>
-        {posts.map((post) => {
-          return <CardBlogPost key={post.slug} post={post} />;
-        })}
-      </ul>
-    </section>
+    <>
+      <NextSeo title="Blog" />
+      <section className="pt-2 md:pt-24">
+        <ul>
+          {posts.map((post) => {
+            return <CardBlogPost key={post.slug} post={post} />;
+          })}
+        </ul>
+      </section>
+    </>
   );
 };
 
