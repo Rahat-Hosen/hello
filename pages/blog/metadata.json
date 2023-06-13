@@ -1,6 +1,14 @@
 {
   "postsMetadata": [
     {
+      "title": "Creating grainy backgrounds with CSS",
+      "description": "How to create grainy backgrounds with CSS?",
+      "datePublished": "2023-06-13T00:00",
+      "dateModified": null,
+      "slug": "create-grainy-backgrounds-with-css",
+      "tags": ["CSS", "UI Effects"]
+    },
+    {
       "title": "Creating a tilt effect with React",
       "description": "How to create a tilt effect with React?",
       "datePublished": "2023-06-06T00:00",
