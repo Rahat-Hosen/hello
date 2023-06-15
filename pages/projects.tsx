@@ -3,18 +3,23 @@ import { CardSpotlightEffect } from "components/lab/SpotlightEffect";
 import Badge from "components/ui/Badge";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
+import Image from "next/image";
+import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
 
 const PROJECTS_LIST = [
   {
     title: "ui.ibelick",
     description:
-      "A unique collection of modern UI components and effects. Built with React and Tailwind CSS. I've built most of them for my blog. You can use them for free, copy/paste the code and you're good to go!",
+      "A unique collection of modern UI components and effects. Built with React and Tailwind CSS. I've built most of them for my blog. You can use them for free, copy/paste the code and customize them as you want.",
     links: {
       text: "Website",
       link: "https://ui.ibelick.com/",
     },
     tags: ["React", "Tailwind CSS", "TypeScript", "2023", "Open source", "UI"],
     emoji: "💫",
+    image: "/projects/ui.ibelick_screen.webp",
+    videoLink:
+      "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/AyPdr7RjlVIp3tdgMvFM/1fe19388-dcef-461d-9bcc-af6245b355fe.mp4?_a=ATO2BAA0",
   },
   {
     title: "Basyl",
@@ -26,6 +31,8 @@ const PROJECTS_LIST = [
     },
     tags: ["AI", "React", "Next.js", "TypeScript", "Design", "2023"],
     emoji: "🌿",
+    videoLink:
+      "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/mQkQBbIeT3Oa3oa1nTiH/1f7b0698-b2c8-4e6a-a309-1fdbf621c944.mp4?_a=ATO2BAA0",
   },
   {
     title: "Rapsodie",
@@ -102,6 +109,8 @@ const PROJECTS_LIST = [
     },
     tags: ["React Native", "Expo", "TypeScript", "2019"],
     emoji: "🎉",
+    videoLink:
+      "https://cdn.dribbble.com/users/675464/screenshots/9683319/media/9d0f045be5d73a441e3273fc2bf873c5.mp4",
   },
   {
     title: "Foncia R&D",
@@ -124,6 +133,8 @@ const PROJECTS_LIST = [
     },
     tags: ["Project", "React", "Node.js", "2017"],
     emoji: "📈",
+    imageLink:
+      "https://cdn.dribbble.com/users/675464/screenshots/9390744/media/7429bc8d60b2da96b4f4e34a1202258c.png",
   },
 ];
 
@@ -136,25 +147,18 @@ const Projects = () => {
         <p>
           Below is a showcase of various selected projects I've worked on over
           the years. These include both client work and personal projects.
-          Please note that while I'm proud of all these projects, some of them
-          are no longer actively maintained.
         </p>
         <p>
           If you want to see what I'm currently working on, check out my{" "}
           <Link href="/">current projects</Link>
         </p>
       </div>
-      <div className="mt-8 flex flex-col gap-4 pr-4 md:pr-16">
+      <div className="mt-10 flex flex-col gap-12 pr-4 md:pr-16">
         {PROJECTS_LIST.map((project) => {
           return (
-            <CardSpotlightEffect key={project.title}>
-              <div className="relative flex flex-col items-start rounded-md border border-slate-300 bg-slate-300/5 p-7 dark:border-slate-700 sm:flex-row sm:items-center">
-                <div className="mb-4 sm:mb-0">
-                  <div className="flex h-14 w-14 select-none items-center justify-center rounded border border-slate-200 text-2xl dark:border-slate-800">
-                    {project.emoji}
-                  </div>
-                </div>
-                <div className="mx-0 mb-6 flex flex-col sm:mx-8 sm:mb-0">
+            <div className="relative rounded-3xl bg-neutral-50 dark:bg-neutral-950">
+              <div className="flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center">
+                <div className="flex flex-col">
                   <h3 className="mb-1">{project.title}</h3>
                   <p className="mb-2 text-gray-700 dark:text-gray-300">
                     {project.description}
@@ -173,7 +177,27 @@ const Projects = () => {
                   </Button>
                 </div>
               </div>
-            </CardSpotlightEffect>
+              <hr className="mx-auto w-[50%]" />
+              <div className="flex px-14 py-8">
+                {project.videoLink ? (
+                  <video
+                    src={project.videoLink}
+                    autoPlay
+                    loop
+                    muted
+                    className="h-80 w-full rounded-3xl object-cover"
+                  />
+                ) : (
+                  <img
+                    src={project.imageLink}
+                    alt={project.title}
+                    // width={896}
+                    // height={747}
+                    className="h-80 w-full rounded-3xl object-cover"
+                  />
+                )}
+              </div>
+            </div>
           );
         })}
       </div>
