@@ -75,8 +75,8 @@ const Tabs = () => {
   };
 
   return (
-    <div className="fixed inset-x-0 bottom-0 mx-auto mb-4 h-12 w-full max-w-lg px-6 sm:h-16">
-      <div className="flew-row relative mx-auto flex h-full w-full rounded-full border border-black/40 bg-white/30 backdrop-blur-sm dark:border-white dark:bg-black/30 dark:text-white">
+    <div className="fixed inset-x-0 bottom-0 z-20 mx-auto mb-4 h-12 w-full max-w-lg px-6 sm:h-16">
+      <div className="flew-row relative mx-auto flex h-full w-full rounded-full border border-neutral-400/50 bg-white/30 backdrop-blur-sm dark:border-neutral-600/50 dark:bg-black/30 dark:text-white">
         <span
           className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full p-1 transition-all duration-300 sm:p-2"
           style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
