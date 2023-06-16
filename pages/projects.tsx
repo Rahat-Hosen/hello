@@ -1,10 +1,8 @@
 import Button from "components/Button";
-import { CardSpotlightEffect } from "components/lab/SpotlightEffect";
 import Badge from "components/ui/Badge";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 import Image from "next/image";
-import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
 
 const PROJECTS_LIST = [
   {
@@ -17,9 +15,11 @@ const PROJECTS_LIST = [
     },
     tags: ["React", "Tailwind CSS", "TypeScript", "2023", "Open source", "UI"],
     emoji: "💫",
-    image: "/projects/ui.ibelick_screen.webp",
-    videoLink:
-      "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/AyPdr7RjlVIp3tdgMvFM/1fe19388-dcef-461d-9bcc-af6245b355fe.mp4?_a=ATO2BAA0",
+    video: {
+      link: "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/AyPdr7RjlVIp3tdgMvFM/1fe19388-dcef-461d-9bcc-af6245b355fe.mp4?_a=ATO2BAA0",
+      width: "w-full",
+      height: "h-80",
+    },
   },
   {
     title: "Basyl",
@@ -31,8 +31,11 @@ const PROJECTS_LIST = [
     },
     tags: ["AI", "React", "Next.js", "TypeScript", "Design", "2023"],
     emoji: "🌿",
-    videoLink:
-      "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/mQkQBbIeT3Oa3oa1nTiH/1f7b0698-b2c8-4e6a-a309-1fdbf621c944.mp4?_a=ATO2BAA0",
+    video: {
+      link: "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/mQkQBbIeT3Oa3oa1nTiH/1f7b0698-b2c8-4e6a-a309-1fdbf621c944.mp4?_a=ATO2BAA0",
+      width: "h-full",
+      height: "w-64",
+    },
   },
   {
     title: "Rapsodie",
@@ -44,6 +47,11 @@ const PROJECTS_LIST = [
     },
     tags: ["React", "Capacitor", "TypeScript", "2022-2023"],
     emoji: "🎤",
+    image: {
+      src: "/projects/rapsodie_screen.webp",
+      width: 1280,
+      height: 720,
+    },
   },
   {
     title: "Newfrenz",
@@ -54,7 +62,6 @@ const PROJECTS_LIST = [
       link: "https://www.newfrenz.xyz/",
     },
     tags: ["Hackathon", "React", "Next.js", "web3", "2022"],
-    emoji: "👋",
   },
   {
     title: "Hellocurator",
@@ -65,17 +72,16 @@ const PROJECTS_LIST = [
       link: "https://hellocurator.xyz/",
     },
     tags: ["Project", "React", "Next.js", "web3", "TypeScript", "art", "2022"],
-    emoji: "🎨",
   },
   {
     title: "Swile",
-    description: "Helped building components for the new Swile website.",
+    description:
+      "Contributed to the development of the new Swile website by designing and implementing a variety of reusable components.",
     links: {
       text: "Website",
       link: "https://swile.co/",
     },
-    tags: ["Freelance", "React", "TypeScript", "2022"],
-    emoji: "💼",
+    tags: ["React", "TypeScript", "2022"],
   },
   {
     title: "uxcademy",
@@ -86,7 +92,6 @@ const PROJECTS_LIST = [
       link: "https://uxcademy.com/",
     },
     tags: ["Project", "React", "Next.js", "TypeScript", "design", "2021"],
-    emoji: "🎓",
   },
   {
     title: "La Fourche",
@@ -97,7 +102,6 @@ const PROJECTS_LIST = [
       link: "https://lafourche.fr/",
     },
     tags: ["React", "Next.js", "TypeScript", "Design system", "2020-2021"],
-    emoji: "🥗",
   },
   {
     title: "madely",
@@ -108,9 +112,6 @@ const PROJECTS_LIST = [
       link: "https://dribbble.com/shots/9683319-Madely-Event-Discovery-App",
     },
     tags: ["React Native", "Expo", "TypeScript", "2019"],
-    emoji: "🎉",
-    videoLink:
-      "https://cdn.dribbble.com/users/675464/screenshots/9683319/media/9d0f045be5d73a441e3273fc2bf873c5.mp4",
   },
   {
     title: "Foncia R&D",
@@ -121,7 +122,6 @@ const PROJECTS_LIST = [
       link: "https://fr.foncia.com/",
     },
     tags: ["React", "Design system", "2018-2019"],
-    emoji: "🏠",
   },
   {
     title: "bitcallz",
@@ -132,9 +132,6 @@ const PROJECTS_LIST = [
       link: "https://dribbble.com/shots/9390744-Bitcallz-crypto-prediction-platform",
     },
     tags: ["Project", "React", "Node.js", "2017"],
-    emoji: "📈",
-    imageLink:
-      "https://cdn.dribbble.com/users/675464/screenshots/9390744/media/7429bc8d60b2da96b4f4e34a1202258c.png",
   },
 ];
 
@@ -177,26 +174,30 @@ const Projects = () => {
                   </Button>
                 </div>
               </div>
-              <hr className="mx-auto w-[50%]" />
-              <div className="flex px-14 py-8">
-                {project.videoLink ? (
-                  <video
-                    src={project.videoLink}
-                    autoPlay
-                    loop
-                    muted
-                    className="h-80 w-full rounded-3xl object-cover"
-                  />
-                ) : (
-                  <img
-                    src={project.imageLink}
-                    alt={project.title}
-                    // width={896}
-                    // height={747}
-                    className="h-80 w-full rounded-3xl object-cover"
-                  />
-                )}
-              </div>
+              {Boolean(project.video || project.image) ? (
+                <>
+                  <hr className="mx-auto h-[1px] w-[60%] border-none bg-neutral-200 dark:bg-neutral-900" />
+                  <div className="mx-auto flex items-center px-14 py-8">
+                    {project.video ? (
+                      <video
+                        src={project.video.link}
+                        autoPlay
+                        loop
+                        muted
+                        className={`mx-auto rounded-3xl object-contain ${project.video.width} ${project.video.height}`}
+                      />
+                    ) : (
+                      <Image
+                        src={project.image!.src!}
+                        alt={project.title}
+                        width={949}
+                        height={900}
+                        className="h-80 w-full rounded-3xl object-contain"
+                      />
+                    )}
+                  </div>
+                </>
+              ) : null}
             </div>
           );
         })}
