@@ -45,6 +45,7 @@ module.exports = {
         wiggle: "wiggle 300ms ease-in-out",
         "main-content": "slide-up 0.3s ease-in-out",
         "slide-down-fade": "slide-down-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+        "text-reveal": "text-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s",
       },
       keyframes: {
         "slide-down-fade": {
@@ -74,6 +75,14 @@ module.exports = {
         wiggle: {
           "0%, 100%": { transform: "rotate(-5deg)" },
           "50%": { transform: "rotate(5deg)" },
+        },
+        "text-reveal": {
+          "0%": {
+            transform: "translate(0, 100%)",
+          },
+          "100%": {
+            transform: "translate(0, 0)",
+          },
         },
       },
     },

@@ -1,14 +1,32 @@
+import { Key, cloneElement, useState } from "react";
+import { ReloadIcon } from "@radix-ui/react-icons";
+
 const ComponentPlayground: React.FC<{
-  children: React.ReactNode;
+  children: React.ReactElement;
   className?: string;
-}> = ({ children, className }) => {
+  hasReTrigger?: boolean;
+}> = ({ children, className, hasReTrigger }) => {
+  const [key, setKey] = useState<Key>(Date.now());
+
+  const reTrigger = () => {
+    setKey(Date.now());
+  };
+
   return (
     <div
-      className={`not-prose flex items-center justify-center rounded-xl border border-slate-600/50 bg-slate-950 px-4 py-12 ${
+      className={`not-prose relative flex items-center justify-center rounded-xl border border-slate-600/50 bg-slate-950 px-4 py-12 ${
         className ? className : ""
       }`}
     >
-      {children}
+      {hasReTrigger ? (
+        <div
+          className="absolute right-4 top-3 cursor-pointer text-white"
+          onClick={reTrigger}
+        >
+          <ReloadIcon />
+        </div>
+      ) : null}
+      {hasReTrigger ? cloneElement(children, { key }) : children}
     </div>
   );
 };

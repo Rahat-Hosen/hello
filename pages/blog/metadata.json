@@ -1,6 +1,14 @@
 {
   "postsMetadata": [
     {
+      "title": "Creating an text reveal effect in React with Tailwind CSS and CSS",
+      "description": "How to create a text reveal effect in React with Tailwind CSS and CSS?",
+      "datePublished": "2023-06-19T00:00",
+      "dateModified": null,
+      "slug": "create-text-reveal-effect-with-tailwind-css",
+      "tags": ["Tailwind CSS", "UI Effects"]
+    },
+    {
       "title": "Creating grainy backgrounds with CSS",
       "description": "How to create grainy backgrounds with CSS?",
       "datePublished": "2023-06-13T00:00",
