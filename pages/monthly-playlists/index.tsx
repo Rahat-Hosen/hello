@@ -37,7 +37,11 @@ const MonthyPlaylistPage = () => {
                 </Link>
               </div>
             );
-          }) || null}
+          }) || (
+            <div>
+              <span className="inline-flex animate-bounce">●</span>
+            </div>
+          )}
         </div>
       </section>
     </>

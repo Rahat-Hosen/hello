@@ -6,6 +6,20 @@ import Image from "next/image";
 
 const PROJECTS_LIST = [
   {
+    title: "logoshaper",
+    description: "Logo design made simple for startup founders.",
+    links: {
+      text: "Website",
+      link: "https://logoshaper.co",
+    },
+    tags: ["SaaS", "Founder", "WIP"],
+    image: {
+      src: "https://www.logoshaper.co/editorAnim4.svg",
+      width: "w-full",
+      height: "h-80",
+    },
+  },
+  {
     title: "ui.ibelick",
     description:
       "A unique collection of modern UI components and effects. Built with React and Tailwind CSS. I've built most of them for my blog. You can use them for free, copy/paste the code and customize them as you want.",
@@ -153,9 +167,12 @@ const Projects = () => {
       <div className="mt-10 flex flex-col gap-12 pr-4 md:pr-16">
         {PROJECTS_LIST.map((project) => {
           return (
-            <div className="relative rounded-3xl bg-neutral-50 dark:bg-neutral-950">
+            <div
+              className="relative rounded-3xl bg-neutral-50 dark:bg-neutral-950"
+              key={project.title}
+            >
               <div className="flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center">
-                <div className="flex flex-col">
+                <div className="flex w-full flex-col">
                   <h3 className="mb-1">{project.title}</h3>
                   <p className="mb-2 text-gray-700 dark:text-gray-300">
                     {project.description}

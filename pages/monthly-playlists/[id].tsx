@@ -5,22 +5,37 @@ import { fetcher } from "lib/fetcher";
 import useSWR from "swr";
 import NewWindowIcon from "components/NewWindowIcon";
 import { NextSeo } from "next-seo";
+import Custom404 from "pages/404";
 
 const PlaylistPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const { data: playlist } = useSWR<SpotifyPlaylist>(
-    id ? `/api/playlists/${id}` : null,
-    fetcher
-  );
+  const { data } = useSWR<
+    SpotifyPlaylist & {
+      error: {
+        status: number;
+        message: string;
+      };
+    }
+  >(id ? `/api/playlists/${id}` : null, fetcher);
 
-  if (!playlist) {
-    return null;
+  console.log("data", data);
+
+  if (!data) {
+    return (
+      <div>
+        <span className="inline-flex animate-bounce">●</span>
+      </div>
+    );
+  }
+
+  if (data?.error) {
+    return <Custom404 />;
   }
 
   return (
     <>
-      <NextSeo title={playlist.name} />
+      <NextSeo title={`Monthly Playlist - ${data.name}`} />
       <section className="max-w-screen relative mx-auto mb-14 p-6 ">
         <div className="mb-4">
           <Link href="/monthly-playlists">
@@ -32,14 +47,14 @@ const PlaylistPage = () => {
             <div className="mb-8">
               <img
                 className="h-64 w-64 rounded-lg object-cover shadow-md"
-                src={playlist.images[0].url}
+                src={data.images[0].url}
               />
               <div className="mt-1 flex items-center">
-                <h2>{playlist.name}</h2>
+                <h2>{data.name}</h2>
                 <span className="mx-2">◦</span>
                 <a
                   className="inline-flex text-sm font-light text-neutral-900 no-underline hover:underline dark:text-neutral-200"
-                  href={playlist.external_urls.spotify}
+                  href={data.external_urls.spotify}
                   target="_blank"
                 >
                   Open in Spotify
@@ -50,7 +65,7 @@ const PlaylistPage = () => {
               </div>
             </div>
             <div className="flex flex-col items-start">
-              {playlist?.tracks.items.map((item, index) => {
+              {data?.tracks.items.map((item, index) => {
                 const artists = item.track.artists
                   .map((artist, index) => {
                     return `${artist.name}${

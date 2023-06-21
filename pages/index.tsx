@@ -40,8 +40,7 @@ export default function Home() {
         <p>
           I enjoy curating a{" "}
           <Link href={"/monthly-playlists"}>playlist per month</Link>, and I'm
-          committed to <Link href={"/blog"}>writing more frequently</Link>. You
-          can also see what I'm doing <Link href="/now">now</Link>.
+          committed to <Link href={"/blog"}>writing more frequently</Link>.
         </p>
         <p>
           My website acts as my digital garden, where I'll continuously update
@@ -55,7 +54,8 @@ export default function Home() {
         <ul>
           <li>
             <strong>Blogging</strong>: I regularly share insights and tutorials,
-            especially on UI elements, on my <Link href="/blog">blog</Link>.
+            especially on UI elements, React, Tailwind CSS, and more. You can
+            find them on my <Link href="/blog">blog</Link>.
           </li>
           <li>
             <strong>Freelancing</strong>: I'm available for front-end
@@ -64,9 +64,17 @@ export default function Home() {
             interested in working with me.
           </li>
           <li>
-            <strong>New Ventures</strong>: I'm also working on a few new
-            projects that I'm excited to share with you{" "}
-            <span className="cursor-wait font-bold">soon</span>.
+            <strong>New Ventures</strong>: I'm currently working on{" "}
+            <a
+              href="https://logoshaper.co/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              logoshaper
+            </a>{" "}
+            with a friend. It's a new kind of logo maker, focus on great design
+            for startups, SaaS, small businesses, and more. You can follow my
+            journey building it on Twitter.
           </li>
         </ul>
       </div>

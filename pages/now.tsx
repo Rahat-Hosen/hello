@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import { getNow } from "lib/notion";
+import Custom404 from "./404";
 
 type NowPage = {
   coverUrl: string;
@@ -9,6 +10,8 @@ type NowPage = {
 };
 
 const NowPage: NextPage<NowPage> = ({ coverUrl, entries, lastUpdated }) => {
+  return <Custom404 />;
+
   return (
     <section className="pt-2 md:pt-24">
       <figure className="mb-10 max-w-xs overflow-hidden rounded-lg shadow-md">
