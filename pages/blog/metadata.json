@@ -1,6 +1,14 @@
 {
   "postsMetadata": [
     {
+      "title": "Creating a text sliding effect with Tailwind CSS and CSS",
+      "description": "How to create a text sliding effect with Tailwind CSS and CSS?",
+      "datePublished": "2023-07-23T00:00",
+      "dateModified": null,
+      "slug": "create-text-sliding-effect-with-tailwind-css",
+      "tags": ["Tailwind CSS", "UI Effects", "Text Effects", "CSS"]
+    },
+    {
       "title": "Creating a text reveal effect in React with Tailwind CSS and CSS",
       "description": "How to create a text reveal effect in React with Tailwind CSS and CSS?",
       "datePublished": "2023-06-19T00:00",
