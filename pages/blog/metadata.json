@@ -1,6 +1,14 @@
 {
   "postsMetadata": [
     {
+      "title": "Creating an encrypted text effect with React",
+      "description": "How to create an encrypted text effect with React?",
+      "datePublished": "2023-09-20T00:00",
+      "dateModified": null,
+      "slug": "create-encrypted-text-effect-with-react",
+      "tags": ["React", "UI Effects", "Text Effects"]
+    },
+    {
       "title": "Creating a text sliding effect with Tailwind CSS and CSS",
       "description": "How to create a text sliding effect with Tailwind CSS and CSS?",
       "datePublished": "2023-07-23T00:00",
