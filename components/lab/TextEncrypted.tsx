@@ -48,7 +48,7 @@ export const TextEncrypted: React.FC<TextEncryptedProps> = ({
   }
 
   return (
-    <span>
+    <span className="text-white">
       {outputText}
       {remainder}
     </span>
