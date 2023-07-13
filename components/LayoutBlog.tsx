@@ -142,8 +142,8 @@ const LayoutBlog: React.FC = ({ children }) => {
         description={description}
         images={[`https://julienthibeaut.xyz/blog/api/og/?title=${title}`]}
       />
-      <article className="prose pb-12 dark:prose-dark prose-figcaption:text-center prose-img:mb-0 prose-video:mb-0">
-        <div className="mb-4 flex items-center justify-between">
+      <article className="prose pb-12 dark:prose-dark prose-h1:text-3xl prose-figcaption:text-center prose-img:mb-0 prose-video:mb-0">
+        <div className="mb-6 flex items-center justify-between">
           <Link
             href="/blog"
             className="inline-flex font-normal text-slate-800 no-underline transition hover:text-slate-600 dark:text-slate-100 dark:hover:text-slate-300"

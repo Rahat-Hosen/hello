@@ -14,7 +14,7 @@ const ComponentPlayground: React.FC<{
 
   return (
     <div
-      className={`not-prose relative flex items-center justify-center rounded-xl border border-slate-600/50 bg-slate-950 px-4 py-12 ${
+      className={`not-prose relative flex items-center justify-center rounded-xl border border-neutral-200 bg-neutral-950 px-4 py-12 dark:border-neutral-800 ${
         className ? className : ""
       }`}
     >
