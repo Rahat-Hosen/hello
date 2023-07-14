@@ -165,16 +165,14 @@ export default function SignUpFormReact() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required={true}
+              className="border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black"
               style={{
                 color: formStyles.formFontColor,
                 fontFamily: `'${formStyles.formFont}', sans-serif`,
                 fontSize: `${formStyles.formFontSizePx}px`,
                 margin: isInline ? "0px 10px 0px 0px" : "0px 0px 10px",
                 width: "100%",
-                maxWidth: "300px",
                 minWidth: "100px",
-                background: "#FFFFFF",
-                border: "1px solid #D1D5DB",
                 boxSizing: "border-box",
                 boxShadow: "rgba(0, 0, 0, 0.05) 0px 1px 2px",
                 borderRadius: "6px",
@@ -237,10 +235,9 @@ export default function SignUpFormReact() {
     return (
       <button
         type="submit"
+        className="bg-neutral-900 text-white dark:bg-neutral-300 dark:text-neutral-800"
         style={{
-          background: formStyles.buttonColor,
           fontSize: `${formStyles.buttonFontSizePx}px`,
-          color: formStyles.buttonFontColor,
           fontFamily: `'${formStyles.buttonFont}', sans-serif`,
           width: isInline ? "min-content" : "100%",
           maxWidth: "300px",

@@ -4,6 +4,14 @@ import { useState, useEffect, FC, useRef } from "react";
 import { useRouter } from "next/router";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
 let allTabs = [
   {
     id: "home",
@@ -125,7 +133,9 @@ const Tabs = () => {
 
 const Layout: FC = ({ children }) => {
   return (
-    <div className="relative flex min-h-screen w-screen flex-col dark:bg-black/30">
+    <div
+      className={`${inter.variable} relative flex min-h-screen w-screen flex-col font-sans dark:bg-black/30`}
+    >
       <main className="mx-auto mb-14 w-full max-w-screen-md flex-1 animate-main-content px-4 py-12 dark:text-white">
         {children}
       </main>

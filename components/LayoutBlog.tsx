@@ -19,32 +19,35 @@ const { postsMetadata } = postsData;
 const FooterBlog = () => {
   return (
     <div className="not-prose">
-      <div className="rounded-xl bg-slate-100 dark:bg-slate-900">
-        <div className="flex h-full flex-col items-center p-6 sm:flex-row ">
+      <div className="relative rounded-xl bg-neutral-50 dark:bg-neutral-900">
+        <div className="flex h-full flex-col items-center p-4 text-center sm:flex-col md:p-12">
           <Image
             src="/me.jpg"
             width={400}
             height={400}
             alt="me"
-            className="mb-2 mr-0 h-14 w-14 rounded-full sm:mr-6"
+            className="mb-4 mr-0 h-16 w-16 rounded-full sm:mr-6"
           />
-          <p className="text-center sm:text-left">
-            I'm Julien, a senior front-end developer. I'm passionate about
-            crafting digital projects. Let's connect on Twitter{" "}
-            <a href="https://twitter.com/ibelick" className="font-bold">
-              @ibelick
-            </a>
-          </p>
+          <div className="flex flex-col items-start text-sm">
+            <p className="mb-2">
+              I'm Julien, a senior front-end developer. I'm passionate about
+              crafting digital projects. Let's connect on Twitter{" "}
+              <a href="https://twitter.com/ibelick" className="font-bold">
+                @ibelick
+              </a>
+            </p>
+            <p className="mb-6">
+              You can also join my newsletter! I will send you a mail sometime
+              (not too often) with my latest articles and projects.
+            </p>
+            <div className="mx-auto flex w-full items-center justify-center md:w-[80%]">
+              <NewsletterForm />
+            </div>
+          </div>
         </div>
       </div>
       <div className="mt-12">
-        <div className="mx-auto max-w-md">
-          <p className="mb-2 text-sm">
-            Join my newsletter! I will send you a mail sometime (not too often)
-            with my latest articles, projects and some personal thoughts.
-          </p>
-          <NewsletterForm />
-        </div>
+        <div className="mx-auto max-w-md"></div>
       </div>
     </div>
   );
@@ -146,7 +149,7 @@ const LayoutBlog: React.FC = ({ children }) => {
         <div className="mb-6 flex items-center justify-between">
           <Link
             href="/blog"
-            className="inline-flex font-normal text-slate-800 no-underline transition hover:text-slate-600 dark:text-slate-100 dark:hover:text-slate-300"
+            className="inline-flex font-normal text-neutral-800 no-underline transition hover:text-neutral-600 dark:text-neutral-100 dark:hover:text-neutral-300"
           >
             ← back to all posts
           </Link>

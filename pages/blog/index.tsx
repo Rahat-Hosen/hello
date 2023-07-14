@@ -22,7 +22,7 @@ const CardBlogPost = ({ post }: { post: Post }) => {
       <Link href={`/blog/${post.slug}`}>
         <div className="flex transition hover:opacity-70">
           <div className="flex-1 pr-4">
-            <span className="font-medium text-slate-900 dark:text-slate-100">
+            <span className="font-medium text-neutral-900 dark:text-neutral-100">
               {post.title}
             </span>
             {/* <div className="mt-1 flex gap-2">
@@ -31,7 +31,7 @@ const CardBlogPost = ({ post }: { post: Post }) => {
               })}
             </div> */}
           </div>
-          <time className="text-sm text-slate-500 dark:text-gray-300">
+          <time className="text-sm text-neutral-500 dark:text-neutral-300">
             {new Date(post.datePublished!).toLocaleDateString()}
           </time>
         </div>

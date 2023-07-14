@@ -8,7 +8,7 @@ const SectionContact: React.FC<SectionContactProps> = ({ title }) => {
       <h2 className="mb-5 font-medium">{title || "Connect"}</h2>
       <ul className="w-full max-w-xs">
         <li className="mb-2 flex">
-          <span className="t pr-4 text-gray-600 dark:text-slate-300">
+          <span className="t pr-4 text-neutral-600 dark:text-neutral-300">
             Twitter{" "}
           </span>
           <a
@@ -20,7 +20,7 @@ const SectionContact: React.FC<SectionContactProps> = ({ title }) => {
           </a>
         </li>
         <li className="mb-2 flex">
-          <span className="t pr-4 text-gray-600 dark:text-slate-300">
+          <span className="t pr-4 text-neutral-600 dark:text-neutral-300">
             GitHub
           </span>
           <a
@@ -32,7 +32,7 @@ const SectionContact: React.FC<SectionContactProps> = ({ title }) => {
           </a>
         </li>
         <li className="mb-2 flex">
-          <span className="t pr-4 text-gray-600 dark:text-slate-300">
+          <span className="t pr-4 text-neutral-600 dark:text-neutral-300">
             Read.CV{" "}
           </span>
           <a
@@ -44,7 +44,7 @@ const SectionContact: React.FC<SectionContactProps> = ({ title }) => {
           </a>
         </li>
         <li className="mb-2 flex">
-          <span className="t pr-4 text-gray-600 dark:text-slate-300">
+          <span className="t pr-4 text-neutral-600 dark:text-neutral-300">
             Email{" "}
           </span>
           <a

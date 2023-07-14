@@ -32,17 +32,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
   return (
     <CardSpotlightEffect>
-      <div className="relative rounded-md border border-slate-300 bg-slate-300/5 p-6 dark:border-slate-700">
+      <div className="relative rounded-md border border-neutral-200 bg-neutral-300/5 p-6 dark:border-neutral-800">
         <div className="mb-3 flex items-center">
-          <div className="rounded-md border border-slate-200 p-1 dark:border-slate-800 dark:bg-black">
+          <div className="rounded-md border border-neutral-200 p-1 dark:border-neutral-900 dark:bg-neutral-900">
             {icon}
           </div>
           <h2 className="ml-2 mr-3 text-lg">{title}</h2>
-          <div className="rounded-md border border-slate-200 bg-neutral-100 p-1 text-xs font-light dark:border-slate-800 dark:bg-neutral-900">
+          <div className="rounded-md border border-neutral-200 bg-neutral-100 p-1 text-xs font-light dark:border-neutral-800 dark:bg-neutral-900">
             {pricing}+
           </div>
         </div>
-        <p className="mb-4 max-w-xl text-gray-700 dark:text-gray-300">
+        <p className="mb-4 max-w-xl text-neutral-700 dark:text-neutral-300">
           {description}
         </p>
         <Button
@@ -69,7 +69,9 @@ const ValueCard: React.FC<ValueCardProps> = ({ title, description }) => {
         <CheckIcon />
         <span className="pl-2">{title}</span>
       </div>
-      <p className="text-sm text-gray-700 dark:text-gray-300">{description}</p>
+      <p className="text-sm text-neutral-700 dark:text-neutral-300">
+        {description}
+      </p>
     </div>
   );
 };
@@ -84,13 +86,10 @@ const HireMePage = () => {
           Hi, I'm Julien, a freelance front-end developer with years of
           experience. I love building and improving digital projects. Whether
           you're starting a new project or need to enhance an existing one, I'm
-          here to help. Check out some of my work on my{" "}
-          <Link href="/" className="font-medium underline">
-            homepage.
-          </Link>
+          here to help.
         </p>
         <h3 className="mb-1 font-medium">My tech stack</h3>
-        <ul className="flex flex-wrap gap-x-6 text-gray-700 dark:text-gray-300">
+        <ul className="flex flex-wrap gap-x-6 text-neutral-700 dark:text-neutral-300">
           <li>React</li>
           <li>React Native</li>
           <li>Next.js</li>
