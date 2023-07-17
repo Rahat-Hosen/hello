@@ -13,8 +13,8 @@ const PROJECTS_LIST = [
       link: "https://logoshaper.co",
     },
     tags: ["SaaS", "Founder", "WIP"],
-    image: {
-      src: "https://www.logoshaper.co/editorAnim4.svg",
+    video: {
+      link: "https://www.logoshaper.co/video-landing.mp4",
       width: "w-full",
       height: "h-80",
     },
