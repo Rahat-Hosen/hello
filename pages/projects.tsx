@@ -5,20 +5,20 @@ import Link from "next/link";
 import Image from "next/image";
 
 const PROJECTS_LIST = [
-  // {
-  //   title: "logoshaper",
-  //   description: "Logo design made simple for startup founders.",
-  //   links: {
-  //     text: "Website",
-  //     link: "https://logoshaper.co",
-  //   },
-  //   tags: ["SaaS", "Founder", "WIP"],
-  //   video: {
-  //     link: "https://www.logoshaper.co/video-landing.mp4",
-  //     width: "w-full",
-  //     height: "h-80",
-  //   },
-  // },
+  {
+    title: "logoshaper",
+    description: "Logo design made simple for startup founders.",
+    links: {
+      text: "Website",
+      link: "https://logoshaper.co",
+    },
+    tags: ["SaaS", "Founder", "WIP"],
+    video: {
+      link: "https://www.logoshaper.co/video-landing.mp4",
+      width: "w-full",
+      height: "h-80",
+    },
+  },
   {
     title: "ui.ibelick",
     description:
