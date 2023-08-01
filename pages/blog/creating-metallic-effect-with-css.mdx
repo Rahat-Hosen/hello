@@ -1,0 +1,138 @@
+import LayoutBlog from "components/LayoutBlog";
+import ComponentPlayground from "components/ComponentPlayground";
+import {
+  ButtonMetallic,
+  ButtonMetallic2,
+  ButtonMetallicGold,
+  ButtonMetallicBlue,
+  CardMetallicShine,
+} from "components/lab/Metallic";
+
+<LayoutBlog>
+
+# Creating a metallic effect with CSS
+
+Hey! I'm back today with another CSS trick.
+This time with something that look like from the past, kind of old school.
+But as we know everything old is new again, so let's see how to create a metallic effect with CSS.
+
+<ComponentPlayground className="bg-white dark:bg-neutral-950">
+  <ButtonMetallic />
+</ComponentPlayground>
+
+## Code
+
+For what we have below, the code is pretty simple. We have a button with a gradient background.
+
+```html
+<button class="metallic-button">Download</button>
+```
+
+```css
+.metallic-button {
+  font-size: 14px;
+  padding: 6px 16px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  color: #000;
+  background: linear-gradient(
+    45deg,
+    #999 5%,
+    #fff 10%,
+    #ccc 30%,
+    #ddd 50%,
+    #ccc 70%,
+    #fff 80%,
+    #999 95%
+  );
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.metallic-button:hover {
+  transform: translateY(-2px);
+}
+```
+
+The trick here is to use a gradient background with a lot of stops.
+The gradient is made of 7 colors, 3 dark and 3 light, and one in the middle that is the same as the background.
+The gradient is at 45deg, so the light colors are on the top left and the dark ones on the bottom right.
+
+## Exploration
+
+You can play with some different gradients or colors. I kind of like them, they are kitsh but fun.
+
+<ComponentPlayground className="flex-wrap gap-10 bg-white dark:bg-neutral-950">
+  <ButtonMetallic2 />
+  <ButtonMetallicGold />
+  <ButtonMetallicBlue />
+</ComponentPlayground>
+
+Another thing, we can associate it with a [shine effect](/blog/create-shine-effect-on-card-with-tailwind-css).
+_You can hover the card to see the effect._
+
+<ComponentPlayground className="bg-white dark:bg-neutral-950">
+  <CardMetallicShine />
+</ComponentPlayground>
+
+With this CSS:
+
+```css
+.card-shine-effect-metal {
+  --shine-deg: 45deg;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.875rem;
+  padding: 4rem 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  width: 200px;
+  height: 180px;
+  background: linear-gradient(to bottom, #dbdbdb, #f9f9f9, #dbdbdb);
+}
+
+.card-shine-effect-metal:after {
+  content: "";
+  top: 0;
+  transform: translateX(100%) rotate(var(--shine-deg));
+  width: 300%;
+  height: 300%;
+  position: absolute;
+  z-index: 1;
+  background: linear-gradient(
+    30deg,
+    transparent 20%,
+    transparent 40%,
+    rgb(255, 255, 255, 0.4) 50%,
+    rgb(255, 255, 255, 0.4) 55%,
+    transparent 70%,
+    transparent 100%
+  );
+  transition: transform 2s ease-in;
+  transform: translateX(100%) rotate(var(--shine-deg));
+}
+
+.card-shine-effect-metal:hover:after {
+  animation: shine 1s infinite ease-in;
+}
+
+@-webkit-keyframes shine {
+  0% {
+    transform: translateX(100%) rotate(var(--shine-deg));
+  }
+  100% {
+    transform: translateX(-100%) rotate(var(--shine-deg));
+  }
+}
+```
+
+For the shine effect, we use a pseudo element with a gradient background. (not the same technique as my previous post)
+
+It's fun to explore some old school effects and see how we can recreate them.
+It can be something I can do more.
+Hope you like it, see you next time!
+
+</LayoutBlog>
