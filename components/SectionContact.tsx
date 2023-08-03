@@ -5,52 +5,44 @@ type SectionContactProps = {
 const SectionContact: React.FC<SectionContactProps> = ({ title }) => {
   return (
     <>
-      <h2 className="mb-5 font-medium">{title || "Connect"}</h2>
+      <h2 className="h2 mb-4">{title || "Connect"}</h2>
       <ul className="w-full max-w-xs">
         <li className="mb-2 flex">
-          <span className="t pr-4 text-neutral-600 dark:text-neutral-300">
-            Twitter{" "}
-          </span>
+          <span className="paragraph pr-4">Twitter </span>
           <a
             href="https://twitter.com/Ibelick"
             target="_blank"
             className="text-black transition hover:opacity-80 dark:text-white"
           >
-            @ibelick ↗
+            @ibelick
           </a>
         </li>
         <li className="mb-2 flex">
-          <span className="t pr-4 text-neutral-600 dark:text-neutral-300">
-            GitHub
-          </span>
+          <span className="paragraph pr-4">GitHub</span>
           <a
             href="https://github.com/ibelick"
             target="_blank"
-            className="text-black transition hover:opacity-80 dark:text-white"
+            className="text-neutral-900 transition hover:opacity-80 dark:text-neutral-100"
           >
-            @ibelick ↗
+            @ibelick
           </a>
         </li>
         <li className="mb-2 flex">
-          <span className="t pr-4 text-neutral-600 dark:text-neutral-300">
-            Read.CV{" "}
-          </span>
+          <span className="paragraph pr-4">Read.CV </span>
           <a
             href="https://read.cv/ibelick"
             target="_blank"
-            className="text-black transition hover:opacity-80 dark:text-white"
+            className="text-neutral-900 transition hover:opacity-80 dark:text-neutral-100"
           >
-            @ibelick ↗
+            @ibelick
           </a>
         </li>
         <li className="mb-2 flex">
-          <span className="t pr-4 text-neutral-600 dark:text-neutral-300">
-            Email{" "}
-          </span>
+          <span className="paragraph pr-4">Email </span>
           <a
             href="mailto:julien.thibeaut@gmail.com"
             target="_blank"
-            className="text-black transition hover:opacity-80 dark:text-white"
+            className="text-neutral-900 transition hover:opacity-80 dark:text-neutral-100"
           >
             julien.thibeaut[at]gmail.com
           </a>

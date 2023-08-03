@@ -50,7 +50,7 @@ export default async function handler(request: NextRequest) {
                 src={`https://github.com/ibelick.png`}
                 tw="mr-4 h-10 w-10 rounded-full object-cover"
               />
-              <span tw="text-2xl text-slate-100/80">@ibelick</span>
+              <span tw="text-2xl text-neutral-100/80">@ibelick</span>
             </div>
             <div style={{ display: "flex" }}>
               <h1

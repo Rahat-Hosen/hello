@@ -153,15 +153,17 @@ const Projects = () => {
   return (
     <>
       <NextSeo title="Projects" />
-      <div className="prose dark:prose-dark">
-        <h2 className="mt-12 text-base font-medium">Selected projects</h2>
-        <p>
+      <div>
+        <h2 className="h2 mb-4 mt-12">Selected projects</h2>
+        <p className="paragraph">
           Below is a showcase of various selected projects I've worked on over
           the years. These include both client work and personal projects.
         </p>
-        <p>
+        <p className="paragraph">
           If you want to see what I'm currently working on, check out my{" "}
-          <Link href="/">current projects</Link>
+          <Link href="/" className="link">
+            current projects
+          </Link>
         </p>
       </div>
       <div className="mt-10 flex flex-col gap-12 pr-4 md:pr-16">

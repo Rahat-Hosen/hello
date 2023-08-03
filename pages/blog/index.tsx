@@ -22,9 +22,7 @@ const CardBlogPost = ({ post }: { post: Post }) => {
       <Link href={`/blog/${post.slug}`}>
         <div className="flex transition hover:opacity-70">
           <div className="flex-1 pr-4">
-            <span className="font-medium text-neutral-900 dark:text-neutral-100">
-              {post.title}
-            </span>
+            <span className="paragraph">{post.title}</span>
             {/* <div className="mt-1 flex gap-2">
               {post.tags?.map((tag, index) => {
                 return <Badge key={tag}>{tag}</Badge>;

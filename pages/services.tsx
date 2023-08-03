@@ -37,16 +37,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <div className="rounded-md border border-neutral-200 p-1 dark:border-neutral-900 dark:bg-neutral-900">
             {icon}
           </div>
-          <h2 className="ml-2 mr-3 text-lg">{title}</h2>
+          <h2 className="h2 ml-2 mr-3">{title}</h2>
           {pricing ? (
             <div className="rounded-md border border-neutral-200 bg-neutral-100 p-1 text-xs font-light dark:border-neutral-800 dark:bg-neutral-900">
               {pricing}+
             </div>
           ) : null}
         </div>
-        <p className="mb-4 max-w-xl text-neutral-700 dark:text-neutral-300">
-          {description}
-        </p>
+        <p className="paragraph mb-4 max-w-xl">{description}</p>
         <Button
           onClick={() => {
             return window.open("mailto:julien.thibeaut@gmail.com");
@@ -83,15 +81,15 @@ const HireMePage = () => {
     <>
       <NextSeo title="Services" />
       <div>
-        <h1 className="mb-6 text-xl font-medium">Services</h1>
-        <p className="mb-8">
+        <h1 className="h1 mb-6">Services</h1>
+        <p className="paragraph mb-8">
           Hi, I'm Julien, a freelance front-end developer with years of
           experience. I love building and improving digital projects. Whether
           you're starting a new project or need to enhance an existing one, I'm
           here to help.
         </p>
-        <h3 className="mb-1 font-medium">My tech stack</h3>
-        <ul className="flex flex-wrap gap-x-6 text-neutral-700 dark:text-neutral-300">
+        <h2 className="h2 mb-4">My tech stack</h2>
+        <ul className="paragraph flex flex-wrap  gap-x-6">
           <li>React</li>
           <li>React Native</li>
           <li>Next.js</li>
@@ -101,7 +99,7 @@ const HireMePage = () => {
           <li>Tailwind CSS</li>
           <li>And more...</li>
         </ul>
-        <h3 className="mb-4 mt-12 font-medium">What I can do for you</h3>
+        <h2 className="h2 mb-4 mt-12">What I can do for you</h2>
         <div className="flex flex-col gap-8">
           <ServiceCard
             icon={<LaptopIcon />}
@@ -138,7 +136,7 @@ const HireMePage = () => {
           </p>
         </div>
         <div className="my-20">
-          <h3 className="mb-4 font-medium">What I value</h3>
+          <h2 className="h2 mb-4">What I value</h2>
           <div className="grid grid-cols-1 gap-x-20 gap-y-8  md:grid-cols-2">
             <ValueCard
               title="Asynchronous Work"

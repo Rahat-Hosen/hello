@@ -119,7 +119,7 @@ const Tabs = () => {
               key={index}
               href={tab.href as string}
               ref={(el) => (tabsRef.current[index] = el)}
-              className="my-auto flex-1 cursor-pointer rounded-full text-center text-sm transition hover:text-black/80 dark:hover:text-white/80 sm:text-base"
+              className="font-base my-auto flex-1 cursor-pointer rounded-full text-center text-sm transition hover:text-black/80 dark:hover:text-white/80 sm:text-base"
               onClick={() => setActiveTabIndex(index)}
             >
               {tab.name}

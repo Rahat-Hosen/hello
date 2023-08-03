@@ -32,7 +32,7 @@ const FooterBlog = () => {
             <p className="mb-2">
               I'm Julien, a senior front-end developer. I'm passionate about
               crafting digital projects. Let's connect on Twitter{" "}
-              <a href="https://twitter.com/ibelick" className="font-bold">
+              <a href="https://twitter.com/ibelick" className="font-semibold">
                 @ibelick
               </a>
             </p>
@@ -145,8 +145,8 @@ const LayoutBlog: React.FC = ({ children }) => {
         description={description}
         images={[`https://julienthibeaut.xyz/blog/api/og/?title=${title}`]}
       />
-      <article className="prose pb-12 dark:prose-dark prose-h1:text-3xl prose-figcaption:text-center prose-img:mb-0 prose-video:mb-0">
-        <div className="mb-6 flex items-center justify-between">
+      <article className="prose prose-neutral mx-auto mt-8 min-w-full pb-12 dark:prose-dark prose-h1:text-xl prose-h1:font-medium prose-h2:text-lg prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-a:font-normal prose-figcaption:text-center prose-strong:font-semibold prose-img:mb-0 prose-video:mb-0">
+        <div className="mb-12 flex items-center justify-between">
           <Link
             href="/blog"
             className="inline-flex font-normal text-neutral-800 no-underline transition hover:text-neutral-600 dark:text-neutral-100 dark:hover:text-neutral-300"
