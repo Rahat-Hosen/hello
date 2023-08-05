@@ -14,7 +14,7 @@ const PROJECTS_LIST = [
     },
     tags: ["SaaS", "Founder", "WIP"],
     video: {
-      link: "https://www.logoshaper.co/video-landing.mp4",
+      link: "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/OPHIQMqCSAsn1998AgpB/39a443f2-a147-4e8f-aef6-d30d627a3a81.mp4?_a=ATO2BAA0",
       width: "w-full",
       height: "h-80",
     },
