@@ -51,11 +51,6 @@ export default function Home() {
           </Link>
           .
         </p>
-        <p className="paragraph">
-          My website acts as my digital garden, where I'll continuously update
-          it with my latest projects, experiments, and insights. Welcome to my
-          personal website!
-        </p>
       </div>
       <div className="mt-24">
         <h2 className="h2 mb-4">Current projects</h2>
@@ -82,8 +77,7 @@ export default function Home() {
             and get in touch if you're interested in working with me.
           </li>
           <li className="paragraph mb-2">
-            <strong className="bold">New Ventures</strong>: I'm currently
-            working on{" "}
+            <strong className="bold">Ventures</strong>: I'm currently working on{" "}
             <a
               href="https://logoshaper.co/"
               target="_blank"
@@ -92,9 +86,7 @@ export default function Home() {
             >
               logoshaper
             </a>{" "}
-            with a friend. It's a new kind of logo maker, focus on great design
-            for startups, SaaS, small businesses, and more. You can follow my
-            journey building it on Twitter.
+            . A logo maker that aims to provide top-notch visual identities.
           </li>
         </ul>
       </div>
