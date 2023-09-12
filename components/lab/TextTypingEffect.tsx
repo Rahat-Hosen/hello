@@ -83,19 +83,21 @@ export const TextTypingEffectWithTextsFadeOut = () => {
 
   return (
     <>
-      <span
-        className={`inline-flex items-center text-black duration-300 dark:text-white ${
+      <div
+        className={`inline text-black duration-300 dark:text-white ${
           fadeText ? "opacity-1 translate-y-0" : "translate-y-2 opacity-0"
         }`}
         key={textIndex}
       >
-        {textToShow}{" "}
-        <div
-          className={`ml-2 h-3 w-3 rounded-full bg-black duration-300 dark:bg-white ${
-            fadeCircle ? "" : "h-0 w-0 opacity-0"
-          }`}
-        />
-      </span>
+        <span>
+          {textToShow}
+          <span
+            className={`ml-2 inline-block h-3 w-3 rounded-full bg-black duration-300 dark:bg-white ${
+              fadeCircle ? "" : "h-0 w-0 opacity-0"
+            }`}
+          />{" "}
+        </span>
+      </div>
     </>
   );
 };
