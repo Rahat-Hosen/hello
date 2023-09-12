@@ -1,6 +1,14 @@
 {
   "postsMetadata": [
     {
+      "title": "Creating a text typing effect with React",
+      "description": "How to create a text typing effect with React?",
+      "datePublished": "2023-09-12T00:00",
+      "dateModified": null,
+      "slug": "create-text-typing-effect-with-react",
+      "tags": ["React", "UI Effects", "Text Effects"]
+    },
+    {
       "title": "Creating a metallic effect with CSS",
       "description": "How to create a metallic effect with CSS and React?",
       "datePublished": "2023-08-02T00:00",

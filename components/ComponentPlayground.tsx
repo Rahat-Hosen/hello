@@ -5,24 +5,26 @@ const ComponentPlayground: React.FC<{
   children: React.ReactElement;
   className?: string;
   hasReTrigger?: boolean;
-}> = ({ children, className, hasReTrigger }) => {
+  hasDarkMode?: boolean;
+}> = ({ children, className, hasReTrigger, hasDarkMode }) => {
   const [key, setKey] = useState<Key>(Date.now());
 
   const reTrigger = () => {
     setKey(Date.now());
   };
 
+  const containerClassName = `not-prose relative flex items-center justify-center rounded-xl border border-neutral-200 bg-neutral-950 px-4 py-12 dark:border-neutral-800 
+  ${hasDarkMode ? "bg-white dark:bg-neutral-950" : ""}
+  ${className ? className : ""}`;
+
+  const reTriggerClassName = `absolute right-4 top-3 cursor-pointer ${
+    hasDarkMode ? "text-neutral-900 dark:text-neutral-100" : "text-white"
+  }`;
+
   return (
-    <div
-      className={`not-prose relative flex items-center justify-center rounded-xl border border-neutral-200 bg-neutral-950 px-4 py-12 dark:border-neutral-800 ${
-        className ? className : ""
-      }`}
-    >
+    <div className={containerClassName}>
       {hasReTrigger ? (
-        <div
-          className="absolute right-4 top-3 cursor-pointer text-white"
-          onClick={reTrigger}
-        >
+        <div className={reTriggerClassName} onClick={reTrigger}>
           <ReloadIcon />
         </div>
       ) : null}
