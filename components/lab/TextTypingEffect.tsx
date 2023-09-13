@@ -93,7 +93,7 @@ export const TextTypingEffectWithTextsFadeOut = () => {
           {textToShow}
           <span
             className={`ml-2 inline-block h-3 w-3 rounded-full bg-black duration-300 dark:bg-white ${
-              fadeCircle ? "" : "h-0 w-0 opacity-0"
+              fadeCircle ? "" : "scale-0"
             }`}
           />{" "}
         </span>
