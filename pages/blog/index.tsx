@@ -1,6 +1,8 @@
 import Link from "next/link";
 import postsData from "./metadata.json";
 import { NextSeo } from "next-seo";
+import Badge from "components/ui/Badge";
+import { useState } from "react";
 const { postsMetadata } = postsData;
 
 type BlogPageProps = {
@@ -39,12 +41,44 @@ const CardBlogPost = ({ post }: { post: Post }) => {
 };
 
 const BlogPage = ({ posts }: BlogPageProps) => {
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const allBlogTags = posts.reduce((acc, post) => {
+    return [...acc, ...post.tags];
+  }, [] as string[]);
+  const uniqueBlogTags = [...new Set(allBlogTags)];
+
+  const filteredPosts = posts.filter((post) => {
+    if (selectedTags.length === 0) {
+      return true;
+    }
+    return post.tags.some((tag) => selectedTags.includes(tag));
+  });
+
   return (
     <>
       <NextSeo title="Blog" />
       <section className="pt-2 md:pt-24">
-        <ul>
-          {posts.map((post) => {
+        <div className="flex flex-wrap gap-2">
+          {uniqueBlogTags.map((tag) => {
+            return (
+              <Badge
+                key={tag}
+                variant={selectedTags.includes(tag) ? "secondary" : "primary"}
+                onClick={() => {
+                  if (selectedTags.includes(tag)) {
+                    setSelectedTags(selectedTags.filter((t) => t !== tag));
+                  } else {
+                    setSelectedTags([...selectedTags, tag]);
+                  }
+                }}
+              >
+                {tag}
+              </Badge>
+            );
+          })}
+        </div>
+        <ul className="mt-10">
+          {filteredPosts.map((post) => {
             return <CardBlogPost key={post.slug} post={post} />;
           })}
         </ul>

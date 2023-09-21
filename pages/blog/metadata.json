@@ -22,7 +22,7 @@
       "datePublished": "2023-07-14T00:00",
       "dateModified": null,
       "slug": "create-grid-and-dot-backgrounds-with-css-tailwind-css",
-      "tags": ["Tailwind CSS", "CSS", "UI Effects", "Backgrounds"]
+      "tags": ["Tailwind CSS", "CSS", "UI Effects"]
     },
     {
       "title": "Creating an encrypted text effect with React",
@@ -62,7 +62,7 @@
       "datePublished": "2023-06-06T00:00",
       "dateModified": null,
       "slug": "create-tilt-effect-with-react",
-      "tags": ["React", "UI Effects", "Animation"]
+      "tags": ["React", "UI Effects"]
     },
     {
       "title": "Creating an infine slider with Tailwind CSS",
@@ -70,7 +70,7 @@
       "datePublished": "2023-06-02T00:00",
       "dateModified": null,
       "slug": "create-infinite-slider-with-tailwind-css",
-      "tags": ["Tailwind CSS", "UI Effects", "Sliders"]
+      "tags": ["Tailwind CSS", "UI Effects"]
     },
     {
       "title": "Lessons from my first month of blogging as a solo developer",
@@ -78,7 +78,7 @@
       "datePublished": "2023-05-31T00:00",
       "dateModified": null,
       "slug": "lessons-from-my-first-month-of-blogging-as-a-solo-developer",
-      "tags": ["Blogging", "Freelancing", "Personal Development"]
+      "tags": ["Personal Growth"]
     },
     {
       "title": "Building an animated sliding tab bar with React and Tailwind CSS",
@@ -102,7 +102,7 @@
       "datePublished": "2023-05-17T00:00",
       "dateModified": "2023-06-09T00:00",
       "slug": "ultimate-list-of-curated-design-inspiration-websites",
-      "tags": ["Design", "Inspiration", "Resources"]
+      "tags": ["Resources"]
     },
     {
       "title": "Creating a shooting star border with Tailwind CSS and CSS",
@@ -166,7 +166,7 @@
       "datePublished": "2022-04-07T00:00",
       "dateModified": null,
       "slug": "client-side-images-compression",
-      "tags": ["JavaScript", "TypeScript", "React"]
+      "tags": ["React"]
     },
     {
       "title": "Tiny react hook to upload files into IPFS",
@@ -174,7 +174,7 @@
       "datePublished": "2022-03-17T00:00",
       "dateModified": null,
       "slug": "react-hook-upload-files-IPFS",
-      "tags": ["React", "IPFS", "Hooks"]
+      "tags": ["React"]
     },
     {
       "title": "Minimal blog with Next.js, Tailwind CSS, and markdown (MDX)",
@@ -182,7 +182,7 @@
       "datePublished": "2021-07-23T00:00",
       "dateModified": null,
       "slug": "nextjs-tailwindcss-markdown-mdx-minimal-blog",
-      "tags": ["Next.js", "Tailwind CSS", "MDX", "Blogging"]
+      "tags": ["React", "Tailwind CSS"]
     }
   ]
 }
