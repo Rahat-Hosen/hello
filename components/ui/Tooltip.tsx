@@ -14,11 +14,11 @@ const TooltipContent = React.forwardRef<
   <TooltipPrimitive.Content
     ref={ref}
     sideOffset={sideOffset}
-    className="inline-flex animate-slide-down-fade items-center rounded-md bg-gray-100 px-4 py-2 dark:bg-gray-800"
+    className="inline-flex animate-slide-down-fade items-center rounded-md bg-neutral-100 p-2 transition  dark:bg-neutral-900"
     {...props}
   >
-    <TooltipPrimitive.Arrow className="fill-current text-gray-100 dark:text-gray-800" />
-    <span className="block text-xs leading-none text-gray-700 dark:text-gray-100">
+    <TooltipPrimitive.Arrow className="fill-current text-neutral-100 dark:text-neutral-900" />
+    <span className="block text-xs leading-none text-neutral-700 dark:text-neutral-100">
       {props.children}
     </span>
   </TooltipPrimitive.Content>

@@ -134,9 +134,9 @@ const Tabs = () => {
 const Layout: FC = ({ children }) => {
   return (
     <div
-      className={`${inter.variable} relative flex min-h-screen w-screen flex-col font-sans dark:bg-black/30`}
+      className={`${inter.variable} relative flex min-h-screen w-screen flex-col bg-neutral-50 font-sans dark:bg-neutral-950`}
     >
-      <main className="mx-auto mb-14 w-full max-w-screen-md flex-1 animate-main-content px-4 py-12 dark:text-white">
+      <main className="mx-auto mb-14 w-full max-w-screen-sm flex-1 animate-main-content px-4 py-12 dark:text-white">
         {children}
       </main>
       <Tabs />

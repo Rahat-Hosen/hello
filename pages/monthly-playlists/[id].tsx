@@ -46,7 +46,7 @@ const PlaylistPage = () => {
           <div>
             <div className="mb-8">
               <img
-                className="h-64 w-64 rounded-lg object-cover shadow-md"
+                className="h-64 w-64 rounded-lg object-cover"
                 src={data.images[0].url}
               />
               <div className="mt-1 flex items-center">

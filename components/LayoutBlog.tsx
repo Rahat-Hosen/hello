@@ -19,7 +19,7 @@ const { postsMetadata } = postsData;
 const FooterBlog = () => {
   return (
     <div className="not-prose">
-      <div className="relative rounded-xl bg-neutral-50 dark:bg-neutral-900">
+      <div className="relative rounded-xl bg-neutral-100 dark:bg-neutral-900">
         <div className="flex h-full flex-col items-center p-4 text-center sm:flex-col md:p-12">
           <Image
             src="/me.jpg"
@@ -70,25 +70,25 @@ const CopyLink: React.FC<CopyLinkProps> = ({ link }) => {
   };
 
   return (
-    <>
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger>
-            <div
-              className="inline-flex cursor-pointer rounded-full bg-gray-100 p-2 transition hover:bg-gray-200 dark:bg-gray-900"
-              onClick={onCopy}
-            >
-              {hasCheckIcon ? (
-                <CheckIcon className="h-4 w-4 text-black dark:text-white" />
-              ) : (
-                <CopyIcon className="h-4 w-4 text-black dark:text-white" />
-              )}
-            </div>
-          </TooltipTrigger>
-          <TooltipContent>Copy link</TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
-    </>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger>
+          <div
+            className="inline-flex cursor-pointer rounded-full bg-neutral-50 p-2 transition hover:bg-neutral-100 dark:bg-neutral-950 dark:hover:bg-neutral-900"
+            onClick={onCopy}
+          >
+            {hasCheckIcon ? (
+              <CheckIcon className="h-4 w-4 text-black dark:text-white" />
+            ) : (
+              <CopyIcon className="h-4 w-4 text-black dark:text-white" />
+            )}
+          </div>
+        </TooltipTrigger>
+        <TooltipContent className="bg-neutral-100 p-2 transition hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-900">
+          Copy link
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 };
 
@@ -104,7 +104,6 @@ const LayoutBlog: React.FC = ({ children }) => {
   const { title, description, datePublished, dateModified } = metadata!;
 
   if (!datePublished) {
-    console.log("Not published yet");
     return <Custom404 />;
   }
 
@@ -155,12 +154,12 @@ const LayoutBlog: React.FC = ({ children }) => {
           </Link>
           <div className="flex gap-4">
             <CopyLink link={`https://julienthibeaut.xyz/blog/${slug}`} />
-            <div className="">
+            <div>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
                     <span
-                      className="inline-flex cursor-pointer rounded-full bg-gray-100 p-2 transition hover:bg-gray-200 dark:bg-gray-900"
+                      className="inline-flex cursor-pointer rounded-full bg-neutral-50 p-2 transition hover:bg-neutral-100 dark:bg-neutral-950 dark:hover:bg-neutral-900"
                       onClick={() => {
                         window.open(
                           `https://twitter.com/intent/tweet?text=${title}&url=https://julienthibeaut.xyz/blog/${slug}`,

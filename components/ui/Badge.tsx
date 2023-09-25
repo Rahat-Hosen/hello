@@ -11,7 +11,7 @@ const Badge: React.FC<BadgeProps> = ({
 }) => {
   const cnVariant = {
     primary:
-      "border-neutral-200 dark:border-neutral-800 bg-white text-neutral-900 dark:bg-black dark:text-neutral-100",
+      "border-neutral-200 dark:border-neutral-800 bg-neutral-50 text-neutral-900 dark:bg-black dark:text-neutral-100",
     secondary:
       "border-neutral-200 dark:border-neutral-800 bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100",
   };

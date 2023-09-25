@@ -21,7 +21,7 @@ const MonthyPlaylistPage = () => {
             the past.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           {monthlyPlaylists?.map((playlist: any) => {
             return (
               <div key={playlist.id}>
@@ -31,9 +31,9 @@ const MonthyPlaylistPage = () => {
                 >
                   <img
                     src={playlist.images[0].url}
-                    className="h-48 w-full rounded-lg object-cover shadow-md"
+                    className="h-48 w-full rounded-lg object-cover"
                   />
-                  <span>{playlist.name}</span>
+                  <span className="font-small">{playlist.name}</span>
                 </Link>
               </div>
             );

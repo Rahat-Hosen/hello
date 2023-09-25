@@ -166,11 +166,11 @@ const Projects = () => {
           </Link>
         </p>
       </div>
-      <div className="mt-10 flex flex-col gap-12 pr-4 md:pr-16">
+      <div className="mt-10 flex flex-col gap-12">
         {PROJECTS_LIST.map((project) => {
           return (
             <div
-              className="relative rounded-3xl bg-neutral-50 dark:bg-neutral-950"
+              className="relative rounded-3xl bg-neutral-100 dark:bg-neutral-900"
               key={project.title}
             >
               <div className="flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center">

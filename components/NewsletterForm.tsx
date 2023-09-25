@@ -165,7 +165,7 @@ export default function SignUpFormReact() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required={true}
-              className="border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black"
+              className="border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950"
               style={{
                 color: formStyles.formFontColor,
                 fontFamily: `'${formStyles.formFont}', sans-serif`,
@@ -235,7 +235,7 @@ export default function SignUpFormReact() {
     return (
       <button
         type="submit"
-        className="bg-neutral-900 text-white dark:bg-neutral-300 dark:text-neutral-800"
+        className="bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-neutral-300 dark:text-neutral-800 dark:hover:bg-neutral-200"
         style={{
           fontSize: `${formStyles.buttonFontSizePx}px`,
           fontFamily: `'${formStyles.buttonFont}', sans-serif`,
