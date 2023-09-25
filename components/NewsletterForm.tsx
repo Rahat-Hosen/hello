@@ -11,7 +11,6 @@ const formStyles = {
   formStyle: "inline",
   placeholderText: "you@example.com",
   formFont: "Inter",
-  formFontColor: "#000000",
   formFontSizePx: 14,
   buttonText: "Join newsletter",
   buttonFont: "Inter",
@@ -165,16 +164,14 @@ export default function SignUpFormReact() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required={true}
-              className="border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950"
+              className="bg-neutral-200 text-neutral-950 placeholder:text-neutral-500 dark:bg-neutral-800 dark:text-white"
               style={{
-                color: formStyles.formFontColor,
                 fontFamily: `'${formStyles.formFont}', sans-serif`,
                 fontSize: `${formStyles.formFontSizePx}px`,
                 margin: isInline ? "0px 10px 0px 0px" : "0px 0px 10px",
                 width: "100%",
                 minWidth: "100px",
                 boxSizing: "border-box",
-                boxShadow: "rgba(0, 0, 0, 0.05) 0px 1px 2px",
                 borderRadius: "6px",
                 padding: "8px 12px",
               }}

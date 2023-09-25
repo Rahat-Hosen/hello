@@ -84,12 +84,12 @@ const Tabs = () => {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-20 mx-auto mb-4 h-12 w-full max-w-lg px-6 sm:h-16">
-      <div className="flew-row relative mx-auto flex h-full w-full rounded-full border border-neutral-400/50 bg-white/30 backdrop-blur-sm dark:border-neutral-600/50 dark:bg-black/30 dark:text-white">
+      <div className="flew-row relative mx-auto flex h-full w-full rounded-full border border-neutral-400/20 bg-white/40 backdrop-blur-sm dark:border-neutral-600/30 dark:bg-black/40 dark:text-white">
         <span
           className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full p-1 transition-all duration-300 sm:p-2"
           style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
         >
-          <span className="h-full w-full rounded-full bg-gray-200/70 dark:bg-gray-800/70" />
+          <span className="h-full w-full rounded-full bg-neutral-200 dark:bg-neutral-800" />
         </span>
         {allTabs.map((tab, index) => {
           if (tab.id === "theme") {
@@ -136,6 +136,7 @@ const Layout: FC = ({ children }) => {
     <div
       className={`${inter.variable} relative flex min-h-screen w-screen flex-col bg-neutral-50 font-sans dark:bg-neutral-950`}
     >
+      <div className="pointer-events-none fixed left-0 top-0 z-50 h-12 w-full bg-neutral-100 to-transparent backdrop-blur-xl [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)] dark:bg-neutral-900" />
       <main className="mx-auto mb-14 w-full max-w-screen-sm flex-1 animate-main-content px-4 py-12 dark:text-white">
         {children}
       </main>

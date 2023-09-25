@@ -3,6 +3,7 @@ import Badge from "components/ui/Badge";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 const PROJECTS_LIST = [
   {
@@ -15,6 +16,22 @@ const PROJECTS_LIST = [
     tags: ["SaaS", "Founder", "WIP"],
     video: {
       link: "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/OPHIQMqCSAsn1998AgpB/39a443f2-a147-4e8f-aef6-d30d627a3a81.mp4?_a=ATO2BAA0",
+      width: "w-full",
+      height: "h-80",
+    },
+  },
+  {
+    title: "bg.ibelick",
+    description:
+      "A collection of modern background patterns. Built with React and Tailwind CSS.",
+    links: {
+      text: "Website",
+      link: "https://bg.ibelick.com/",
+    },
+    tags: ["React", "Tailwind CSS", "TypeScript", "2023", "Open source", "UI"],
+    emoji: "💫",
+    video: {
+      link: "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/OmwskRVDNrY7w9mjfnWA/032a8b93-a8b1-4da4-b903-1aea1e9e0d54.mp4?_a=ATO2BAA0",
       width: "w-full",
       height: "h-80",
     },
@@ -150,6 +167,8 @@ const PROJECTS_LIST = [
 ];
 
 const Projects = () => {
+  const [hasMore, setHasMore] = useState(false);
+
   return (
     <>
       <NextSeo title="Projects" />
@@ -167,59 +186,68 @@ const Projects = () => {
         </p>
       </div>
       <div className="mt-10 flex flex-col gap-12">
-        {PROJECTS_LIST.map((project) => {
-          return (
-            <div
-              className="relative rounded-3xl bg-neutral-100 dark:bg-neutral-900"
-              key={project.title}
-            >
-              <div className="flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center">
-                <div className="flex w-full flex-col">
-                  <h3 className="mb-1">{project.title}</h3>
-                  <p className="mb-2 text-gray-700 dark:text-gray-300">
-                    {project.description}
-                  </p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {project?.tags?.map((tag) => {
-                      return <Badge key={tag}>{tag}</Badge>;
-                    })}
+        {PROJECTS_LIST.slice(0, !hasMore ? 4 : PROJECTS_LIST.length).map(
+          (project) => {
+            return (
+              <div
+                className="relative rounded-3xl bg-neutral-100 dark:bg-neutral-900"
+                key={project.title}
+              >
+                <div className="flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center">
+                  <div className="flex w-full flex-col">
+                    <h3 className="mb-1">{project.title}</h3>
+                    <p className="mb-2 text-gray-700 dark:text-gray-300">
+                      {project.description}
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {project?.tags?.map((tag) => {
+                        return <Badge key={tag}>{tag}</Badge>;
+                      })}
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <Button
+                      onClick={() => window.open(project.links.link, "_blank")}
+                    >
+                      {project.links.text}
+                    </Button>
                   </div>
                 </div>
-                <div className="flex items-center">
-                  <Button
-                    onClick={() => window.open(project.links.link, "_blank")}
-                  >
-                    {project.links.text}
-                  </Button>
-                </div>
+                {Boolean(project.video || project.image) ? (
+                  <>
+                    <hr className="mx-auto h-[1px] w-[60%] border-none bg-neutral-200 dark:bg-neutral-900" />
+                    <div className="mx-auto flex items-center px-14 py-8">
+                      {project.video ? (
+                        <video
+                          src={project.video.link}
+                          autoPlay
+                          loop
+                          muted
+                          className={`mx-auto rounded-3xl object-contain ${project.video.width} ${project.video.height}`}
+                        />
+                      ) : (
+                        <Image
+                          src={project.image!.src!}
+                          alt={project.title}
+                          width={949}
+                          height={900}
+                          className="h-80 w-full rounded-3xl object-contain"
+                        />
+                      )}
+                    </div>
+                  </>
+                ) : null}
               </div>
-              {Boolean(project.video || project.image) ? (
-                <>
-                  <hr className="mx-auto h-[1px] w-[60%] border-none bg-neutral-200 dark:bg-neutral-900" />
-                  <div className="mx-auto flex items-center px-14 py-8">
-                    {project.video ? (
-                      <video
-                        src={project.video.link}
-                        autoPlay
-                        loop
-                        muted
-                        className={`mx-auto rounded-3xl object-contain ${project.video.width} ${project.video.height}`}
-                      />
-                    ) : (
-                      <Image
-                        src={project.image!.src!}
-                        alt={project.title}
-                        width={949}
-                        height={900}
-                        className="h-80 w-full rounded-3xl object-contain"
-                      />
-                    )}
-                  </div>
-                </>
-              ) : null}
-            </div>
-          );
-        })}
+            );
+          }
+        )}
+        <div className="flex justify-center">
+          {!hasMore ? (
+            <Button onClick={() => setHasMore(true)}>More +</Button>
+          ) : (
+            <Button onClick={() => setHasMore(false)}>Less -</Button>
+          )}
+        </div>
       </div>
     </>
   );

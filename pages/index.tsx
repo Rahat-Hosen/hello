@@ -23,18 +23,12 @@ export default function Home() {
       <div className="mb-4 mt-12">
         <h2 className="h2 mb-4">About me</h2>
         <p className="paragraph mb-2">
-          Since 2016, I've been{" "}
-          <strong className="bold">crafting UIs with React</strong>,
-          specializing in creating component libraries, design systems, and
-          front-end architecture. My experience spans working with startups on
-          SaaS products, mobile apps, or e-commerce, as well as building
-          products independently or alongside friends.
+          Crafting UIs with React since 2016. Passionate about interface design
+          and attention to detail, striving to create great experiences.
         </p>
         <p className="paragraph mb-2">
-          I take great pleasure in collaborating with designers during the
-          design process to develop visually stunning screens and enhance user
-          experiences. If you're interested in collaborating or have any project
-          ideas, you can check out my{" "}
+          If you're interested in collaborating or have any project ideas, you
+          can check out my{" "}
           <Link href="/services" className="link">
             services
           </Link>
