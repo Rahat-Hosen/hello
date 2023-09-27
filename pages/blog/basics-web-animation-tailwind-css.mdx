@@ -1,9 +1,154 @@
 import LayoutBlog from "components/LayoutBlog";
 import ComponentPlayground from "components/ComponentPlayground";
 import { SlidingTabBar } from "components/lab/SlidingTabBar";
+import {
+  FadeIn,
+  SlideIn,
+  Rotate,
+  Scale,
+} from "components/lab/ClassicAnimation";
 
 <LayoutBlog >
 
 # Basic of web animations with Tailwind CSS
+
+Animations on websites serve a purpose: they can draw attention and highlight important elements. Transitioning from plain CSS to Tailwind CSS for animations might initially feel different. That's how I felt too, preferring the classic vanilla CSS way.
+
+However, Tailwind CSS offers its own unique methods, and they can simplify the animation process when you become accustomed to them.
+
+In this blog post, I won’t go into all properties related to animations; I highly recommend checking out the [MDN documentation on CSS animation](https://developer.mozilla.org/fr/docs/Web/CSS/animation) for a comprehensive understanding. Instead, we will focus on some basic examples of animations built with Tailwind CSS and explain how they work.
+
+All code examples are basics so you can easily adapt them to your needs.
+
+## Fade in
+
+The fade-in effect is a classic yet powerful tool for drawing attention to elements as they enter the screen.
+
+### Showcase
+
+<ComponentPlayground hasDarkMode className="group">
+  <FadeIn />
+</ComponentPlayground>
+
+_Hover (or touch on mobile) the card to see the animation._
+
+```ts tailwind.config.ts
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        "fade-in": "fade-in 0.9s ease-in",
+      },
+      keyframes: {
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
+      },
+    },
+  },
+};
+```
+
+We have to customize the `tailwind.config.ts` file to add our [animation](https://tailwindcss.com/docs/animation#customizing-your-theme).
+
+### Where to use
+
+Fade-ins are excellent for gracefully introducing elements like additional information, images, or promotional content. They ensure that content doesn’t abruptly appear, offering a polished user experience.
+
+## Slide in
+
+Slide-in animations are essential for a dynamic and interactive UI, making content transition into view smoothly.
+
+<ComponentPlayground hasDarkMode className="overflow-hidden">
+  <SlideIn />
+</ComponentPlayground>
+
+```tsx slide-in.tsx
+export const SlideIn = () => {
+  return (
+    <div className="h-32 w-52 translate-y-1/2 transform rounded-xl bg-neutral-500 transition-transform duration-500 ease-in-out hover:translate-y-0">
+      <img
+        src="https://images.unsplash.com/photo-1694684677360-5cb0841ec36e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=108&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5NTgwNjYxNA&ixlib=rb-4.0.3&q=80&w=208"
+        className="h-full w-full rounded-xl object-cover"
+      />
+    </div>
+  );
+};
+```
+
+We can also use `className` only for some basic animations.
+
+### Where to Use
+
+Employ slide-in animations to unveil new content, navigation menus, or elements that shouldn’t be immediately visible. It keeps the UI clean and reveals additional content interactively.
+
+## Rotate
+
+Rotating animations can turn static UIs into dynamic, interactive environments.
+
+<ComponentPlayground hasDarkMode>
+  <Rotate />
+</ComponentPlayground>
+
+```ts tailwind.config.ts
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        "rotate-360": "rotate-360 1s linear",
+      },
+      keyframes: {
+        "rotate-360": {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+      },
+    },
+  },
+};
+```
+
+### Where to use
+
+Use rotate animations for interactive elements like refresh icons or loading indicators. They’re also great for adding a playful touch to clickable elements, signaling interactivity.
+
+## Scale
+
+Scaling animations can breathe life into your UI, making buttons and other elements feel engaging.
+
+<ComponentPlayground>
+  <Scale />
+</ComponentPlayground>
+
+```tsx scale.tsx
+export const Scale = () => {
+  return (
+    <button className="scale-100 rounded-2xl bg-neutral-800 px-2 py-1 text-neutral-50 transition-transform duration-500 hover:scale-125">
+      Hover me
+    </button>
+  );
+};
+```
+
+### Where to use
+
+Scale animation is a great way to add a playful touch to your UI. Use it for buttons, icons, and other elements that should feel interactive. It’s also a great way to signal that an element is clickable.
+
+## Conclusion
+
+In this article, we've scratched the surface, focusing on some foundational animations to get you started. To improve your animations skills, I recommend you to play around, mix different styles, and observe how they enhance the user interface.
+
+Tailwind CSS is cool for its ability to offer quick and efficient ways to implement animations using just class names. However, for more complex and tailored animations, customizing the `tailwind.config.ts` is necessary. It grants you the flexibility to define and control animations at a granular level, ensuring that the animations align perfectly with your requirements.
+
+If you want more, I’ve curated a collection of animations in a special project. It’s a gallery that showcases a lots of Tailwind CSS animations. Visit [animation.ibelick.com](https://animation.ibelick.com/) to explore it, find inspiration, or pick up ready-to-use codes for your next project.
 
 </LayoutBlog>

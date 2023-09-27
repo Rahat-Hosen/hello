@@ -2,12 +2,14 @@ type BadgeProps = {
   children: React.ReactNode;
   onClick?: () => void;
   variant?: "primary" | "secondary";
+  className?: string;
 };
 
 const Badge: React.FC<BadgeProps> = ({
   children,
   onClick,
   variant = "primary",
+  className,
 }) => {
   const cnVariant = {
     primary:
@@ -18,7 +20,7 @@ const Badge: React.FC<BadgeProps> = ({
 
   return (
     <div
-      className={`inline-flex cursor-pointer rounded-md border  p-[2px] text-xs  ${cnVariant[variant]}`}
+      className={`inline-flex cursor-pointer rounded-md border  p-[2px] text-xs  ${cnVariant[variant]} ${className}`}
       onClick={onClick}
     >
       {children}
