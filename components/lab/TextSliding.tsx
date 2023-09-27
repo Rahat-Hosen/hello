@@ -74,16 +74,16 @@ export const TextSlidingCSS = () => {
 
 export const TextSlidingTW = () => {
   return (
-    <h1 className="flex items-center text-6xl font-medium text-neutral-400">
+    <h1 className="flex items-center text-6xl font-medium text-neutral-400 dark:text-neutral-600">
       Dive Into{" "}
       <span className="relative ml-3 h-[1em] w-36 overflow-hidden">
-        <span className="animate-slide absolute h-full w-full -translate-y-full leading-none text-white">
+        <span className="animate-slide absolute h-full w-full -translate-y-full leading-none text-neutral-950 dark:text-neutral-50">
           Ideas
         </span>
-        <span className="animate-slide absolute h-full w-full -translate-y-full leading-none text-white [animation-delay:0.83s]">
+        <span className="animate-slide absolute h-full w-full -translate-y-full leading-none text-neutral-950 [animation-delay:0.83s] dark:text-neutral-50">
           Tech
         </span>
-        <span className="animate-slide absolute h-full w-full -translate-y-full leading-none text-white [animation-delay:1.83s]">
+        <span className="animate-slide absolute h-full w-full -translate-y-full leading-none text-neutral-950 [animation-delay:1.83s] dark:text-neutral-50">
           Art
         </span>
       </span>

@@ -19,11 +19,11 @@ We'll be using SVGs, which means you can easily integrate this effect into any p
 Here is the final result we'll be creating and the difference without the grainy background.
 (You can view more example at the end of the article).
 
-<ComponentPlayground>
+<ComponentPlayground hasDarkMode>
   <CardGrainyBackgroundCSS />
 </ComponentPlayground>
 
-<ComponentPlayground className="mt-8">
+<ComponentPlayground className="mt-8" hasDarkMode>
   <CardWithoutGrainyBackgroundCSS />
 </ComponentPlayground>
 
@@ -127,7 +127,7 @@ Let's break it down.
 
 Here is our svg:
 
-<ComponentPlayground>
+<ComponentPlayground hasDarkMode>
   <div
     style={{
       width: "96px",
@@ -164,7 +164,7 @@ The rest of the CSS is for styling the card and its content, including the icon,
 
 You can play with opacity, gradient backgrounds, and more, to create different effects. Here are some examples:
 
-<ComponentPlayground>
+<ComponentPlayground hasDarkMode>
   <div className="flex flex-wrap justify-center gap-4">
     <CardGrainyBackgroundWithProps color="blue" opacity={0.5} />
     <CardGrainyBackgroundWithProps color="rgb(255, 252, 127)" opacity={0.1} />

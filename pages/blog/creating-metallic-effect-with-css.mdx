@@ -16,7 +16,7 @@ Hey! I'm back today with another CSS trick.
 This time with something that look like from the past, kind of old school.
 But as we know everything old is new again, so let's see how to create a metallic effect with CSS.
 
-<ComponentPlayground className="bg-white dark:bg-neutral-950">
+<ComponentPlayground hasDarkMode>
   <ButtonMetallic />
 </ComponentPlayground>
 
@@ -66,7 +66,7 @@ The gradient is at 45deg, so the light colors are on the top left and the dark o
 
 You can play with some different gradients or colors. I kind of like them, they are kitsh but fun.
 
-<ComponentPlayground className="flex-wrap gap-10 bg-white dark:bg-neutral-950">
+<ComponentPlayground hasDarkMode className="flex-wrap gap-10">
   <ButtonMetallic2 />
   <ButtonMetallicGold />
   <ButtonMetallicBlue />
@@ -75,7 +75,7 @@ You can play with some different gradients or colors. I kind of like them, they 
 Another thing, we can associate it with a [shine effect](/blog/create-shine-effect-on-card-with-tailwind-css).
 _You can hover the card to see the effect._
 
-<ComponentPlayground className="bg-white dark:bg-neutral-950">
+<ComponentPlayground hasDarkMode>
   <CardMetallicShine />
 </ComponentPlayground>
 

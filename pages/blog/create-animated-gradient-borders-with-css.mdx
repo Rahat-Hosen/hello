@@ -20,7 +20,7 @@ In this article, I'll share methods for creating an animated gradient border wit
 _We use the @property rule, it comes with limited supports you can check the brower support here [caniuse](https://caniuse.com/?search=%40property)_.
 For a more supported method, you can go to the end of the article.
 
-<ComponentPlayground>
+<ComponentPlayground className="border-neutral-800 bg-neutral-900">
   <AnimatedGradientBorder borderColor="(#6366f1, #0ea5e9)">
     <span className="text-center text-xl font-normal text-white">
       Animated gradient border
@@ -124,7 +124,7 @@ In this implementation, we handle the animation using JavaScript. We utilize the
 
 If you want to support more browsers, you can use the following method instead:
 
-<ComponentPlayground>
+<ComponentPlayground className="border-neutral-800 bg-neutral-900">
   <AnimatedGradientBorderBackground />
 </ComponentPlayground>
 

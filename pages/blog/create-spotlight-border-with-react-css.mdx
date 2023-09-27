@@ -5,7 +5,7 @@ import {
   CardSpotlightBorder,
 } from "components/lab/SpotlightBorder";
 
-<LayoutBlog >
+<LayoutBlog>
 
 # Creating an interactive spotlight border with CSS and React
 
@@ -30,7 +30,7 @@ I'm providing a solution with React and Tailwind CSS, and one with CSS. I'll als
 
 ## The component
 
-<ComponentPlayground>
+<ComponentPlayground className="border-neutral-800 bg-neutral-900">
   <InputSpotlightBorder />
 </ComponentPlayground>
 
@@ -233,7 +233,7 @@ export const InputSpotlightBorderCSS = () => {
 
 You can use this techniques on any element, not just inputs. For example on cards:
 
-<ComponentPlayground className="flex-col gap-8">
+<ComponentPlayground className="flex-col gap-8 border-neutral-800 bg-neutral-900">
   <CardSpotlightBorder borderColor="#bef264">
     Card with a spotlight border #1
   </CardSpotlightBorder>

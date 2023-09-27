@@ -152,7 +152,7 @@ const LayoutBlog: React.FC = ({ children }) => {
           >
             ← back to all posts
           </Link>
-          <div className="flex gap-4">
+          <div className="flex gap-2">
             <CopyLink link={`https://julienthibeaut.xyz/blog/${slug}`} />
             <div>
               <TooltipProvider>

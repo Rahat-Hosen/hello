@@ -12,16 +12,16 @@ import {
 } from "@radix-ui/react-icons";
 
 const LOGOS = [
-  <FigmaLogoIcon width={24} height={24} className="text-slate-800" />,
-  <FramerLogoIcon width={24} height={24} className="text-slate-800" />,
-  <SketchLogoIcon width={24} height={24} className=" text-slate-800" />,
-  <TwitterLogoIcon width={24} height={24} className="text-slate-800" />,
-  <GitHubLogoIcon width={24} height={24} className="text-slate-800" />,
-  <VercelLogoIcon width={24} height={24} className="text-slate-800" />,
-  <NotionLogoIcon width={24} height={24} className="text-slate-800" />,
-  <DiscordLogoIcon width={24} height={24} className="text-slate-800" />,
-  <InstagramLogoIcon width={24} height={24} className="text-slate-800" />,
-  <LinkedInLogoIcon width={24} height={24} className="text-slate-800" />,
+  <FigmaLogoIcon width={24} height={24} className="text-neutral-800" />,
+  <FramerLogoIcon width={24} height={24} className="text-neutral-800" />,
+  <SketchLogoIcon width={24} height={24} className=" text-neutral-800" />,
+  <TwitterLogoIcon width={24} height={24} className="text-neutral-800" />,
+  <GitHubLogoIcon width={24} height={24} className="text-neutral-800" />,
+  <VercelLogoIcon width={24} height={24} className="text-neutral-800" />,
+  <NotionLogoIcon width={24} height={24} className="text-neutral-800" />,
+  <DiscordLogoIcon width={24} height={24} className="text-neutral-800" />,
+  <InstagramLogoIcon width={24} height={24} className="text-neutral-800" />,
+  <LinkedInLogoIcon width={24} height={24} className="text-neutral-800" />,
 ];
 
 export const InfiniteSliderTW = () => {

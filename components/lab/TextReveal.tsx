@@ -46,7 +46,7 @@ export const TextRevealTW = () => {
 
   return (
     <>
-      <h1 className="overflow-hidden text-2xl font-bold leading-6 text-white">
+      <h1 className="overflow-hidden text-base text-white">
         {text.match(/./gu)!.map((char, index) => (
           <span
             className="inline-block animate-text-reveal [animation-fill-mode:backwards]"

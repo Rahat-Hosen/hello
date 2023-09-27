@@ -1,6 +1,14 @@
 {
   "postsMetadata": [
     {
+      "title": "Basic of web animations with Tailwind CSS",
+      "description": "How to create basic web animations with Tailwind CSS?",
+      "datePublished": "2023-09-27T00:00",
+      "dateModified": null,
+      "slug": "basics-web-animation-tailwind-css",
+      "tags": ["Tailwind CSS", "UI Effects"]
+    },
+    {
       "title": "Creating a text typing effect with React",
       "description": "How to create a text typing effect with React?",
       "datePublished": "2023-09-12T00:00",
