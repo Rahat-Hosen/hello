@@ -20,33 +20,14 @@ export default function Home() {
           <p className="paragraph">Senior Front-End Developer</p>
         </div>
       </div>
-      <div className="mb-4 mt-12">
+      <div className="mb-4 mt-16">
         <h2 className="h2 mb-4">About me</h2>
         <p className="paragraph mb-2">
           Crafting UIs with React since 2016. Passionate about interface design
           and attention to detail, striving to create great experiences.
         </p>
-        <p className="paragraph mb-2">
-          If you're interested in collaborating or have any project ideas, you
-          can check out my{" "}
-          <Link href="/services" className="link">
-            services
-          </Link>
-          .
-        </p>
-        <p className="paragraph mb-2">
-          I enjoy curating a{" "}
-          <Link href={"/monthly-playlists"} className="link">
-            playlist per month
-          </Link>
-          , and I'm committed to{" "}
-          <Link href={"/blog"} className="link">
-            writing more frequently
-          </Link>
-          .
-        </p>
       </div>
-      <div className="mt-24">
+      <div className="mt-16">
         <h2 className="h2 mb-4">Current projects</h2>
         <p className="paragraph mb-2">
           I'm currently engaged in several exciting projects:
@@ -84,7 +65,7 @@ export default function Home() {
           </li>
         </ul>
       </div>
-      <div className="mt-24">
+      <div className="mt-16">
         <h2 className="h2 mb-4">My latest articles</h2>
         <ul>
           {postsMetadata.slice(0, 3).map((post) => {
@@ -98,7 +79,7 @@ export default function Home() {
           })}
         </ul>
       </div>
-      <div className="mt-24">
+      <div className="mt-16">
         <SectionContact />
       </div>
     </div>

@@ -27,7 +27,7 @@ class MyDocument extends Document {
             ></script>
           ) : null}
         </Head>
-        <body>
+        <body className="bg-neutral-50 font-sans dark:bg-neutral-950">
           <Main />
           <NextScript />
         </body>

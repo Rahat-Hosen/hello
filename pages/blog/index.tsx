@@ -57,7 +57,7 @@ const BlogPage = ({ posts }: BlogPageProps) => {
   return (
     <>
       <NextSeo title="Blog" />
-      <section className="pt-2 md:pt-24">
+      <section className="">
         <div className="flex flex-wrap gap-2">
           {uniqueBlogTags.map((tag) => {
             return (
