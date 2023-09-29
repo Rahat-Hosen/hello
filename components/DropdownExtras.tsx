@@ -12,7 +12,7 @@ const DropdownExtras = () => {
       <DropdownMenu.Trigger asChild>
         <button
           aria-label="Extras"
-          className="font-base my-auto flex-1 cursor-pointer rounded-full text-center text-sm outline-none transition hover:text-black/80 dark:hover:text-white/80 sm:text-base"
+          className="font-base my-auto cursor-pointer rounded-full px-4 text-center text-sm outline-none transition hover:text-black/80 dark:hover:text-white/80 sm:text-base"
         >
           Extras
         </button>
@@ -23,7 +23,7 @@ const DropdownExtras = () => {
           sideOffset={24}
         >
           {items.map((item) => (
-            <DropdownMenu.Item asChild>
+            <DropdownMenu.Item asChild key={item.href}>
               <Link
                 href={`/${item.href}`}
                 className="dark:hover:bg-neutral-400/20text-sm mx-1 inline-flex rounded-[4px] p-1.5 text-sm  outline-none transition hover:bg-neutral-400/20"

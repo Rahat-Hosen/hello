@@ -27,7 +27,7 @@
 
 @layer components {
   .h1 {
-    @apply text-lg font-medium text-neutral-900 dark:text-neutral-100;
+    @apply text-base font-medium text-neutral-900 dark:text-neutral-100;
   }
 
   .h2 {
