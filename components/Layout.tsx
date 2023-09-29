@@ -90,10 +90,9 @@ const Tabs = () => {
         {allTabs.map((tab, index) => {
           if (tab.id === "theme") {
             return (
-              <>
+              <div key={index} className="flex ">
                 <span className="h-8 border-[0.5px] border-neutral-950/10" />
                 <span
-                  key={index}
                   className={`${
                     effect && "animate-wiggle"
                   } mx-2 my-auto flex cursor-pointer select-none p-3`}
@@ -109,7 +108,7 @@ const Tabs = () => {
                     <div className="h-4 w-4 rounded-sm bg-yellow-400" />
                   )}
                 </span>
-              </>
+              </div>
             );
           }
 
