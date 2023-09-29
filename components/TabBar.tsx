@@ -78,8 +78,8 @@ const TabBar = () => {
   };
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-20 mx-auto mb-4 h-12 w-full max-w-xl px-6 sm:h-16">
-      <div className="relative mx-auto flex h-full w-full items-center rounded-md border border-neutral-400/20 bg-white/40 backdrop-blur-md dark:border-neutral-600/30 dark:bg-black/40 dark:text-white">
+    <div className="fixed inset-x-0 bottom-0 z-20 mx-auto mb-4 flex h-12 px-6 sm:h-16">
+      <div className="relative mx-auto flex h-full items-center rounded-md border border-neutral-400/20 bg-white/40 backdrop-blur-md dark:border-neutral-600/30 dark:bg-black/40 dark:text-white">
         <span
           className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-[4px] p-1 transition-all duration-300 sm:p-2"
           style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
@@ -120,7 +120,7 @@ const TabBar = () => {
               key={index}
               href={tab.href as string}
               ref={(el) => (tabsRef.current[index] = el)}
-              className="font-base inline-flex flex-1 cursor-pointer items-center justify-center rounded-full text-center text-sm transition hover:text-black/80 dark:hover:text-white/80 sm:text-base"
+              className="font-base inline-flex cursor-pointer items-center justify-center rounded-full px-4 text-center text-sm transition hover:text-black/80 dark:hover:text-white/80 sm:text-base"
               onClick={() => setActiveTabIndex(index)}
             >
               {tab.name}
