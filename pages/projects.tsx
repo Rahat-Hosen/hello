@@ -1,4 +1,4 @@
-import Button from "components/Button";
+import Button from "components/ui/Button";
 import Badge from "components/ui/Badge";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
@@ -173,7 +173,7 @@ const Projects = () => {
     <>
       <NextSeo title="Projects" />
       <div>
-        <h2 className="h2 mb-4 mt-12">Selected projects</h2>
+        <h1 className="h1 mb-6">Selected projects</h1>
         <p className="paragraph">
           Below is a showcase of various selected projects I've worked on over
           the years. These include both client work and personal projects.

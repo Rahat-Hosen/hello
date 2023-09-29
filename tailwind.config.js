@@ -53,6 +53,13 @@ module.exports = {
         "slide-in-bottom": "slide-in-bottom 0.6s ease-in-out both",
         "rotate-360": "rotate-360 1s linear infinite",
         "scale-150": "scale-150 0.5s ease-in-out",
+        slideDownAndFade:
+          "slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+        slideLeftAndFade:
+          "slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+        slideUpAndFade: "slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+        slideRightAndFade:
+          "slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
       keyframes: {
         "slide-down-fade": {
@@ -122,6 +129,22 @@ module.exports = {
           "100%": {
             transform: "scale(1.5)",
           },
+        },
+        slideDownAndFade: {
+          from: { opacity: 0, transform: "translateY(-8px)" },
+          to: { opacity: 1, transform: "translateY(0)" },
+        },
+        slideLeftAndFade: {
+          from: { opacity: 0, transform: "translateX(8px)" },
+          to: { opacity: 1, transform: "translateX(0)" },
+        },
+        slideUpAndFade: {
+          from: { opacity: 0, transform: "translateY(24px)" },
+          to: { opacity: 1, transform: "translateY(0)" },
+        },
+        slideRightAndFade: {
+          from: { opacity: 0, transform: "translateX(-8px)" },
+          to: { opacity: 1, transform: "translateX(0)" },
         },
       },
     },

@@ -1,4 +1,4 @@
-import Button from "components/Button";
+import Button from "components/ui/Button";
 import Badge from "components/ui/Badge";
 
 export const FadeIn = () => {

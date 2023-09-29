@@ -6,6 +6,13 @@ import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
 import "@code-hike/mdx/dist/index.css";
 import { useRouter } from "next/router";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -40,6 +47,11 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      <style jsx global>{`
+        html {
+          font-family: ${inter.style.fontFamily};
+        }
+      `}</style>
     </ThemeProvider>
   );
 };

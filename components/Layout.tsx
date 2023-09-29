@@ -3,14 +3,7 @@ import { useTheme } from "next-themes";
 import { useState, useEffect, FC, useRef } from "react";
 import { useRouter } from "next/router";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
-
-import { Inter } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
+import DropdownExtras from "./DropdownExtras";
 
 let allTabs = [
   {
@@ -34,8 +27,11 @@ let allTabs = [
     href: "/blog",
   },
   {
-    id: "theme",
+    id: "extras",
   },
+  // {
+  //   id: "theme",
+  // },
 ];
 
 const Tabs = () => {
@@ -83,13 +79,13 @@ const Tabs = () => {
   };
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-20 mx-auto mb-4 h-12 w-full max-w-lg px-6 sm:h-16">
-      <div className="flew-row relative mx-auto flex h-full w-full rounded-full border border-neutral-400/20 bg-white/40 backdrop-blur-sm dark:border-neutral-600/30 dark:bg-black/40 dark:text-white">
+    <div className="fixed inset-x-0 bottom-0 z-20 mx-auto mb-4 h-12 w-full max-w-xl px-6 sm:h-16">
+      <div className="flew-row relative mx-auto flex h-full w-full rounded-xl border border-neutral-400/20 bg-white/40 backdrop-blur-md dark:border-neutral-600/30 dark:bg-black/40 dark:text-white">
         <span
-          className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full p-1 transition-all duration-300 sm:p-2"
+          className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-xl p-1 transition-all duration-300 sm:p-2"
           style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
         >
-          <span className="h-full w-full rounded-full bg-neutral-200 dark:bg-neutral-800" />
+          <span className="h-full w-full rounded-xl bg-neutral-200 backdrop-blur-xl dark:bg-neutral-800" />
         </span>
         {allTabs.map((tab, index) => {
           if (tab.id === "theme") {
@@ -114,12 +110,16 @@ const Tabs = () => {
             );
           }
 
+          if (tab.id === "extras") {
+            return <DropdownExtras key={index} />;
+          }
+
           return (
             <Link
               key={index}
               href={tab.href as string}
               ref={(el) => (tabsRef.current[index] = el)}
-              className="font-base my-auto flex-1 cursor-pointer rounded-full text-center text-sm transition hover:text-black/80 dark:hover:text-white/80 sm:text-base"
+              className="font-base inline-flex flex-1 cursor-pointer items-center justify-center rounded-full text-center text-sm transition hover:text-black/80 dark:hover:text-white/80 sm:text-base"
               onClick={() => setActiveTabIndex(index)}
             >
               {tab.name}
@@ -133,11 +133,9 @@ const Tabs = () => {
 
 const Layout: FC = ({ children }) => {
   return (
-    <div
-      className={`${inter.variable} relative flex min-h-screen w-screen flex-col bg-neutral-50 font-sans dark:bg-neutral-950`}
-    >
+    <div className={`relative flex min-h-screen w-screen flex-col`}>
       <div className="pointer-events-none fixed left-0 top-0 z-50 h-12 w-full bg-neutral-100 to-transparent backdrop-blur-xl [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)] dark:bg-neutral-900" />
-      <main className="mx-auto mb-14 w-full max-w-screen-sm flex-1 animate-main-content px-4 py-12 dark:text-white">
+      <main className="mx-auto mb-14 w-full max-w-screen-sm flex-1 animate-main-content px-4 pb-8 pt-20 dark:text-white">
         {children}
       </main>
       <Tabs />

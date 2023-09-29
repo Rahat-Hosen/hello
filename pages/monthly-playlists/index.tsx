@@ -13,12 +13,11 @@ const MonthyPlaylistPage = () => {
   return (
     <>
       <NextSeo title="Monthly Playlists" />
-      <section className="max-w-screen relative mx-auto mb-14 px-6 py-12">
+      <section>
         <div className="mb-8 max-w-md">
           <p>
-            Every month, I create a playlist to discover new songs and artists.
-            This way of curating helps me to access memories and emotions from
-            the past.
+            Every month, I create a playlist with my favorite songs of the
+            moment.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">

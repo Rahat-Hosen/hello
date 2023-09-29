@@ -8,7 +8,7 @@ import {
 import { CardSpotlightEffect } from "components/lab/SpotlightEffect";
 import SectionContact from "components/SectionContact";
 import Link from "next/link";
-import Button from "components/Button";
+import Button from "components/ui/Button";
 import { NextSeo } from "next-seo";
 
 type ServiceCardProps = {
