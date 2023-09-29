@@ -1,6 +1,11 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import Link from "next/link";
 
+const items = [
+  { label: "Monthly Playlists", href: "/monthly-playlists" },
+  { label: "Time Tracker", href: "/time-tracker" },
+];
+
 const DropdownExtras = () => {
   return (
     <DropdownMenu.Root>
@@ -14,25 +19,19 @@ const DropdownExtras = () => {
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="z-30 flex min-w-[200px] animate-slideUpAndFade flex-col rounded-xl border border-neutral-400/20 bg-white/40 p-3 backdrop-blur-2xl will-change-[opacity,transform] dark:border-neutral-600/30 dark:bg-black/40 dark:text-white"
+          className="z-30 flex min-w-[200px] animate-slideUpAndFade flex-col rounded-lg border border-neutral-400/20 bg-white/40 py-1 backdrop-blur-2xl will-change-[opacity,transform] dark:border-neutral-600/30 dark:bg-black/40 dark:text-white"
           sideOffset={24}
         >
-          <DropdownMenu.Item asChild>
-            <Link
-              href="/monthly-playlists"
-              className="text-md inline-flex rounded-md px-2 py-1 text-sm outline-none transition hover:bg-neutral-400/20 dark:hover:bg-neutral-400/20 sm:text-base"
-            >
-              Monthly Playlists
-            </Link>
-          </DropdownMenu.Item>
-          <DropdownMenu.Item asChild>
-            <Link
-              href="/time-tracker"
-              className="text-md inline-flex rounded-md px-2 py-1 text-sm outline-none transition hover:bg-neutral-400/20 dark:hover:bg-neutral-400/20 sm:text-base"
-            >
-              Time Tracker
-            </Link>
-          </DropdownMenu.Item>
+          {items.map((item) => (
+            <DropdownMenu.Item asChild>
+              <Link
+                href={`/${item.href}`}
+                className="dark:hover:bg-neutral-400/20text-sm mx-1 inline-flex rounded-[4px] p-1.5 text-sm  outline-none transition hover:bg-neutral-400/20"
+              >
+                {item.label}
+              </Link>
+            </DropdownMenu.Item>
+          ))}
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>

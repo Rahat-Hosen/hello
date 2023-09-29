@@ -56,7 +56,7 @@ const TimeTracker = () => {
   return (
     <>
       <NextSeo title="Time Tracker" />
-      <h1 className="h1 mb-6">Time Tracker</h1>
+      <h1 className="h1 mb-6">Time Tracker (WIP)</h1>
       <p>A simple tool I use to track the hours spent on each project.</p>
 
       <div className="mt-12">
