@@ -18,18 +18,19 @@ type Post = {
   tags: string[];
 };
 
-const CardBlogPost = ({ post }: { post: Post }) => {
+const CardBlogPost = ({ post, index }: { post: Post; index: number }) => {
+  const delay = 80 * index;
   return (
     <li key={post.slug} className="mb-6">
       <Link href={`/blog/${post.slug}`}>
-        <div className="flex transition hover:opacity-70">
+        <div
+          className="flex animate-slideFromLeftAndFade transition hover:opacity-70"
+          style={{
+            animationDelay: `${delay}ms`,
+          }}
+        >
           <div className="flex-1 pr-4">
             <span className="paragraph">{post.title}</span>
-            {/* <div className="mt-1 flex gap-2">
-              {post.tags?.map((tag, index) => {
-                return <Badge key={tag}>{tag}</Badge>;
-              })}
-            </div> */}
           </div>
           <time className="text-sm text-neutral-500 dark:text-neutral-300">
             {new Date(post.datePublished!).toLocaleDateString()}
@@ -58,7 +59,7 @@ const BlogPage = ({ posts }: BlogPageProps) => {
     <>
       <NextSeo title="Blog" />
       <section className="">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex animate-slideFromLeftAndFade flex-wrap gap-2">
           {uniqueBlogTags.map((tag) => {
             return (
               <Badge
@@ -78,8 +79,8 @@ const BlogPage = ({ posts }: BlogPageProps) => {
           })}
         </div>
         <ul className="mt-10">
-          {filteredPosts.map((post) => {
-            return <CardBlogPost key={post.slug} post={post} />;
+          {filteredPosts.map((post, index) => {
+            return <CardBlogPost key={post.slug} post={post} index={index} />;
           })}
         </ul>
       </section>

@@ -80,7 +80,7 @@ const Projects = () => {
         {PROJECTS_LIST.map((project) => {
           return (
             <div
-              className="flex w-full flex-col items-center"
+              className="flex w-full animate-fade-in flex-col items-center"
               key={project.title}
             >
               <a

@@ -60,6 +60,7 @@ module.exports = {
         slideUpAndFade: "slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideRightAndFade:
           "slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+        slideFromLeftAndFade: "slideFromLeftAndFade 600ms ease-in-out both",
       },
       keyframes: {
         "slide-down-fade": {
@@ -144,6 +145,10 @@ module.exports = {
         },
         slideRightAndFade: {
           from: { opacity: 0, transform: "translateX(-8px)" },
+          to: { opacity: 1, transform: "translateX(0)" },
+        },
+        slideFromLeftAndFade: {
+          from: { opacity: 0, transform: "translateX(-12px)" },
           to: { opacity: 1, transform: "translateX(0)" },
         },
       },

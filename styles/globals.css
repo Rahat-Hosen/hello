@@ -39,7 +39,7 @@
   }
 
   .paragraph {
-    @apply font-normal leading-6 tracking-[-0.1px] text-neutral-600 dark:text-neutral-300;
+    @apply font-normal leading-6 tracking-[-0.1px] text-neutral-800 dark:text-neutral-200;
   }
 
   .link {

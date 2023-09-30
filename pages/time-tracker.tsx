@@ -74,7 +74,7 @@ const TimeTracker = () => {
               className="mr-4"
             />
             <div className="mr-4">{formatTime(tracking.time)}</div>
-            <div
+            <button
               onClick={() => {
                 setTrackings((prev) =>
                   prev.map((t, i) =>
@@ -89,13 +89,13 @@ const TimeTracker = () => {
               ) : (
                 <PlayIcon className="h-4 w-4 text-black dark:text-white" />
               )}
-            </div>
-            <div
+            </button>
+            <button
               onClick={() => removeTracking(index)}
               className="ml-4 cursor-pointer"
             >
               <Cross2Icon />
-            </div>
+            </button>
           </div>
         ))}
         <div className="mt-8">
