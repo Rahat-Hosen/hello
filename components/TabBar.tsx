@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { useState, useEffect, FC, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import DropdownExtras from "./DropdownExtras";
 
@@ -93,7 +93,7 @@ const TabBar = () => {
                 <span className="h-8 border-[0.5px] border-neutral-950/10" />
                 <span
                   className={`${
-                    effect && "animate-wiggle"
+                    effect && "animate-vertical-bounce"
                   } mx-2 my-auto flex cursor-pointer select-none p-3`}
                   onClick={() => {
                     switchTheme();
@@ -102,9 +102,9 @@ const TabBar = () => {
                   onAnimationEnd={() => setEffect(false)}
                 >
                   {!isMounted ? null : theme === "light" ? (
-                    <div className="h-4 w-4 rounded-sm bg-neutral-600" />
+                    <div className="h-4 w-4 rounded-sm bg-neutral-900" />
                   ) : (
-                    <div className="h-4 w-4 rounded-sm bg-yellow-400" />
+                    <div className="h-4 w-4 rounded-sm bg-neutral-100" />
                   )}
                 </span>
               </div>

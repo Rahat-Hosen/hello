@@ -6,7 +6,7 @@ const { postsMetadata } = postsData;
 
 export default function Home() {
   return (
-    <div>
+    <div className="animate-slideFromDownAndFade">
       <div className="flex items-center">
         <Image
           src="/me.jpg"

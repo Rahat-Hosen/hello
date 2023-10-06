@@ -46,21 +46,20 @@ module.exports = {
         flip: "flip 6s infinite steps(2, end)",
         rotate: "rotate 3s linear infinite both",
         wiggle: "wiggle 300ms ease-in-out",
-        "main-content": "slide-up 0.3s ease-in-out",
         "slide-down-fade": "slide-down-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
         "text-reveal": "text-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s",
         "fade-in": "fade-in 0.6s ease-in both",
         "slide-in-bottom": "slide-in-bottom 0.6s ease-in-out both",
         "rotate-360": "rotate-360 1s linear infinite",
         "scale-150": "scale-150 0.5s ease-in-out",
-        slideDownAndFade:
-          "slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideLeftAndFade:
           "slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideUpAndFade: "slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideRightAndFade:
           "slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideFromLeftAndFade: "slideFromLeftAndFade 600ms ease-in-out both",
+        slideFromDownAndFade: "slideFromDownAndFade 600ms ease-in-out both",
+        "vertical-bounce": "vertical-bounce 0.6s ease-in-out both",
       },
       keyframes: {
         "slide-down-fade": {
@@ -131,10 +130,6 @@ module.exports = {
             transform: "scale(1.5)",
           },
         },
-        slideDownAndFade: {
-          from: { opacity: 0, transform: "translateY(-8px)" },
-          to: { opacity: 1, transform: "translateY(0)" },
-        },
         slideLeftAndFade: {
           from: { opacity: 0, transform: "translateX(8px)" },
           to: { opacity: 1, transform: "translateX(0)" },
@@ -150,6 +145,18 @@ module.exports = {
         slideFromLeftAndFade: {
           from: { opacity: 0, transform: "translateX(-12px)" },
           to: { opacity: 1, transform: "translateX(0)" },
+        },
+        slideFromDownAndFade: {
+          from: { opacity: 0, transform: "translateY(12px)" },
+          to: { opacity: 1, transform: "translateY(0)" },
+        },
+        "vertical-bounce": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(-4px)",
+          },
         },
       },
     },

@@ -21,9 +21,17 @@ const MonthyPlaylistPage = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-          {monthlyPlaylists?.map((playlist: any) => {
+          {monthlyPlaylists?.map((playlist: any, index) => {
+            const delay = 80 * index;
+
             return (
-              <div key={playlist.id}>
+              <div
+                key={playlist.id}
+                className="animate-slideFromDownAndFade"
+                style={{
+                  animationDelay: `${delay}ms`,
+                }}
+              >
                 <Link
                   href={`/monthly-playlists/${playlist.id}`}
                   className="flex flex-col items-center gap-2"
