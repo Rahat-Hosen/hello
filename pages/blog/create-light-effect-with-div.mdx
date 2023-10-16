@@ -1,0 +1,30 @@
+import LayoutBlog from "components/LayoutBlog";
+import ComponentPlayground from "components/ComponentPlayground";
+import {
+  LightEffectDiv,
+  LightEffectDivs,
+  LightEffectDivsWithText,
+} from "components/lab/LightEffect";
+
+<LayoutBlog>
+
+# Create a light effect with a div
+
+We can saw a lot of dark mode landing page, the best ones use light as a contrast to highlight some elements.
+I saw a lot of examples using image or svg to create light effect, but I wanted to explore create a simple light effect with a div.
+
+<ComponentPlayground className="h-64 overflow-hidden border-none bg-black px-0 py-0">
+  <LightEffectDiv />
+</ComponentPlayground>
+
+Whats cool is that if we use a gradient, we can create a light effect with a single div.
+
+<ComponentPlayground className="h-64 overflow-hidden border-none bg-black px-0 py-0">
+  <LightEffectDivs />
+</ComponentPlayground>
+
+<ComponentPlayground className="h-64 overflow-hidden border-none bg-black px-0 py-0">
+  <LightEffectDivsWithText />
+</ComponentPlayground>
+
+</LayoutBlog>

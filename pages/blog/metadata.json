@@ -1,6 +1,14 @@
 {
   "postsMetadata": [
     {
+      "title": "Create a light effect with a div",
+      "description": "How to create a light effect with a div?",
+      "datePublished": "2023-10-18T00:00",
+      "dateModified": null,
+      "slug": "create-light-effect-with-div",
+      "tags": ["UI Effects", "Tailwind CSS", "CSS"]
+    },
+    {
       "title": "Basic of web animations with Tailwind CSS",
       "description": "How to create basic web animations with Tailwind CSS?",
       "datePublished": "2023-09-27T00:00",

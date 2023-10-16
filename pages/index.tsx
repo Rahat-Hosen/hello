@@ -34,7 +34,7 @@ export default function Home() {
         </p>
         <ul className="list-inside list-disc">
           <li className="paragraph mb-2">
-            <strong className="bold">Blogging</strong>: I regularly share
+            <span className="font-medium">Blogging</span>: I regularly share
             insights and tutorials, especially on UI elements, React, Tailwind
             CSS, and more. You can find them on my{" "}
             <Link href="/blog" className="link">
@@ -43,7 +43,7 @@ export default function Home() {
             .
           </li>
           <li className="paragraph mb-2">
-            <strong className="bold">Freelancing</strong>: I'm available for
+            <span className="font-medium">Freelancing</span>: I'm available for
             front-end development freelancing and consulting. Feel free to check
             out my{" "}
             <Link href="/services" className="link">
@@ -52,7 +52,8 @@ export default function Home() {
             and get in touch if you're interested in working with me.
           </li>
           <li className="paragraph mb-2">
-            <strong className="bold">Ventures</strong>: I'm currently working on{" "}
+            <span className="font-medium">Ventures</span>: I'm currently working
+            on{" "}
             <a
               href="https://logoshaper.co/"
               target="_blank"
