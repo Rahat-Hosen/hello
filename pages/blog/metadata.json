@@ -1,6 +1,14 @@
 {
   "postsMetadata": [
     {
+      "title": "Create a light effect with CSS",
+      "description": "Explore a step-by-step guide on creating a stunning light effect using CSS. Ideal for enhancing dark mode UIs!",
+      "datePublished": "2023-10-17T00:00",
+      "dateModified": null,
+      "slug": "create-light-effect-with-css",
+      "tags": ["UI Effects", "CSS"]
+    },
+    {
       "title": "Basic of web animations with Tailwind CSS",
       "description": "How to create basic web animations with Tailwind CSS?",
       "datePublished": "2023-09-27T00:00",

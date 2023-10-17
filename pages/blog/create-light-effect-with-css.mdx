@@ -1,0 +1,156 @@
+import LayoutBlog from "components/LayoutBlog";
+import ComponentPlayground from "components/ComponentPlayground";
+import {
+  LightEffectDivWithoutBlur,
+  LightEffectDiv,
+  LightEffectDivs,
+  LightEffectDivsWithText,
+  LightEffectWithGradient,
+} from "components/lab/LightEffect";
+
+<LayoutBlog>
+
+# Create a light effect with CSS
+
+Recently, we've seen many landing pages using dark mode.
+Lots of them use image or svg to create light effect, and to accentuate certain elements.
+I wanted to create a similar impact by simply using a div and CSS.
+
+_This article works better in dark mode, you can trigger it in the navbar._
+
+## Div
+
+First we need a div, we will use a div with a yellow background.
+
+<ComponentPlayground className="h-64 overflow-hidden border-none bg-black px-0 py-0">
+  <LightEffectDivWithoutBlur />
+</ComponentPlayground>
+
+```html
+<div class="light"></div>
+```
+
+```css
+.light {
+  background-color: #ffde00cc;
+  flex: none;
+  height: 700px;
+  left: 320px;
+  position: absolute;
+  top: -175px;
+  width: 16px;
+  transform: rotate(306deg);
+}
+```
+
+## Blur
+
+Adding a blur filter softens the edges of the light, making it blend more naturally with the dark background. It mimics the way real light disperses in a dark environment
+We choose `47px` to give a subtle yet noticeable light dispersion effect. Feel free to adjust the value to see how it affects the intensity and spread of the light.”
+
+<ComponentPlayground className="h-64 overflow-hidden border-none bg-black px-0 py-0">
+  <LightEffectDiv />
+</ComponentPlayground>
+
+```css
+.light {
+  background-color: #ffde00cc;
+  // focus
+  filter: blur(47px);
+  flex: none;
+  height: 700px;
+  left: 320px;
+  position: absolute;
+  top: -175px;
+  width: 16px;
+  transform: rotate(306deg);
+}
+```
+
+# Multiple divs
+
+Now if we add multiple divs, we can create a bigger and more realistic light effect.
+
+<ComponentPlayground className="h-64 overflow-hidden border-none bg-black px-0 py-0">
+  <LightEffectDivs />
+</ComponentPlayground>
+
+```html
+<div className="light-1"></div>
+<div className="light-2"></div>
+<div className="light-3"></div>
+```
+
+```css
+.light-1 {
+  background-color: #ffde00cc;
+  filter: blur(47px);
+  flex: none;
+  height: 700px;
+  left: 420px;
+  position: absolute;
+  top: -175px;
+  width: 16px;
+  transform: rotate(306deg);
+}
+
+.light-2 {
+  background-color: #ffde00cc;
+  filter: blur(47px);
+  flex: none;
+  height: 700px;
+  left: 520px;
+  position: absolute;
+  top: -175px;
+  width: 16px;
+  transform: rotate(306deg);
+}
+
+.light-3 {
+  background-color: #ffde00cc;
+  filter: blur(47px);
+  flex: none;
+  height: 700px;
+  left: 319px;
+  position: absolute;
+  top: -175px;
+  width: 16px;
+  transform: rotate(306deg);
+}
+```
+
+## Text
+
+Finally, we can add a title, a text, and a button to create a small hero section.
+
+<ComponentPlayground className="h-64 overflow-hidden border-none bg-black px-0 py-0">
+  <LightEffectDivsWithText />
+</ComponentPlayground>
+
+## Conclusion
+
+This light effect can be particularly effective for highlighting CTA buttons, creating ambiance, or drawing attention to specific content.
+
+You can experiment and play with gradients, other background color, and blur values to create different effects.
+
+### Example with a gradient
+
+<ComponentPlayground className="h-64 overflow-hidden border-none bg-black px-0 py-0">
+  <LightEffectWithGradient />
+</ComponentPlayground>
+
+```css
+.light {
+  background: linear-gradient(to bottom, #003608, #ffffff);
+  filter: blur(58px);
+  flex: none;
+  height: 200px;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transform: rotate(0deg);
+}
+```
+
+</LayoutBlog>
