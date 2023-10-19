@@ -123,7 +123,7 @@ const Projects = () => {
               href="https://read.cv/ibelick"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline"
+              className="underline"
             >
               Read.CV
             </a>

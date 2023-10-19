@@ -1,15 +1,9 @@
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { ButtonShadowSpotlight } from "components/lab/ButtonShadowSpotlight";
-import {
-  CardShineEffectTW,
-  CardShineEffectTW2,
-} from "components/lab/ShineEffect";
+import { CardShineEffectTW2 } from "components/lab/ShineEffect";
 import { ShootingStarBorderTW } from "components/lab/ShootingStarBorder";
 import { InputSpotlightBorder } from "components/lab/SpotlightBorder";
-import {
-  CardSpotlightEffectTW,
-  CardSpotlightEffectTWExample,
-} from "components/lab/SpotlightEffect";
+import { CardSpotlightEffectTW } from "components/lab/SpotlightEffect";
 import { TextTypingEffectWithTextsFadeOut } from "components/lab/TextTypingEffect";
 import { cn } from "lib/utils";
 import { NextSeo } from "next-seo";
@@ -59,7 +53,7 @@ const Lab = () => {
         title="Lab"
         description="Experimental UI elements and components. Mostly built with React and Tailwind CSS."
       />
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-16">
         <LabCard slug="input-spotlight-border" variant="system">
           <ButtonShadowSpotlight />
         </LabCard>
