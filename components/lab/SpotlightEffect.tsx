@@ -242,24 +242,24 @@ export const CardSpotlightEffectTW = () => {
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="relative rounded-md border border-neutral-800 bg-neutral-950 p-8"
+      className="relative max-w-xs rounded-3xl border border-neutral-800 bg-neutral-950 p-8"
     >
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-500"
         style={{
           opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,.1), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,.25), transparent 40%)`,
         }}
       />
-      <div className="flex justify-center">
-        <LockClosedIcon className="h-8 w-8 text-neutral-500" />
+      <div className="mb-4">
+        <LockClosedIcon className="h-8 w-8 text-neutral-400" />
       </div>
-      <h3 className="mb-2 font-medium tracking-tight text-white">
+      <h3 className="mb-2 font-medium tracking-tight text-neutral-100">
         Focused Security
       </h3>
-      <p className="text-sm text-slate-400">
-        Spotlight on our advanced security features, ensuring your data is
-        protected, always.
+      <p className="text-sm text-neutral-400">
+        A spotlight on security, because the safety of your data is our
+        priority.
       </p>
     </div>
   );
