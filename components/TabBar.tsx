@@ -15,15 +15,15 @@ let allTabs = [
     name: "Projects",
     href: "/projects",
   },
-  // {
-  //   id: "services",
-  //   name: "Services",
-  //   href: "/services",
-  // },
   {
     id: "blog",
     name: "Blog",
     href: "/blog",
+  },
+  {
+    id: "lab",
+    name: "Lab",
+    href: "/lab",
   },
   {
     id: "extras",
@@ -89,7 +89,7 @@ const TabBar = () => {
         {allTabs.map((tab, index) => {
           if (tab.id === "theme") {
             return (
-              <div key={index} className="flex ">
+              <div key={index} className="flex items-center">
                 <span className="h-8 border-[0.5px] border-neutral-950/10" />
                 <span
                   className={`${

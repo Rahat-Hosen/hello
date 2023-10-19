@@ -52,17 +52,8 @@ export default function Home() {
             and get in touch if you're interested in working with me.
           </li>
           <li className="paragraph mb-2">
-            <span className="font-medium">Ventures</span>: I'm currently working
-            on{" "}
-            <a
-              href="https://logoshaper.co/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link"
-            >
-              logoshaper
-            </a>{" "}
-            . A logo maker that aims to provide top-notch visual identities.
+            <span className="font-medium">Ventures</span>: I'm working on
+            something new.
           </li>
         </ul>
       </div>

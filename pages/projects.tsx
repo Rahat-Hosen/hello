@@ -1,9 +1,5 @@
-import Button from "components/ui/Button";
-import Badge from "components/ui/Badge";
 import { NextSeo } from "next-seo";
-import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 
 const PROJECTS_LIST = [

@@ -1,3 +1,4 @@
+import { LockClosedIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 import React, { useRef, useState } from "react";
 
@@ -196,6 +197,70 @@ export const CardSpotlightEffect: React.FC<CardSpotlightEffectProps> = ({
         }}
       />
       {children}
+    </div>
+  );
+};
+
+export const CardSpotlightEffectTW = () => {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!divRef.current || isFocused) return;
+
+    const div = divRef.current;
+    const rect = div.getBoundingClientRect();
+
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    setOpacity(1);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+    setOpacity(0);
+  };
+
+  const handleMouseEnter = () => {
+    setOpacity(1);
+  };
+
+  const handleMouseLeave = () => {
+    setOpacity(0);
+  };
+
+  return (
+    <div
+      ref={divRef}
+      onMouseMove={handleMouseMove}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative rounded-md border border-neutral-800 bg-neutral-950 p-8"
+    >
+      <div
+        className="pointer-events-none absolute -inset-px opacity-0 transition duration-500"
+        style={{
+          opacity,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,.1), transparent 40%)`,
+        }}
+      />
+      <div className="flex justify-center">
+        <LockClosedIcon className="h-8 w-8 text-neutral-500" />
+      </div>
+      <h3 className="mb-2 font-medium tracking-tight text-white">
+        Focused Security
+      </h3>
+      <p className="text-sm text-slate-400">
+        Spotlight on our advanced security features, ensuring your data is
+        protected, always.
+      </p>
     </div>
   );
 };
