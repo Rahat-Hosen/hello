@@ -53,23 +53,24 @@ const CopyLink: React.FC<CopyLinkProps> = ({ link }) => {
 };
 
 type HeaderShareGoBackProps = {
+  goBackHref: string;
   slug: string;
   label: string;
   tweetHref: string;
 };
 
 const HeaderShareGoBack: React.FC<HeaderShareGoBackProps> = ({
+  goBackHref,
   slug,
   label,
   tweetHref,
 }) => {
-  // get current url
   const currentUrl = `https://julienthibeaut.xyz${slug}`;
 
   return (
     <div className="mb-12 flex items-center justify-between">
       <Link
-        href="/blog"
+        href={goBackHref}
         className="inline-flex items-center text-neutral-800 no-underline dark:text-neutral-200"
       >
         <ArrowLeftIcon className="mr-1 h-3 w-3" />
