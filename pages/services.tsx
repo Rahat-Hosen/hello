@@ -5,7 +5,7 @@ import {
   Component2Icon,
   CheckIcon,
 } from "@radix-ui/react-icons";
-import { CardSpotlightEffect } from "components/lab/SpotlightEffect";
+import { CardSpotlightEffect } from "components/blog/SpotlightEffect";
 import SectionContact from "components/SectionContact";
 import Link from "next/link";
 import Button from "components/ui/Button";

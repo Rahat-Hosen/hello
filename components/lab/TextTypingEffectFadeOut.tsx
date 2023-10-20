@@ -1,50 +1,15 @@
 import React from "react";
-import useTypingEffect from "./useTypingEffect";
+import useTypingEffect from "../blog/useTypingEffect";
 
 const texts = [
   "This is a simple text typing effect in React",
   "This effect is created using React Hooks",
-  "We can use this effect to create a typing effect for our portfolio",
-  "We can also use this effect to create a typing effect for our resume",
+  "We can use this effect to create a typing effect for your portfolio",
+  "We can also use this effect to create a typing effect for your resume",
   "or for your blog",
   "or for your landing page",
   "let's go",
 ];
-
-type TextTypingEffectProps = {
-  isTypeByLetter?: boolean;
-  duration?: number;
-};
-
-export const TextTypingEffectWithTexts: React.FC<TextTypingEffectProps> = ({
-  isTypeByLetter = false,
-  duration = 200,
-}) => {
-  const [textIndex, setTextIndex] = React.useState(0);
-  const textToShow = useTypingEffect(
-    texts[textIndex],
-    duration,
-    isTypeByLetter
-  );
-
-  React.useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTextIndex((prevIndex) =>
-        prevIndex >= texts.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
-  return (
-    <span className="text-black dark:text-white" key={textIndex}>
-      {textToShow}
-    </span>
-  );
-};
 
 const TIME_TO_FADE = 300;
 const TIME_INTERVAL = 3000;

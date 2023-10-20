@@ -1,3 +1,4 @@
+import { LockClosedIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 import React, { useRef, useState } from "react";
 
