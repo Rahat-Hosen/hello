@@ -1,18 +1,10 @@
 import { NextSeo, ArticleJsonLd } from "next-seo";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
 import postsData from "../pages/blog/metadata.json";
 import Custom404 from "pages/404";
-import Link from "next/link";
 import Image from "next/image";
 import NewsletterForm from "./NewsletterForm";
-import { CheckIcon, CopyIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./ui/Tooltip";
+import HeaderShareGoBack from "./HeaderShareGoBack";
 
 const { postsMetadata } = postsData;
 
@@ -50,45 +42,6 @@ const FooterBlog = () => {
         <div className="mx-auto max-w-md"></div>
       </div>
     </div>
-  );
-};
-
-type CopyLinkProps = {
-  link: string;
-};
-
-const CopyLink: React.FC<CopyLinkProps> = ({ link }) => {
-  const [hasCheckIcon, setHasCheckIcon] = useState(false);
-
-  const onCopy = () => {
-    navigator.clipboard.writeText(link);
-    setHasCheckIcon(true);
-
-    setTimeout(() => {
-      setHasCheckIcon(false);
-    }, 1000);
-  };
-
-  return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger>
-          <div
-            className="inline-flex cursor-pointer rounded-full bg-neutral-50 p-2 transition hover:bg-neutral-100 dark:bg-neutral-950 dark:hover:bg-neutral-900"
-            onClick={onCopy}
-          >
-            {hasCheckIcon ? (
-              <CheckIcon className="h-4 w-4 text-black dark:text-white" />
-            ) : (
-              <CopyIcon className="h-4 w-4 text-black dark:text-white" />
-            )}
-          </div>
-        </TooltipTrigger>
-        <TooltipContent className="bg-neutral-100 p-2 transition hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-900">
-          Copy link
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
   );
 };
 
@@ -145,37 +98,11 @@ const LayoutBlog: React.FC = ({ children }) => {
         images={[`https://julienthibeaut.xyz/blog/api/og/?title=${title}`]}
       />
       <article className="prose prose-neutral mx-auto min-w-full pb-12 dark:prose-dark prose-h1:text-xl prose-h1:font-medium prose-h2:text-lg prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-a:font-normal prose-figcaption:text-center prose-strong:font-semibold prose-img:mb-0 prose-video:mb-0">
-        <div className="mb-12 flex items-center justify-between">
-          <Link
-            href="/blog"
-            className="inline-flex font-normal text-neutral-800 no-underline transition hover:text-neutral-600 dark:text-neutral-100 dark:hover:text-neutral-300"
-          >
-            ← back to all posts
-          </Link>
-          <div className="flex gap-2">
-            <CopyLink link={`https://julienthibeaut.xyz/blog/${slug}`} />
-            <div>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <span
-                      className="inline-flex cursor-pointer rounded-full bg-neutral-50 p-2 transition hover:bg-neutral-100 dark:bg-neutral-950 dark:hover:bg-neutral-900"
-                      onClick={() => {
-                        window.open(
-                          `https://twitter.com/intent/tweet?text=${title}&url=https://julienthibeaut.xyz/blog/${slug}`,
-                          "_blank"
-                        );
-                      }}
-                    >
-                      <TwitterLogoIcon className="h-4 w-4 text-black dark:text-white" />
-                    </span>
-                  </TooltipTrigger>
-                  <TooltipContent>Share on Twitter</TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
-          </div>
-        </div>
+        <HeaderShareGoBack
+          slug={`/blog/${slug}`}
+          label="back to all posts"
+          tweetHref={`https://twitter.com/intent/tweet?text=${title}&url=https://julienthibeaut.xyz/lab/${slug}`}
+        />
         {children}
         <div className="mt-8 flex flex-col text-right text-sm text-gray-600 dark:text-gray-400">
           <span className="mb-1">

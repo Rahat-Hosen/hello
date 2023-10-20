@@ -94,10 +94,10 @@ export const LightEffectDivsWithText = () => {
         <div className="light-2" />
         <div className="light-3" />
         <div className="z-10 text-center">
-          <h2 className="mb-2 text-center text-2xl font-semibold">
+          <h2 className="mb-2 text-center text-2xl font-semibold text-neutral-50">
             Ask your image
           </h2>
-          <div className="text">
+          <div className="text text-neutral-200">
             <span>Turn your images into a source of actionable insights.</span>
           </div>
           <button className="mt-4 w-auto rounded-lg bg-yellow-600 px-3 py-1 text-sm text-neutral-950">
@@ -148,16 +148,9 @@ export const LightEffectDivsWithText = () => {
           text-align: center;
         }
 
-        .text > h2 {
-          font-weight: 300;
-          font-size: 16px;
-          color: #e1e1e1d6;
-        }
-
         .highlight {
           background-image: linear-gradient(to top left, #ffde00cc, #797979);
           background-clip: text;
-
           color: transparent;
         }
       `}</style>

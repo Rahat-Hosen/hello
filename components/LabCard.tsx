@@ -5,10 +5,10 @@ import Link from "next/link";
 type LabCardProps = {
   children: React.ReactNode;
   slug?: string;
-  variant?: "light" | "dark" | "system";
+  variant: "light" | "dark" | "system";
 };
 
-const LabCard = ({ children, slug, variant = "light" }: LabCardProps) => {
+const LabCard = ({ children, slug, variant }: LabCardProps) => {
   const containerVariantCn = {
     light: "bg-white",
     dark: "bg-neutral-900 border dark:border-neutral-800",

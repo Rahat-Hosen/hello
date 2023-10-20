@@ -9,9 +9,13 @@ import {
   ArrowRightIcon,
   ArrowTopRightIcon,
 } from "@radix-ui/react-icons";
+import Link from "next/link";
+import HeaderShareGoBack from "components/HeaderShareGoBack";
 
 type LabPage = {
   component: LabMetadata;
+  pastComponent: LabMetadata | null;
+  nextComponent: LabMetadata | null;
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -19,11 +23,29 @@ export const getStaticProps: GetStaticProps = async (context) => {
     (component) => component.slug === context.params?.id
   );
 
+  const pastComponent = metada.find(
+    (component) =>
+      currentComponent &&
+      metada.indexOf(component) === metada.indexOf(currentComponent) - 1
+  );
+
+  const nextComponent = metada.find(
+    (component) =>
+      currentComponent &&
+      metada.indexOf(component) === metada.indexOf(currentComponent) + 1
+  );
+
+  if (!currentComponent) {
+    return {
+      notFound: true,
+    };
+  }
+
   const filePath = path.join(
     process.cwd(),
     "components",
     "lab",
-    `ButtonShadowSpotlight.tsx`
+    `${currentComponent.name}.tsx`
   );
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const component = {
@@ -34,6 +56,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       component,
+      pastComponent: pastComponent || null,
+      nextComponent: nextComponent || null,
     },
   };
 };
@@ -48,21 +72,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-const LabPage: React.FC<LabPage> = ({ component }) => {
+const LabPage: React.FC<LabPage> = ({
+  component,
+  pastComponent,
+  nextComponent,
+}) => {
   const Comp = components[component.slug as keyof typeof components];
 
   return (
     <div className="relative">
-      <div className="mb-8 flex items-center justify-between">
-        <div className="flex items-center text-sm text-neutral-800 dark:text-neutral-200">
-          <ArrowLeftIcon className="mr-1 h-3 w-3" />
-          <span className="text-sm">back</span>
-        </div>
-        <div className="flex items-center text-sm text-neutral-800 dark:text-neutral-200">
-          <span className="text-sm">next</span>
-          <ArrowRightIcon className="ml-1 h-3 w-3" />
-        </div>
-      </div>
+      <HeaderShareGoBack
+        slug={`/lab/${component.slug}`}
+        label="back to all components"
+        tweetHref={`https://twitter.com/intent/tweet?text=${component.title}&url=https://julienthibeaut.xyz/lab/${component.slug}`}
+      />
 
       <h1 className="h1 mb-2">{component.title}</h1>
       <p className="paragraph mb-6">{component.description}</p>
@@ -92,6 +115,29 @@ const LabPage: React.FC<LabPage> = ({ component }) => {
       </div>
       <div>
         <CodeBlock code={component.code} />
+      </div>
+
+      <div className="my-10 flex items-center justify-between">
+        {pastComponent ? (
+          <Link href={`/lab/${pastComponent?.slug}`}>
+            <div className="flex items-center text-sm text-neutral-800 dark:text-neutral-200">
+              <ArrowLeftIcon className="mr-1 h-3 w-3" />
+              <span className="text-sm">{pastComponent?.name}</span>
+            </div>
+          </Link>
+        ) : (
+          <div />
+        )}
+        {nextComponent ? (
+          <Link href={`/lab/${nextComponent?.slug}`}>
+            <div className="flex items-center text-sm text-neutral-800 dark:text-neutral-200">
+              <span className="text-sm">{nextComponent?.name}</span>
+              <ArrowRightIcon className="ml-1 h-3 w-3" />
+            </div>
+          </Link>
+        ) : (
+          <div />
+        )}
       </div>
     </div>
   );
