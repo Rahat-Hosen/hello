@@ -1,4 +1,4 @@
-import { ButtonShadowSpotlight } from "components/lab/ButtonShadowSpotlight";
+import { ButtonShadowSpotlight } from "components/blog/ButtonShadowSpotlight";
 
 export type LabMetadata = {
   title: string;

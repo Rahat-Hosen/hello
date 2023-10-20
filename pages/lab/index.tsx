@@ -1,10 +1,10 @@
 import LabCard from "components/LabCard";
-import { ButtonShadowSpotlight } from "components/lab/ButtonShadowSpotlight";
-import { CardShineEffectTW2 } from "components/lab/ShineEffect";
-import { ShootingStarBorderTW } from "components/lab/ShootingStarBorder";
-import { InputSpotlightBorder } from "components/lab/SpotlightBorder";
-import { CardSpotlightEffectTW } from "components/lab/SpotlightEffect";
-import { TextTypingEffectWithTextsFadeOut } from "components/lab/TextTypingEffect";
+import { ButtonShadowSpotlight } from "components/blog/ButtonShadowSpotlight";
+import { CardShineEffectTW2 } from "components/blog/ShineEffect";
+import { ShootingStarBorderTW } from "components/blog/ShootingStarBorder";
+import { InputSpotlightBorder } from "components/blog/SpotlightBorder";
+import { CardSpotlightEffectTW } from "components/blog/SpotlightEffect";
+import { TextTypingEffectWithTextsFadeOut } from "components/blog/TextTypingEffect";
 import { NextSeo } from "next-seo";
 
 const LabIndexPage = () => {
