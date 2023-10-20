@@ -19,8 +19,6 @@ const PlaylistPage = () => {
     }
   >(id ? `/api/playlists/${id}` : null, fetcher);
 
-  console.log("data", data);
-
   if (!data) {
     return (
       <div>
