@@ -1,10 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export const ButtonShadowSpotlight = () => {
   const divRef = useRef<HTMLButtonElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [opacity, setOpacity] = useState(0.5);
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+    setPosition({ x: 0, y: 0 });
+    setOpacity(0);
+
+    console.log("heyuy");
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (!divRef.current || isFocused) return;

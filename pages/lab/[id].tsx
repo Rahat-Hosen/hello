@@ -154,7 +154,6 @@ const LabPage: React.FC<LabPage> = ({
         <div>
           <CodeBlock code={component.code} />
         </div>
-
         <div className="my-10 flex items-center justify-between">
           {pastComponent ? (
             <Link href={`/lab/${pastComponent?.slug}`}>

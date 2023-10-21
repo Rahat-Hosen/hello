@@ -78,10 +78,10 @@ const TabBar = () => {
   };
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-20 mx-auto mb-4 flex h-12 px-6 sm:h-14">
-      <div className="relative mx-auto flex h-full items-center overflow-y-scroll rounded-xl border border-neutral-400/20 bg-white/40 backdrop-blur-md dark:border-neutral-600/30 dark:bg-black/40 dark:text-white sm:overflow-y-visible">
+    <div className="fixed inset-x-0 bottom-0 z-20 mx-auto mb-4 flex h-14 px-6">
+      <div className="relative mx-auto flex h-full items-center overflow-y-scroll rounded-[14px] border border-neutral-400/20 bg-white/40 backdrop-blur-md dark:border-neutral-600/30 dark:bg-black/40 dark:text-white sm:overflow-y-visible">
         <span
-          className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-[6px] p-1 transition-all duration-300 sm:p-2"
+          className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-[6px] p-2 transition-all duration-300 sm:p-2"
           style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
         >
           <span className="h-full w-full rounded-[6px] bg-neutral-200 backdrop-blur-xl dark:bg-neutral-800" />

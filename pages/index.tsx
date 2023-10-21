@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import SectionContact from "../components/SectionContact";
+import { components, metada } from "data/lab";
 import postsData from "./blog/metadata.json";
 const { postsMetadata } = postsData;
 
@@ -58,13 +59,27 @@ export default function Home() {
         </ul>
       </div>
       <div className="mt-16">
-        <h2 className="h2 mb-4">My latest articles</h2>
+        <h2 className="h2 mb-4">Latest articles</h2>
         <ul>
           {postsMetadata.slice(0, 3).map((post) => {
             return (
               <li key={post.slug} className="mb-2">
                 <Link href={`/blog/${post.slug}`} className="link">
                   {post.title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <div className="mt-16">
+        <h2 className="h2 mb-4">Latest from the Lab</h2>
+        <ul>
+          {metada.slice(0, 3).map((component) => {
+            return (
+              <li key={component.slug} className="mb-2">
+                <Link href={`/lab/${component.slug}`} className="link">
+                  {component.title}
                 </Link>
               </li>
             );

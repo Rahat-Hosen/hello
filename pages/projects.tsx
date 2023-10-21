@@ -123,12 +123,12 @@ const Projects = () => {
               href="https://read.cv/ibelick"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline"
+              className="external-link"
             >
               Read.CV
             </a>
           </span>
-          <ArrowTopRightIcon className="inline-block h-4 w-4" />
+          <ArrowTopRightIcon className="inline-block h-3 w-3" />
         </div>
       </div>
     </>

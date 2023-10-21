@@ -45,4 +45,8 @@
   .link {
     @apply font-normal text-neutral-800 underline dark:text-neutral-200;
   }
+
+  .external-link {
+    @apply font-normal text-neutral-800 hover:underline dark:text-neutral-200;
+  }
 }
